@@ -49,7 +49,7 @@ Electro-Country mit verfremdeter Mundharmonika, trockenem Banjo-Loop und einem e
 
 ### „Bleib“
 
-Glitch Folk mit gezupfter Gitarre, Feldrauschen und einem Beat, der immer eine Spur zu spät einsetzt. Der gesamte Text bleibt bei diesem Wort und verändert nur seine Betonung.
+**„Bleib“ ist der Human-Error-Track von dir.** Glitch Folk mit gezupfter Gitarre, Feldrauschen und einem Beat, der immer eine Spur zu spät einsetzt. Der gesamte Text bleibt bei diesem Wort und verändert nur seine Betonung: Bitte, Befehl, Angst, Erinnerung und Lüge. Die Stimme versucht, jemanden festzuhalten, während die Produktion sie immer weiter in einzelne Silben zerlegt.
 
 ### „Ich bin kein System“
 
