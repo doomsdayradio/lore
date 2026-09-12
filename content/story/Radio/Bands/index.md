@@ -4,6 +4,11 @@ Die Musik bei [Doomsday Radio](../../Kanon/glossar.md#doomsday-radio) läuft vol
 
 ## Bands & Tracks
 
+- [Human Error](Human-Error.md)
+- [Die Wikis](Die-Wikis.md)
+- [Rausch](Rausch.md)
+- [Zero Day Choir](Zero-Day-Choir.md)
+- [The Last Audience](The-Last-Audience.md)
 - [Nullprozession](Nullprozession.md)
 - [Techno-Gebete der Letzten Migration](techno-gebete.md)
 - [Stranded Stranglers](../../Kanon/glossar.md#stranded-stranglers)
