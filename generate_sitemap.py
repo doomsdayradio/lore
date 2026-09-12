@@ -13,7 +13,11 @@ SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
 
 def _repo_root() -> Path:
-    return Path(__file__).resolve().parents[2]
+    current = Path(__file__).resolve().parent
+    for p in [current, *current.parents]:
+        if (p / ".git").exists() or (p / "content" / "story").exists():
+            return p
+    return current
 
 
 def _normalize_base_url(value: str) -> str:

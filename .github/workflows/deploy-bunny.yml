@@ -1,0 +1,78 @@
+name: Build and deploy Lore to Bunny CDN
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-lore-bunny
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  BUNNY_STORAGE_ENDPOINT: ${{ vars.BUNNY_STORAGE_ENDPOINT }}
+  BUNNY_STORAGE_ZONE: ${{ vars.BUNNY_STORAGE_ZONE }}
+  BUNNY_STORAGE_PASSWORD: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
+  BUNNY_PATH: lore
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install markdown
+
+      - name: Validate consistency
+        run: |
+          python tools/story_consistency/check_group_relationships.py --summary-only
+          python tools/story_consistency/check_story_timeline_alignment.py
+          python tools/story_consistency/check_story_links.py
+
+      - name: Build Lore HTML
+        run: python build_lore_html.py --output dist
+
+      - name: Generate Sitemap
+        run: python generate_sitemap.py --docs-root dist --base-url https://doomsday.radio/lore
+
+      - name: Validate required Bunny configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in BUNNY_STORAGE_ENDPOINT BUNNY_STORAGE_ZONE BUNNY_STORAGE_PASSWORD; do
+            if [ -z "${!name:-}" ]; then
+              echo "Missing GitHub variable/secret: ${name}" >&2
+              exit 1
+            fi
+          done
+
+      - name: Upload Lore to Bunny S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ vars.BUNNY_STORAGE_ZONE }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
+          AWS_DEFAULT_REGION: de
+        shell: bash
+        run: |
+          set -euo pipefail
+          aws s3 sync dist/ "s3://${BUNNY_STORAGE_ZONE}/${BUNNY_PATH}/" \
+            --endpoint-url "${BUNNY_STORAGE_ENDPOINT}" \
+            --delete
+
+      - name: Publish deployment summary
+        run: |
+          echo "Bunny path: ${BUNNY_PATH}/"
+          echo "Bunny endpoint: ${BUNNY_STORAGE_ENDPOINT}"
+          echo "Commit: ${GITHUB_SHA}"

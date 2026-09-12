@@ -50,7 +50,11 @@ STYLE_BLOCK_RX = re.compile(r"\n  <style>\n(?P<css>.*?)\n  </style>\n", re.DOTAL
 
 
 def _repo_root() -> Path:
-    return Path(__file__).resolve().parents[2]
+    current = Path(__file__).resolve().parent
+    for p in [current, *current.parents]:
+        if (p / ".git").exists() or (p / "content" / "story").exists():
+            return p
+    return current
 
 
 def _timeline_audio_sources(repo_root: Path) -> list[dict[str, str]]:
@@ -640,10 +644,9 @@ def _copy_lore_logo(story_root: Path, output_root: Path) -> None:
     src = story_root / "ddd_radio_logo.png"
     if not src.is_file():
         return
-    teaser_assets = output_root.parent / "teaser" / "assets"
-    teaser_assets.mkdir(parents=True, exist_ok=True)
-    dest = teaser_assets / "ddd_radio_logo.png"
+    dest = output_root / "ddd_radio_logo.png"
     if dest != src and (not dest.exists() or dest.stat().st_mtime != src.stat().st_mtime):
+        dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dest)
 
 
@@ -4038,11 +4041,11 @@ def _timeline_template(
   <meta property="og:title" content="Doomsday Dispatch – Timeline" />
   <meta property="og:description" content="{_escape_html(description)}" />
   <meta property="og:url" content="{_escape_html(page_url)}" />
-  <meta property="og:image" content="https://doomsday.radio/story/teaser/assets/ddd_radio_logo.png" />
+  <meta property="og:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Doomsday Dispatch – Timeline" />
   <meta name="twitter:description" content="{_escape_html(description)}" />
-  <meta name="twitter:image" content="https://doomsday.radio/story/teaser/assets/ddd_radio_logo.png" />
+  <meta name="twitter:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
   <style>
     :root {{
       --bg: #0a0d12;
@@ -4881,7 +4884,7 @@ def _sync_output_tree(
 
 def _site_base_url(docs_root: Path) -> str:
     cname_path = docs_root / "CNAME"
-    host = "doomsday.radio"
+    host = "doomsday.radio/lore"
     if cname_path.is_file():
         raw_host = cname_path.read_text(encoding="utf-8").strip()
         if raw_host:
@@ -4890,16 +4893,17 @@ def _site_base_url(docs_root: Path) -> str:
 
 
 def _find_site_docs_root(start: Path) -> Path:
-    resolved = start.resolve()
-    for candidate in [resolved, *resolved.parents]:
-        if (candidate / "CNAME").is_file():
-            return candidate
-    return resolved.parent
+    return start.resolve()
 
 
 def _public_page_url(docs_root: Path, page_path: Path) -> str:
-    rel = page_path.relative_to(docs_root).as_posix()
-    return f"{_site_base_url(docs_root)}/{rel}"
+    try:
+        rel = page_path.relative_to(docs_root).as_posix()
+    except ValueError:
+        rel = page_path.name
+    if rel == "index.html":
+        return "https://doomsday.radio/lore/"
+    return f"https://doomsday.radio/lore/{rel}"
 
 
 def _plain_story_text(text: str) -> str:
@@ -5022,9 +5026,8 @@ def _glossary_template(
     page_url: str,
     description: str,
 ) -> str:
-    home_href = "../" * depth + "index.html"
-    assets_prefix = "../" * (depth + 1) + "teaser/assets/"
-    logo_src = assets_prefix + "ddd_radio_logo.png"
+    home_href = ("../" * depth) + "index.html" if depth > 0 else "index.html"
+    logo_src = ("../" * depth) + "ddd_radio_logo.png" if depth > 0 else "ddd_radio_logo.png"
     return f"""<!doctype html>
 <html lang="de" data-mode="ddd">
 <head>
@@ -5033,6 +5036,8 @@ def _glossary_template(
   <title>Doomsday Dispatch – Glossar</title>
   <meta name="description" content="{_escape_html(description)}" />
   <link rel="canonical" href="{_escape_html(page_url)}" />
+  <meta property="og:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
+  <meta name="twitter:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
   <style>
     *, *::before, *::after {{ box-sizing: border-box; }}
     html, body {{ margin: 0; min-height: 100%; }}
@@ -5115,9 +5120,8 @@ def _detail_template(
     page_url: str,
     description: str,
 ) -> str:
-    home_href = "../" * depth + "index.html"
-    assets_prefix = "../" * (depth + 1) + "teaser/assets/"
-    logo_src = assets_prefix + "ddd_radio_logo.png"
+    home_href = ("../" * depth) + "index.html" if depth > 0 else "index.html"
+    logo_src = ("../" * depth) + "ddd_radio_logo.png" if depth > 0 else "ddd_radio_logo.png"
     return f"""<!doctype html>
 <html lang="de" data-mode="ddd">
 <head>
@@ -5132,11 +5136,11 @@ def _detail_template(
   <meta property="og:title" content="Doomsday Dispatch – Lore: {_escape_html(title)}" />
   <meta property="og:description" content="{_escape_html(description)}" />
   <meta property="og:url" content="{_escape_html(page_url)}" />
-  <meta property="og:image" content="https://doomsday.radio/story/teaser/assets/ddd_radio_logo.png" />
+  <meta property="og:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Doomsday Dispatch – Lore: {_escape_html(title)}" />
   <meta name="twitter:description" content="{_escape_html(description)}" />
-  <meta name="twitter:image" content="https://doomsday.radio/story/teaser/assets/ddd_radio_logo.png" />
+  <meta name="twitter:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
   <style>
     *, *::before, *::after {{ box-sizing: border-box; }}
     html, body {{ margin: 0; min-height: 100%; }}
@@ -5278,7 +5282,6 @@ def _overview_template(
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <base href="../" />
   <title>Doomsday Dispatch – Lore Startseite</title>
   <meta name="description" content="{_escape_html(description)}" />
   <link rel="canonical" href="{_escape_html(page_url)}" />
@@ -5288,11 +5291,11 @@ def _overview_template(
   <meta property="og:title" content="Doomsday Dispatch – Lore Startseite" />
   <meta property="og:description" content="{_escape_html(description)}" />
   <meta property="og:url" content="{_escape_html(page_url)}" />
-  <meta property="og:image" content="https://doomsday.radio/story/teaser/assets/ddd_radio_logo.png" />
+  <meta property="og:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Doomsday Dispatch – Lore Startseite" />
   <meta name="twitter:description" content="{_escape_html(description)}" />
-  <meta name="twitter:image" content="https://doomsday.radio/story/teaser/assets/ddd_radio_logo.png" />
+  <meta name="twitter:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
   <style>
     *, *::before, *::after {{ box-sizing: border-box; }}
     html, body {{ min-height: 100%; margin: 0; }}
@@ -5621,7 +5624,7 @@ def _overview_template(
       <div class="content">
         <div class="header">
           <div class="brand">
-            <img class="logo" src="teaser/assets/ddd_radio_logo.png" alt="Doomsday Dispatch Logo" />
+            <img class="logo" src="ddd_radio_logo.png" alt="Doomsday Dispatch Logo" />
             <div class="brand-copy">
               <h1>Doomsday Dispatch // Lore</h1>
               <p class="lede">Alle Themen aus <code>content/story</code> als Kurzübersicht mit Popup-Details.</p>
@@ -5769,7 +5772,7 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
     visible_topic_count = 0
     timeline_events: list[dict[str, object]] = []
     site_docs_root = _find_site_docs_root(output_root)
-    overview_public_base_dir = output_root.parent
+    overview_public_base_dir = output_root
 
     for idx, md_path in enumerate(all_md, start=1):
         rel = md_path.relative_to(story_root)
