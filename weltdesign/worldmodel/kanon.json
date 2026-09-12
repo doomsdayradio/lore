@@ -1,0 +1,215 @@
+{
+  "version": 2,
+  "generated_at": "2026-04-16T20:46:14.041763Z",
+  "source_story_root": "content/story/Kanon",
+  "kanon": [
+    {
+      "id": "der-fast-schlag-auf-messingmarkt-9",
+      "name": "Der Fast-Schlag auf Messingmarkt 9",
+      "story_file": "Kanon/Geschichten/Der-Fast-Schlag-auf-Messingmarkt-9.md",
+      "category": "geschichten",
+      "section": "Geschichten",
+      "kind": "entry"
+    },
+    {
+      "id": "der-zero-leak",
+      "name": "Der Zero-Leak",
+      "story_file": "Kanon/Geschichten/Der-Zero-Leak.md",
+      "category": "geschichten",
+      "section": "Geschichten",
+      "kind": "entry"
+    },
+    {
+      "id": "der-verlorene-pilger-killcoin",
+      "name": "Der verlorene Pilger-Killcoin",
+      "story_file": "Kanon/Geschichten/Der-verlorene-Pilger-Killcoin.md",
+      "category": "geschichten",
+      "section": "Geschichten",
+      "kind": "entry"
+    },
+    {
+      "id": "die-jagd-um-laura",
+      "name": "Die Jagd um Laura",
+      "story_file": "Kanon/Geschichten/Die-Jagd-um-Laura.md",
+      "category": "geschichten",
+      "section": "Geschichten",
+      "kind": "entry"
+    },
+    {
+      "id": "die-leerrueckkehrerin",
+      "name": "Die Leerrückkehrerin",
+      "story_file": "Kanon/Geschichten/Die-Leerrueckkehrerin.md",
+      "category": "geschichten",
+      "section": "Geschichten",
+      "kind": "entry"
+    },
+    {
+      "id": "die-nacht-der-drei-stimmen",
+      "name": "Die Nacht der drei Stimmen",
+      "story_file": "Kanon/Geschichten/Die-Nacht-der-drei-Stimmen.md",
+      "category": "geschichten",
+      "section": "Geschichten",
+      "kind": "entry"
+    },
+    {
+      "id": "the-shop-fluestert",
+      "name": "The Shop flüstert",
+      "story_file": "Kanon/Geschichten/The-Shop-fluestert.md",
+      "category": "geschichten",
+      "section": "Geschichten",
+      "kind": "entry"
+    },
+    {
+      "id": "geschichten",
+      "name": "Geschichten",
+      "story_file": "Kanon/Geschichten/index.md",
+      "category": "geschichten",
+      "section": "Geschichten",
+      "kind": "index"
+    },
+    {
+      "id": "laura-gesetz",
+      "name": "Laura-Gesetz",
+      "story_file": "Kanon/Gesetze/Laura-Gesetz.md",
+      "category": "gesetze",
+      "section": "Gesetze",
+      "kind": "entry"
+    },
+    {
+      "id": "stack-gericht",
+      "name": "Stack-Gericht",
+      "story_file": "Kanon/Gesetze/Stack-Gericht.md",
+      "category": "gesetze",
+      "section": "Gesetze",
+      "kind": "entry"
+    },
+    {
+      "id": "vergleichsbilder-aus-der-vorwelt",
+      "name": "Vergleichsbilder aus der Vorwelt",
+      "story_file": "Kanon/Gesetze/Vergleichsbilder-aus-der-Vorwelt.md",
+      "category": "gesetze",
+      "section": "Gesetze",
+      "kind": "entry"
+    },
+    {
+      "id": "gesetze",
+      "name": "Gesetze",
+      "story_file": "Kanon/Gesetze/index.md",
+      "category": "gesetze",
+      "section": "Gesetze",
+      "kind": "index"
+    },
+    {
+      "id": "standardprofil",
+      "name": "Standardprofil für Konflikte",
+      "story_file": "Kanon/Konflikte/Standardprofil.md",
+      "category": "konflikte",
+      "section": "Konflikte",
+      "kind": "entry"
+    },
+    {
+      "id": "wenn-ein-echtes-tier-auftaucht",
+      "name": "Wenn ein echtes Tier auftaucht",
+      "story_file": "Kanon/Konflikte/Wenn-ein-echtes-Tier-auftaucht.md",
+      "category": "konflikte",
+      "section": "Konflikte",
+      "kind": "entry"
+    },
+    {
+      "id": "konflikte",
+      "name": "Konflikte",
+      "story_file": "Kanon/Konflikte/index.md",
+      "category": "konflikte",
+      "section": "Konflikte",
+      "kind": "index"
+    },
+    {
+      "id": "2066-6-als-die-hillbillys-zu-faulen-begannen",
+      "name": "2066.6: Als die Hillbillys zu faulen begannen",
+      "story_file": "Kanon/Timeline/2066.6-Als-die-Hillbillys-zu-faulen-begannen.md",
+      "category": "timeline",
+      "section": "Timeline",
+      "kind": "entry"
+    },
+    {
+      "id": "wenn-kontakt-aus-der-wueste-kommt",
+      "name": "Wenn Kontakt aus der Wüste kommt",
+      "story_file": "Kanon/Timeline/Wenn-Kontakt-aus-der-Wueste-kommt.md",
+      "category": "timeline",
+      "section": "Timeline",
+      "kind": "entry"
+    },
+    {
+      "id": "wenn-leithive-kerne-zur-gegeninfrastruktur-werden",
+      "name": "Wenn Leithive-Kerne zur Gegeninfrastruktur werden",
+      "story_file": "Kanon/Timeline/Wenn-Leithive-Kerne-zur-Gegeninfrastruktur-werden.md",
+      "category": "timeline",
+      "section": "Timeline",
+      "kind": "entry"
+    },
+    {
+      "id": "wenn-der-laser-von-unten-kommt",
+      "name": "Wenn der Laser von unten kommt",
+      "story_file": "Kanon/Timeline/Wenn-der-Laser-von-unten-kommt.md",
+      "category": "timeline",
+      "section": "Timeline",
+      "kind": "entry"
+    },
+    {
+      "id": "wenn-die-zeros-verschwinden",
+      "name": "Wenn die Zeros verschwinden",
+      "story_file": "Kanon/Timeline/Wenn-die-Zeros-verschwinden.md",
+      "category": "timeline",
+      "section": "Timeline",
+      "kind": "entry"
+    },
+    {
+      "id": "timeline",
+      "name": "Timeline",
+      "story_file": "Kanon/Timeline/index.md",
+      "category": "timeline",
+      "section": "Timeline",
+      "kind": "index"
+    },
+    {
+      "id": "weltuntergang",
+      "name": "Weltuntergang",
+      "story_file": "Kanon/Timeline/weltuntergang.md",
+      "category": "timeline",
+      "section": "Timeline",
+      "kind": "entry"
+    },
+    {
+      "id": "eigenes-dc",
+      "name": "Ziel: Eigenes DC",
+      "story_file": "Kanon/Ziele/eigenes-dc.md",
+      "category": "ziele",
+      "section": "Ziele",
+      "kind": "entry"
+    },
+    {
+      "id": "ziele",
+      "name": "Kanon Ziele",
+      "story_file": "Kanon/Ziele/index.md",
+      "category": "ziele",
+      "section": "Ziele",
+      "kind": "index"
+    },
+    {
+      "id": "glossar",
+      "name": "Glossar",
+      "story_file": "Kanon/glossar.md",
+      "category": "glossar",
+      "section": null,
+      "kind": "glossary"
+    },
+    {
+      "id": "kanon",
+      "name": "Kanon",
+      "story_file": "Kanon/index.md",
+      "category": "kanon",
+      "section": null,
+      "kind": "index"
+    }
+  ]
+}

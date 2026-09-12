@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "groups": [
+    {
+      "id": "stackcast",
+      "name": "STACKCAST",
+      "story_file": "Gruppen/DerStack/StackCast.md",
+      "aliases": [
+        "STACKCAST"
+      ]
+    },
+    {
+      "id": "der-stack",
+      "name": "Der Stack",
+      "story_file": "Gruppen/DerStack/der-stack.md",
+      "aliases": [
+        "Der Stack",
+        "der-stack",
+        "derstack"
+      ]
+    },
+    {
+      "id": "doomsday-dispatcher",
+      "name": "Doomsday Dispatcher",
+      "story_file": "Gruppen/Maker/doomsday-dispatcher.md",
+      "aliases": [
+        "Doomsday Dispatcher",
+        "doomsday-dispatcher",
+        "doomsdaydispatcher"
+      ]
+    },
+    {
+      "id": "maker",
+      "name": "Maker",
+      "story_file": "Gruppen/Maker/index.md",
+      "aliases": [
+        "Maker"
+      ]
+    },
+    {
+      "id": "magier",
+      "name": "Magier",
+      "story_file": "Gruppen/Maker/magier.md",
+      "aliases": [
+        "Magier",
+        "Cyberpunks",
+        "Cyberpunk",
+        "Hacker-Mage",
+        "Hacker-Mages"
+      ]
+    },
+    {
+      "id": "steampunks",
+      "name": "Steampunks",
+      "story_file": "Gruppen/Maker/steampunks.md",
+      "aliases": [
+        "Steampunks"
+      ]
+    },
+    {
+      "id": "orden",
+      "name": "Orden",
+      "story_file": "Gruppen/Orden/index.md",
+      "aliases": [
+        "Orden"
+      ]
+    },
+    {
+      "id": "der-orden",
+      "name": "Der Orden",
+      "story_file": "Gruppen/Orden/letzte-migration.md",
+      "aliases": [
+        "Der Orden",
+        "letzte-migration",
+        "letzte migration",
+        "der-orden",
+        "derorden"
+      ]
+    },
+    {
+      "id": "looper",
+      "name": "Looper",
+      "story_file": "Gruppen/Orden/looper.md",
+      "aliases": [
+        "Looper",
+        "Human in the Loop",
+        "Human-in-the-Loop"
+      ]
+    },
+    {
+      "id": "retros",
+      "name": "Retros",
+      "story_file": "Gruppen/Orden/retros.md",
+      "aliases": [
+        "Retros"
+      ]
+    },
+    {
+      "id": "geocacher",
+      "name": "Geocacher",
+      "story_file": "Gruppen/Roamer/geocacher.md",
+      "aliases": [
+        "Geocacher"
+      ]
+    },
+    {
+      "id": "hardliner",
+      "name": "Hardliner",
+      "story_file": "Gruppen/Roamer/hardliner.md",
+      "aliases": [
+        "Hardliner",
+        "Furries",
+        "Furry Bots",
+        "Furry-Bot-Elite",
+        "Furry-Bot-Piloten"
+      ]
+    },
+    {
+      "id": "hillbillys",
+      "name": "Hillbillys",
+      "story_file": "Gruppen/Roamer/hillbillys.md",
+      "aliases": [
+        "Hillbillys"
+      ]
+    },
+    {
+      "id": "roamer",
+      "name": "Roamer",
+      "story_file": "Gruppen/Roamer/index.md",
+      "aliases": [
+        "Roamer"
+      ]
+    },
+    {
+      "id": "zeros",
+      "name": "Zeros",
+      "story_file": "Gruppen/Zeros/zeros.md",
+      "aliases": [
+        "Zeros",
+        "Zero Percentler",
+        "Zero Percentlers"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,809 @@
+{
+  "model": "gpt-image-1.5",
+  "size": "1024x1024",
+  "quality": "high",
+  "items": [
+    {
+      "type": "assets",
+      "id": "gerichtskirche",
+      "name": "Gerichtskirche",
+      "story_file": "Assets/Zonen/Gerichtskirche.md",
+      "file": "content/story/Orte/Zonen/Gerichtskirche.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "handelsposten",
+      "name": "Handelsposten",
+      "story_file": "Assets/Handelsposten/index.md",
+      "file": "content/story/Orte/Handelsposten/index.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "messingmarkt-9",
+      "name": "Messingmarkt 9",
+      "story_file": "Assets/Handelsposten/Messingmarkt-9.md",
+      "file": "content/story/Orte/Handelsposten/Messingmarkt-9.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "sumpf-festung",
+      "name": "Sumpf-Festung",
+      "story_file": "Assets/Handelsposten/Sumpf-Festung.md",
+      "file": "content/story/Orte/Handelsposten/Sumpf-Festung.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "glaspforte",
+      "name": "Glaspforte",
+      "story_file": "Assets/Handelsposten/Glaspforte.md",
+      "file": "content/story/Orte/Handelsposten/Glaspforte.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "schrauberkapelle",
+      "name": "Schrauberkapelle",
+      "story_file": "Assets/Handelsposten/Chaos-Kapelle.md",
+      "file": "content/story/Orte/Handelsposten/Chaos-Kapelle.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "doomsday-fanshop",
+      "name": "Doomsday Fanshop",
+      "story_file": "Assets/Handelsposten/Doomsday-Fanshop.md",
+      "file": "content/story/Orte/Handelsposten/Doomsday-Fanshop.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "pilgerrast",
+      "name": "Pilgerrast",
+      "story_file": "Assets/Handelsposten/Pilgerrast.md",
+      "file": "content/story/Orte/Handelsposten/Pilgerrast.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "nullpunkt",
+      "name": "Nullpunkt",
+      "story_file": "Assets/Handelsposten/Nullpunkt.md",
+      "file": "content/story/Orte/Handelsposten/Nullpunkt.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "low-tech-basar",
+      "name": "Low-Tech-Basar",
+      "story_file": "Assets/Handelsposten/Low-Tech-Basar.md",
+      "file": "content/story/Orte/Handelsposten/Low-Tech-Basar.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "kaliber-50",
+      "name": "Kaliber 50",
+      "story_file": "Assets/Handelsposten/Kaliber-50.md",
+      "file": "content/story/Orte/Handelsposten/Kaliber-50.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "koordinaten-kreuz",
+      "name": "Koordinaten-Kreuz",
+      "story_file": "Assets/Handelsposten/Koordinaten-Kreuz.md",
+      "file": "content/story/Orte/Handelsposten/Koordinaten-Kreuz.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "the-shop",
+      "name": "The Shop",
+      "story_file": "Assets/Handelsposten/The-Shop.md",
+      "file": "content/story/Orte/Handelsposten/The-Shop.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "gegenstaende",
+      "name": "Gegenstände",
+      "story_file": "Assets/Gegenstaende/index.md",
+      "file": "content/story/Assets/Gegenstaende/index.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "killcoins",
+      "name": "Killcoins",
+      "story_file": "Assets/Gegenstaende/Killcoins.md",
+      "file": "content/story/Assets/Gegenstaende/Killcoins.png",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "scrip-zero-gutscheine",
+      "name": "Scrip / Zero-Gutscheine",
+      "story_file": "Assets/Gegenstaende/Scrip-Zero-Gutscheine.md",
+      "file": "content/story/Assets/Gegenstaende/Scrip-Zero-Gutscheine.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "energiezellen",
+      "name": "Energiezellen",
+      "story_file": "Assets/Gegenstaende/Energiezellen.md",
+      "file": "content/story/Assets/Gegenstaende/Energiezellen.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "wasserfilter",
+      "name": "Wasserfilter",
+      "story_file": "Assets/Gegenstaende/Wasserfilter.md",
+      "file": "content/story/Assets/Gegenstaende/Wasserfilter.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "cobol-code-artefakt",
+      "name": "COBOL-Code-Artefakt",
+      "story_file": "Assets/Gegenstaende/COBOL-Code-Artefakt.md",
+      "file": "content/story/Assets/Gegenstaende/COBOL-Code-Artefakt.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "medizin",
+      "name": "Medizin",
+      "story_file": "Assets/Medizin/index.md",
+      "file": "content/story/Assets/Medizin/index.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "moonshine-wundspuelung",
+      "name": "Moonshine-Wundspülung",
+      "story_file": "Assets/Medizin/Moonshine-Wundspuelung.md",
+      "file": "content/story/Assets/Medizin/Moonshine-Wundspuelung.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "sumpflicht-salbe",
+      "name": "Sumpflicht-Salbe",
+      "story_file": "Assets/Medizin/Sumpflicht-Salbe.md",
+      "file": "content/story/Assets/Medizin/Sumpflicht-Salbe.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "messingnaht-feldkit",
+      "name": "Messingnaht-Feldkit",
+      "story_file": "Assets/Medizin/Messingnaht-Feldkit.md",
+      "file": "content/story/Assets/Medizin/Messingnaht-Feldkit.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "pilgerverband-null-sieben",
+      "name": "Pilgerverband Null-Sieben",
+      "story_file": "Assets/Medizin/Pilgerverband-Null-Sieben.md",
+      "file": "content/story/Assets/Medizin/Pilgerverband-Null-Sieben.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "glaspforten-reinset",
+      "name": "Glaspforten-Reinset",
+      "story_file": "Assets/Medizin/Glaspforten-Reinset.md",
+      "file": "content/story/Assets/Medizin/Glaspforten-Reinset.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "retro-weidenrinden-sud",
+      "name": "Retro-Weidenrinden-Sud",
+      "story_file": "Assets/Medizin/Retro-Weidenrinden-Sud.md",
+      "file": "content/story/Assets/Medizin/Retro-Weidenrinden-Sud.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "cachearzt-set",
+      "name": "Cachearzt-Set",
+      "story_file": "Assets/Medizin/Cachearzt-Set.md",
+      "file": "content/story/Assets/Medizin/Cachearzt-Set.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "aschewiegen-set",
+      "name": "Aschewiegen-Set",
+      "story_file": "Assets/Medizin/Aschewiegen-Set.md",
+      "file": "content/story/Assets/Medizin/Aschewiegen-Set.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "kellerfieber-filterhaube",
+      "name": "Kellerfieber-Filterhaube",
+      "story_file": "Assets/Medizin/Kellerfieber-Filterhaube.md",
+      "file": "content/story/Assets/Medizin/Kellerfieber-Filterhaube.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "quarantaenepfahl-rotband",
+      "name": "Quarantänepfahl Rotband",
+      "story_file": "Assets/Medizin/Quarantaenepfahl-Rotband.md",
+      "file": "content/story/Assets/Medizin/Quarantaenepfahl-Rotband.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "splitterzahn-kit",
+      "name": "Splitterzahn-Kit",
+      "story_file": "Assets/Medizin/Splitterzahn-Kit.md",
+      "file": "content/story/Assets/Medizin/Splitterzahn-Kit.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "stillwache-schlafsud",
+      "name": "Stillwache-Schlafsud",
+      "story_file": "Assets/Medizin/Stillwache-Schlafsud.md",
+      "file": "content/story/Assets/Medizin/Stillwache-Schlafsud.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "stumpfpflege-harzpaste",
+      "name": "Stumpfpflege-Harzpaste",
+      "story_file": "Assets/Medizin/Stumpfpflege-Harzpaste.md",
+      "file": "content/story/Assets/Medizin/Stumpfpflege-Harzpaste.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "kinderatem-kiste",
+      "name": "Kinderatem-Kiste",
+      "story_file": "Assets/Medizin/Kinderatem-Kiste.md",
+      "file": "content/story/Assets/Medizin/Kinderatem-Kiste.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "fieberschirm-nullwind",
+      "name": "Fieberschirm Nullwind",
+      "story_file": "Assets/Medizin/Fieberschirm-Nullwind.md",
+      "file": "content/story/Assets/Medizin/Fieberschirm-Nullwind.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "rezepte",
+      "name": "Rezepte",
+      "story_file": "Assets/Rezepte/index.md",
+      "file": "content/story/Assets/Rezepte/index.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "dosenacker-eintopf",
+      "name": "Dosenacker-Eintopf",
+      "story_file": "Assets/Rezepte/Dosenacker-Eintopf.md",
+      "file": "content/story/Assets/Rezepte/Dosenacker-Eintopf.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "sumpf-roesti",
+      "name": "Sumpf-Rösti",
+      "story_file": "Assets/Rezepte/Sumpf-Roesti.md",
+      "file": "content/story/Assets/Rezepte/Sumpf-Roesti.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "rotzschwein-in-prepper-pils",
+      "name": "Rotzschwein in Prepper Pils",
+      "story_file": "Assets/Rezepte/Rotzschwein-in-Prepper-Pils.md",
+      "file": "content/story/Assets/Rezepte/Rotzschwein-in-Prepper-Pils.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "nesselblech-mit-schaben-crunch",
+      "name": "Nesselblech mit Schaben-Crunch",
+      "story_file": "Assets/Rezepte/Nesselblech-mit-Schaben-Crunch.md",
+      "file": "content/story/Assets/Rezepte/Nesselblech-mit-Schaben-Crunch.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "brombeer-hopfen-sud",
+      "name": "Brombeer-Hopfen-Sud",
+      "story_file": "Assets/Rezepte/Brombeer-Hopfen-Sud.md",
+      "file": "content/story/Assets/Rezepte/Brombeer-Hopfen-Sud.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "aschehafen-pfanne",
+      "name": "Aschehafen-Pfanne",
+      "story_file": "Assets/Rezepte/Aschehafen-Pfanne.md",
+      "file": "content/story/Assets/Rezepte/Aschehafen-Pfanne.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "hexenkessel-2066",
+      "name": "Hexenkessel 2066",
+      "story_file": "Assets/Rezepte/Hexenkessel-2066.md",
+      "file": "content/story/Assets/Rezepte/Hexenkessel-2066.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "messingmarkt-hash",
+      "name": "Messingmarkt-Hash",
+      "story_file": "Assets/Rezepte/Messingmarkt-Hash.md",
+      "file": "content/story/Assets/Rezepte/Messingmarkt-Hash.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "pilgerrast-datensuppe",
+      "name": "Pilgerrast-Datensuppe",
+      "story_file": "Assets/Rezepte/Pilgerrast-Datensuppe.md",
+      "file": "content/story/Assets/Rezepte/Pilgerrast-Datensuppe.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "glaspforten-blechpastete",
+      "name": "Glaspforten-Blechpastete",
+      "story_file": "Assets/Rezepte/Glaspforten-Blechpastete.md",
+      "file": "content/story/Assets/Rezepte/Glaspforten-Blechpastete.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "retro-rindenwickel",
+      "name": "Retro-Rindenwickel",
+      "story_file": "Assets/Rezepte/Retro-Rindenwickel.md",
+      "file": "content/story/Assets/Rezepte/Retro-Rindenwickel.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "satelliten",
+      "name": "Satelliten",
+      "story_file": "Assets/Sateliten/index.md",
+      "file": "content/story/Assets/Sateliten/index.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "starlink-relais",
+      "name": "Starlink-Relais",
+      "story_file": "Assets/Sateliten/Starlink-Relais.md",
+      "file": "content/story/Assets/Sateliten/Starlink-Relais.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "orbital-laserplattformen",
+      "name": "Orbital-Laserplattformen",
+      "story_file": "Assets/Sateliten/Orbital-Laserplattformen.md",
+      "file": "content/story/Assets/Sateliten/Orbital-Laserplattformen.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "orbitale-nukleartraeger",
+      "name": "Orbitale Nuklearträger",
+      "story_file": "Assets/Sateliten/Orbitale-Nukleartraeger.md",
+      "file": "content/story/Assets/Sateliten/Orbitale-Nukleartraeger.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "aufklaerungs-satelliten",
+      "name": "Aufklärungs-Satelliten",
+      "story_file": "Assets/Sateliten/Aufklaerungs-Satelliten.md",
+      "file": "content/story/Assets/Sateliten/Aufklaerungs-Satelliten.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "messstationen-wetter-umwelt",
+      "name": "Messstationen (Wetter/Umwelt)",
+      "story_file": "Assets/Sateliten/Messstationen-Wetter-Umwelt.md",
+      "file": "content/story/Assets/Sateliten/Messstationen-Wetter-Umwelt.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "radiostation",
+      "name": "Radiostation",
+      "story_file": "Radiostation/index.md",
+      "file": "content/story/Radio/index.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "radioprogramm",
+      "name": "Radioprogramm – Doomsday Dispatch",
+      "story_file": "Radiostation/Programm/programm.md",
+      "file": "content/story/Radio/programm.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "stackcast",
+      "name": "STACKCAST",
+      "story_file": "Radiostation/StackCast.md",
+      "file": "content/story/Gruppen/DerStack/StackCast.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "moderatoren",
+      "name": "Moderatoren",
+      "story_file": "Radiostation/Dispatcher/index.md",
+      "file": "content/story/Charaktere/index.jpg",
+      "status": "dry_run",
+      "prompt_standard": "general",
+      "prompt_preview": "Erstelle ein hochwertiges Lore-Bild fuer Doomsday Radio.\nVerwende den folgenden repoweiten fotorealistischen Standard als verbindlichen Stil- und Qualitätsrahmen.\nErsetze alle Platzhalter vollstaendig und konkret. Wenn d"
+    },
+    {
+      "type": "assets",
+      "id": "maddog",
+      "name": "Mad Dog",
+      "story_file": "Charaktere/Mad-Dog.md",
+      "file": "content/story/Charaktere/Mad-Dog.png",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "viktor-weiss",
+      "name": "Viktor Weiß",
+      "story_file": "Charaktere/Viktor-Weiss.md",
+      "file": "content/story/Charaktere/Viktor-Weiss.png",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "rasti",
+      "name": "Rasti",
+      "story_file": "Charaktere/Rasti.md",
+      "file": "content/story/Charaktere/Rasti.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "bolzen-branko",
+      "name": "Bolzen Branko",
+      "story_file": "Charaktere/Bolzen-Branko.md",
+      "file": "content/story/Charaktere/Bolzen-Branko.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "mara-veit",
+      "name": "Mara Veit",
+      "story_file": "Charaktere/Mara-Veit.md",
+      "file": "content/story/Charaktere/Mara-Veit.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "magierjaeger",
+      "name": "Magierjäger",
+      "story_file": "Charaktere/Magierjaeger.md",
+      "file": "content/story/Gruppen/Maker/magier.png",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "radio-bots",
+      "name": "Radio-Bots",
+      "story_file": "Radiostation/Radio-Bots/index.md",
+      "file": "content/story/Radio/Bots/index.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "uno-orakel",
+      "name": "UNO-Orakel",
+      "story_file": "Radiostation/Radio-Bots/uno-orakel.md",
+      "file": "content/story/Radio/Bots/uno-orakel.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "thermobot-9",
+      "name": "ThermoBot-9 (Wetter)",
+      "story_file": "Radiostation/Radio-Bots/ThermoBot-9.md",
+      "file": "content/story/Radio/Bots/ThermoBot-9.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "echo-1",
+      "name": "Echo-1",
+      "story_file": "Radiostation/Radio-Bots/Echo-1.md",
+      "file": "content/story/Radio/Bots/Echo-1.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "piep-matze",
+      "name": "Piep Matze",
+      "story_file": "Radiostation/Radio-Bots/piep-matze.md",
+      "file": "content/story/Radio/Bots/piep-matze.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "spotnik",
+      "name": "Spotnik",
+      "story_file": "Radiostation/Radio-Bots/spotnik.md",
+      "file": "content/story/Radio/Bots/spotnik.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "nullapostell",
+      "name": "Nullapostell",
+      "story_file": "Radiostation/Radio-Bots/Nullapostell.md",
+      "file": "content/story/Radio/Bots/Nullapostell.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "slogans",
+      "name": "Jingles and Slogans",
+      "story_file": "Radiostation/Radio-Bots/slogans.md",
+      "file": "content/story/Radio/Bots/index.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "alltag-und-hygiene",
+      "name": "Alltag & Hygiene",
+      "story_file": "Assets/Alltag/index.md",
+      "file": "content/story/Assets/Alltag/index.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "ascheseife",
+      "name": "Ascheseife",
+      "story_file": "Assets/Alltag/Ascheseife.md",
+      "file": "content/story/Assets/Alltag/Ascheseife.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "drei-eimer-waschplatz",
+      "name": "Drei-Eimer-Waschplatz",
+      "story_file": "Assets/Alltag/Drei-Eimer-Waschplatz.md",
+      "file": "content/story/Assets/Alltag/Drei-Eimer-Waschplatz.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "latrinenrigg",
+      "name": "Latrinenrigg",
+      "story_file": "Assets/Alltag/Latrinenrigg.md",
+      "file": "content/story/Assets/Alltag/Latrinenrigg.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "schlafnische",
+      "name": "Schlafnische",
+      "story_file": "Assets/Alltag/Schlafnische.md",
+      "file": "content/story/Assets/Alltag/Schlafnische.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "waermegrube",
+      "name": "Wärmegrube",
+      "story_file": "Assets/Alltag/Waermegrube.md",
+      "file": "content/story/Assets/Alltag/Waermegrube.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "monatswickel-kit",
+      "name": "Monatswickel-Kit",
+      "story_file": "Assets/Alltag/Monatswickel-Kit.md",
+      "file": "content/story/Assets/Alltag/Monatswickel-Kit.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "kinderversteck",
+      "name": "Kinderversteck",
+      "story_file": "Assets/Alltag/Kinderversteck.md",
+      "file": "content/story/Assets/Alltag/Kinderversteck.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "muellgrube-mit-fliegendraht",
+      "name": "Müllgrube mit Fliegendraht",
+      "story_file": "Assets/Alltag/Muellgrube-mit-Fliegendraht.md",
+      "file": "content/story/Assets/Alltag/Muellgrube-mit-Fliegendraht.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "totenhuelle-nullfaser",
+      "name": "Totenhülle Nullfaser",
+      "story_file": "Assets/Alltag/Totenhuelle-Nullfaser.md",
+      "file": "content/story/Assets/Alltag/Totenhuelle-Nullfaser.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "lauskamm-schrottzahn",
+      "name": "Lauskamm Schrottzahn",
+      "story_file": "Assets/Alltag/Lauskamm-Schrottzahn.md",
+      "file": "content/story/Assets/Alltag/Lauskamm-Schrottzahn.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "arbeit-und-handwerk",
+      "name": "Arbeit & Handwerk",
+      "story_file": "Assets/Arbeit/index.md",
+      "file": "content/story/Assets/Arbeit/index.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "flickbank",
+      "name": "Flickbank",
+      "story_file": "Assets/Arbeit/Flickbank.md",
+      "file": "content/story/Assets/Arbeit/Flickbank.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "moonshine-brennplatz",
+      "name": "Moonshine-Brennplatz",
+      "story_file": "Assets/Arbeit/Moonshine-Brennplatz.md",
+      "file": "content/story/Assets/Arbeit/Moonshine-Brennplatz.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "schrotthaerte-schmiede",
+      "name": "Schrotthärte-Schmiede",
+      "story_file": "Assets/Arbeit/Schrotthaerte-Schmiede.md",
+      "file": "content/story/Assets/Arbeit/Schrotthaerte-Schmiede.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "gerberahmen",
+      "name": "Gerberahmen",
+      "story_file": "Assets/Arbeit/Gerberahmen.md",
+      "file": "content/story/Assets/Arbeit/Gerberahmen.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "trockengestell",
+      "name": "Trockengestell",
+      "story_file": "Assets/Arbeit/Trockengestell.md",
+      "file": "content/story/Assets/Arbeit/Trockengestell.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "schlachtgrube",
+      "name": "Schlachtgrube",
+      "story_file": "Assets/Arbeit/Schlachtgrube.md",
+      "file": "content/story/Assets/Arbeit/Schlachtgrube.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "nietenstand",
+      "name": "Nietenstand",
+      "story_file": "Assets/Arbeit/Nietenstand.md",
+      "file": "content/story/Assets/Arbeit/Nietenstand.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "knochenwerkbank",
+      "name": "Knochenwerkbank",
+      "story_file": "Assets/Arbeit/Knochenwerkbank.md",
+      "file": "content/story/Assets/Arbeit/Knochenwerkbank.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "saatgutkiste",
+      "name": "Saatgutkiste",
+      "story_file": "Assets/Arbeit/Saatgutkiste.md",
+      "file": "content/story/Assets/Arbeit/Saatgutkiste.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "ascheofen",
+      "name": "Ascheofen",
+      "story_file": "Assets/Arbeit/Ascheofen.md",
+      "file": "content/story/Assets/Arbeit/Ascheofen.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "zonen",
+      "name": "Zonen",
+      "story_file": "Assets/Zonen/index.md",
+      "file": "content/story/Orte/Zonen/index.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "verseuchte-zonen",
+      "name": "Verseuchte Zonen",
+      "story_file": "Assets/Zonen/index.md",
+      "file": "content/story/Orte/Zonen/index.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "aschering",
+      "name": "Aschering",
+      "story_file": "Assets/Zonen/Aschering.md",
+      "file": "content/story/Orte/Zonen/Aschering.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "gruenbrand-senke",
+      "name": "Grünbrand-Senke",
+      "story_file": "Assets/Zonen/Gruenbrand-Senke.md",
+      "file": "content/story/Orte/Zonen/Gruenbrand-Senke.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "nullbahn-korridor",
+      "name": "Nullbahn-Korridor",
+      "story_file": "Assets/Zonen/Nullbahn-Korridor.md",
+      "file": "content/story/Orte/Zonen/Nullbahn-Korridor.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "bleigarten",
+      "name": "Bleigarten",
+      "story_file": "Assets/Zonen/Bleigarten.md",
+      "file": "content/story/Orte/Zonen/Bleigarten.jpg",
+      "status": "skipped_exists"
+    },
+    {
+      "type": "assets",
+      "id": "schacht-47",
+      "name": "Schacht 47",
+      "story_file": "Assets/Zonen/Schacht-47.md",
+      "file": "content/story/Orte/Zonen/Schacht-47.jpg",
+      "status": "skipped_exists"
+    }
+  ]
+}

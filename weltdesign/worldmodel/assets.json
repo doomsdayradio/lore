@@ -1,0 +1,705 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "gerichtskirche",
+      "name": "Gerichtskirche",
+      "story_file": "Assets/Zonen/Gerichtskirche.md",
+      "category": "stack",
+      "image_description": "1:1 square photorealistic image of the Gerichtskirche, a roofless old church turned into a post-apocalyptic tribunal in the wasteland. Two accused stand on separate raised stone podests in the center of the ruined nave. Two prompt lawyers in rugged wasteland formalwear stand below them, focused, tense, carrying paper notes, tags and improvised legal folders instead of tech screens. A few faction members as witnesses and guests watch from old church benches and scrap-built side tribunes: mixed silhouettes from Maker, Roamer and Orden, each distinct but believable. No screens, no holograms, no display walls. Set in a sacred ruin with broken masonry, charred arches, dust, cables along stone, open sky above, and a cold Stack-compute structure looming in the distance. Visible signs of decay, dust, rust, scars and survival, but full of life and physical presence. Rich palette with rust red, dusty beige, ash grey, cold steel blue shadows and small warning-red accents, cinematic natural lighting, airborne dust, strong depth, tactile textures, sharp focus on the central tribunal composition, dramatic but believable atmosphere, ultra-detailed, photorealistic, grounded, no stylized painting look, no flat sepia wash, no cartoon look."
+    },
+    {
+      "id": "handelsposten",
+      "name": "Handelsposten",
+      "story_file": "Assets/Handelsposten/index.md",
+      "category": "handelsposten",
+      "image_description": "Marktplatz in der Post-Apokalypse: improvisierte Stände aus Wellblech, alten Containern und Planen. Menschen handeln mit Schrott, Wasserkanistern und Technik. Atmosphäre geschäftig, staubig, misstrauisch. Wachen mit Waffen im Hintergrund. Licht: harte Sonne oder schummrige Laternen. Stil: lebendig, detailreich, 'Wasteland Bazaar'."
+    },
+    {
+      "id": "messingmarkt-9",
+      "name": "Messingmarkt 9",
+      "story_file": "Assets/Handelsposten/Messingmarkt-9.md",
+      "category": "handelsposten",
+      "image_description": "Befestigter Handelsposten auf einer alten Straße. Mauern aus Schrottautos und Betonblöcken. Innen: Schmiedefeuer, Dampf, Messing- und Kupferteile. Steampunk-Ästhetik trifft auf Endzeit. Werkstätten, Funkenflug, geschäftige Händler mit Schweißerbrillen. Stil: warmes Licht, metallisch, industriell."
+    },
+    {
+      "id": "sumpf-festung",
+      "name": "Sumpf-Festung",
+      "story_file": "Assets/Handelsposten/Sumpf-Festung.md",
+      "category": "handelsposten",
+      "image_description": "Schwimmende Festung im Sumpf. Zusammengebunden aus alten Booten, Pontons und Containern. Nebel, Schilf, trübes Wasser. Hillbillys auf Airboats. Fackeln und Laternen spiegeln sich im Wasser. Atmosphäre: düster, feucht, gefährlich. Stil: 'Swamp Fort', 'Bayou'."
+    },
+    {
+      "id": "glaspforte",
+      "name": "Glaspforte",
+      "story_file": "Assets/Handelsposten/Glaspforte.md",
+      "category": "handelsposten",
+      "image_description": "Elitärer Handelsposten, sauberer und ordentlicher als der Rest. Gebäude mit intakten Fenstern oder Glasfassade (daher der Name), bewacht von gut ausgerüsteten Söldnern. Innen: helles Licht, Regale mit sortierter Ware (Medizin, Tech). Atmosphäre exklusiv, kühl, kontrolliert. Stil: High-End-Wasteland, Kontrast zwischen sauberem Innenraum und staubiger Außenwelt."
+    },
+    {
+      "id": "schrauberkapelle",
+      "name": "Schrauberkapelle",
+      "story_file": "Assets/Handelsposten/Chaos-Kapelle.md",
+      "category": "handelsposten",
+      "image_description": "Religiös anmutender Tech-Hof. Generatoren und Kabelbäume arrangiert wie ein Altar. Talismane aus Platinen hängen von der Decke. In der Mitte eine Statue aus Schrott ('Makey Mc Makeface'). Magier/Techniker arbeiten an Geräten. Atmosphäre mystisch-technisch, blaues Leuchten, Funken. Stil: Cyberpunk-Kult, 'Tech-Shrine'."
+    },
+    {
+      "id": "doomsday-fanshop",
+      "name": "Doomsday Fanshop",
+      "story_file": "Assets/Handelsposten/Doomsday-Fanshop.md",
+      "category": "handelsposten",
+      "image_description": "Kleiner, improvisierter Laden mit Funkantennen auf dem Dach. Innen: Wände vollgeklebt mit Flyern, Stickern und Kritzeleien. Verkauf von Radios, Batterien und 'Fan-Art'. Ein Tresen, dahinter Technik. Atmosphäre: Fan-Club trifft Schwarzmarkt. Bunt, chaotisch, kommunikativ. Stil: Underground-Shop, 'Radio Shack'."
+    },
+    {
+      "id": "pilgerrast",
+      "name": "Pilgerrast",
+      "story_file": "Assets/Handelsposten/Pilgerrast.md",
+      "category": "handelsposten",
+      "image_description": "Schlichter Rastplatz am Wegesrand. Zelte, Feuerstellen, ein einfacher Schrein oder Symbol des Ordens. Pilger in Roben oder Reisemänteln ruhen sich aus. Atmosphäre ruhig, besinnlich, aber wachsam. Wüstenlandschaft, Sonnenuntergang. Stil: spirituell, nomadisch, 'Wasteland Oasis'."
+    },
+    {
+      "id": "nullpunkt",
+      "name": "Nullpunkt",
+      "story_file": "Assets/Handelsposten/Nullpunkt.md",
+      "category": "handelsposten",
+      "image_description": "Versteckter Eingang in einer Ruine. Innen: Überraschend intakte, aber alte Server-Racks (offline). Looper ruhen sich aus oder tauschen Daten aus. Atmosphäre: still, staubig, 'Secret Archive'. Stil: 'Bunker', 'Data Haven'."
+    },
+    {
+      "id": "low-tech-basar",
+      "name": "Low-Tech-Basar",
+      "story_file": "Assets/Handelsposten/Low-Tech-Basar.md",
+      "category": "handelsposten",
+      "image_description": "Markt ohne Strom und Elektronik. Holzstände, handgeschriebene Schilder, Fackeln statt Lampen. Verkauf von Handwerk, Leder, Schmiedeware, Pflanzen. Menschen in einfacher Kleidung. Atmosphäre: mittelalterlich, rustikal, entschleunigt. Stil: 'Low-Tech', natürlich, handgemacht."
+    },
+    {
+      "id": "kaliber-50",
+      "name": "Kaliber 50",
+      "story_file": "Assets/Handelsposten/Kaliber-50.md",
+      "category": "handelsposten",
+      "image_description": "Bar in einem alten Panzer-Hangar oder Bunker. Tresen aus einer Panzerkette. Wände dekoriert mit Waffen und Munitionskisten. Söldner trinken und spielen Karten. Atmosphäre: rauchig, gefährlich, maskulin. Stil: 'Mercenary Bar', 'Bunker Pub'."
+    },
+    {
+      "id": "koordinaten-kreuz",
+      "name": "Koordinaten-Kreuz",
+      "story_file": "Assets/Handelsposten/Koordinaten-Kreuz.md",
+      "category": "handelsposten",
+      "image_description": "Die Ruinen der Abhörstation auf dem Teufelsberg (Berlin). Zerfallene weiße Kuppeln mit Graffiti. Geocacher tauschen Daten. Blick über die weite, zerstörte Landschaft. Stil: 'Lost Place', 'Spy Station', ikonisch."
+    },
+    {
+      "id": "the-shop",
+      "name": "The Shop",
+      "story_file": "Assets/Handelsposten/The-Shop.md",
+      "category": "handelsposten",
+      "image_description": "Einsamer, schwarzer Monolith oder Terminal in einer öden Landschaft. Surrende Technik, blinkende Lichter, aber keine Menschenseele. Ein Einwurfschlitz für 'Input'. Atmosphäre: unheimlich, fremdartig, 'Alien Monolith'. Stil: Sci-Fi-Mystery."
+    },
+    {
+      "id": "gegenstaende",
+      "name": "Gegenstände",
+      "story_file": "Assets/Gegenstaende/index.md",
+      "category": "gegenstaende",
+      "image_description": "Sammlung verschiedener Wasteland-Items auf einem Tisch: Killcoins, Batterien, Filter, alte Technik. Licht fällt darauf. Stil: Stillleben, detailreich, 'Inventory'."
+    },
+    {
+      "id": "killcoins",
+      "name": "Killcoins",
+      "story_file": "Assets/Gegenstaende/Killcoins.md",
+      "category": "gegenstaende",
+      "image_description": "Nahaufnahme einer Killcoin-Münze. Metallisch, schwer, mit eingraviertem Totenkopf und feinen Rillen. Vielleicht geteilt in Kern und Hülle. Liegt im Staub oder in einer schmutzigen Hand. Glänzt leicht. Stil: Makro, realistisch, wertvoll und bedrohlich."
+    },
+    {
+      "id": "scrip-zero-gutscheine",
+      "name": "Scrip / Zero-Gutscheine",
+      "story_file": "Assets/Gegenstaende/Scrip-Zero-Gutscheine.md",
+      "category": "gegenstaende",
+      "image_description": "Bündel von abgenutzten Papier-Gutscheinen oder geprägten Metallmarken. Symbole der Zeros oder Enklaven darauf. Liegen auf einem Holztisch. Wirken wie Spielgeld, aber mit ernstem Hintergrund. Stil: 'Currency', abgenutzt, detailreich."
+    },
+    {
+      "id": "energiezellen",
+      "name": "Energiezellen",
+      "story_file": "Assets/Gegenstaende/Energiezellen.md",
+      "category": "gegenstaende",
+      "image_description": "Alte, klobige Batterie oder Energiezelle. Leuchtet vielleicht schwach blau oder grün (Ladeanzeige). Kratzer, Gebrauchsspuren. Liegt neben einem Funkgerät. Stil: Sci-Fi-Tech, 'Power Source', wertvoll."
+    },
+    {
+      "id": "wasserfilter",
+      "name": "Wasserfilter",
+      "story_file": "Assets/Gegenstaende/Wasserfilter.md",
+      "category": "gegenstaende",
+      "image_description": "Improvisierter Wasserfilter aus Plastikflaschen, Schläuchen und Kohle. Oder ein High-Tech-Filter der Zeros. Tropfendes, klares Wasser am Ende. Hintergrund: schmutzige Pfütze. Stil: 'Survival Gear', lebenswichtig."
+    },
+    {
+      "id": "cobol-code-artefakt",
+      "name": "COBOL-Code-Artefakt",
+      "story_file": "Assets/Gegenstaende/COBOL-Code-Artefakt.md",
+      "category": "gegenstaende",
+      "image_description": "Altes Computer-Tape, Lochkarten oder ein verstaubter Ausdruck mit Code-Zeilen. Wirkt wie ein Relikt aus einer anderen Zeit. Liegt in einer Vitrine oder auf einem Labortisch. Stil: 'Retro-Tech', geheimnisvoll, 'Ancient Knowledge'."
+    },
+    {
+      "id": "medizin",
+      "name": "Medizin",
+      "story_file": "Assets/Medizin/index.md",
+      "category": "medizin",
+      "image_description": "Improvisierte Wasteland-Medizin auf einem Tisch: Verbände, Flaschen, Kräuter, Nadeln, Feldkits, Schienen und primitive Werkzeuge. Die Szene wirkt nach Feldversorgung, knapper Hygiene und harter Pragmatik. Stil: survival medicine, gritty, detailed, believable."
+    },
+    {
+      "id": "moonshine-wundspuelung",
+      "name": "Moonshine-Wundspülung",
+      "story_file": "Assets/Medizin/Moonshine-Wundspuelung.md",
+      "category": "medizin",
+      "image_description": "Improvisiertes Hillbilly-Medizinstillleben auf einem rohen Holztisch: eine Flasche klarer Moonshine, bittere Kräuter, einfache Stoffstreifen, ein offenes Feldkästchen und primitive Pflegeutensilien in einem rauen Waldlager. Keine Verletzungsszene, sondern ein gebrauchtes, glaubwürdiges Set aus harter Wasteland-Medizin. Stil: rough field medicine still life, swamp camp realism, gritty but grounded."
+    },
+    {
+      "id": "sumpflicht-salbe",
+      "name": "Sumpflicht-Salbe",
+      "story_file": "Assets/Medizin/Sumpflicht-Salbe.md",
+      "category": "medizin",
+      "image_description": "Kleine Dose mit unheimlich schimmernder grüner Salbe neben Leuchtkröten-Symbolik, Kräutern und schmutzigen Hillbilly-Werkzeugen. Feuchte Sumpfatmosphäre, modriges Licht, die Paste wirkt medizinisch und gefährlich zugleich. Stil: toxic folk medicine, eerie swamp remedy, photorealistic and unsettling."
+    },
+    {
+      "id": "messingnaht-feldkit",
+      "name": "Messingnaht-Feldkit",
+      "story_file": "Assets/Medizin/Messingnaht-Feldkit.md",
+      "category": "medizin",
+      "image_description": "Offenes Maker-Feldkit mit Nadeln, Klemmen, Zange, Fäden, kleinen Schienen und ausgeglühten Metallteilen auf einem Werkbanktuch. Warmes Werkstattlicht, Messing- und Lederdetails, improvisierte aber präzise Ordnung. Stil: industrial field surgery kit, steampunk survival medicine, tactile and believable."
+    },
+    {
+      "id": "pilgerverband-null-sieben",
+      "name": "Pilgerverband Null-Sieben",
+      "story_file": "Assets/Medizin/Pilgerverband-Null-Sieben.md",
+      "category": "medizin",
+      "image_description": "Sauber geschichteter Ordensverband aus hellen Stoffstreifen, Pflanzenauflage und Faserlagen, ordentlich ausgelegt neben einem schlichten Pilgerset. Kühles Licht, geordnete Symbolik, asketische medizinische Ästhetik. Stil: sacred field dressing, austere ritual medicine, calm and precise."
+    },
+    {
+      "id": "glaspforten-reinset",
+      "name": "Glaspforten-Reinset",
+      "story_file": "Assets/Medizin/Glaspforten-Reinset.md",
+      "category": "medizin",
+      "image_description": "Klinisch wirkendes Zero-nahes Medizinkit mit versiegelten Wasserampullen, Kompressen, Tablettenblistern, Schere und kleiner Schiene auf einer ungewöhnlich sauberen Metallfläche. Kühles Licht, sterile Ordnung, Endzeit-Luxus. Stil: post-apocalyptic sterile med pack, cold premium survival medicine."
+    },
+    {
+      "id": "retro-weidenrinden-sud",
+      "name": "Retro-Weidenrinden-Sud",
+      "story_file": "Assets/Medizin/Retro-Weidenrinden-Sud.md",
+      "category": "medizin",
+      "image_description": "Dunkler Kräutersud in einem Metallbecher neben Weidenrinde, Brennnesseln, Beifuss und einem kleinen Topf an einer stillen Waldfeuerstelle. Natürlich, schlicht und alt wirkend, ohne moderne Technik. Stil: herbal survival medicine, retro forest remedy, earthy and quiet."
+    },
+    {
+      "id": "cachearzt-set",
+      "name": "Cachearzt-Set",
+      "story_file": "Assets/Medizin/Cachearzt-Set.md",
+      "category": "medizin",
+      "image_description": "Kompaktes Geocacher-Feldkit mit Stoffwickeln, Klebeband, kleiner Schiene, Pinzette, Flasche und Markerband in einer staubigen Tasche auf Beton und Geröll. Es soll mobil, improvisiert und oft benutzt wirken. Stil: compact field medic kit, explorer survival gear, practical and rugged."
+    },
+    {
+      "id": "aschewiegen-set",
+      "name": "Aschewiegen-Set",
+      "story_file": "Assets/Medizin/Aschewiegen-Set.md",
+      "category": "medizin",
+      "image_description": "Improvisiertes Geburts- und Neugeborenen-Set in einer stillen Wasteland-Unterkunft: ausgelegte Stoffe, warme Wickel, kleines Schneidwerkzeug, Wassergefäß, weiche Unterlage und sorgfältig geordnete Hilfsmittel. Keine Geburtsszene, sondern ein ruhiges medizinisches Stillleben mit Wärme, Vorsicht und Schutz. Stil: survival midwife kit, tender but harsh post-apocalypse, grounded and respectful."
+    },
+    {
+      "id": "kellerfieber-filterhaube",
+      "name": "Kellerfieber-Filterhaube",
+      "story_file": "Assets/Medizin/Kellerfieber-Filterhaube.md",
+      "category": "medizin",
+      "image_description": "Improvisierte Schutzhaube oder Atemmaske aus Stoff, Mooslagen, Flechten und Bindebändern, ausgelegt auf einem Tisch in einem feuchten Kellerumfeld. Daneben Staub, Schimmelspuren und einfache Werkzeuge. Stil: spore mask, contaminated indoor survival gear, gritty and practical."
+    },
+    {
+      "id": "quarantaenepfahl-rotband",
+      "name": "Quarantänepfahl Rotband",
+      "story_file": "Assets/Medizin/Quarantaenepfahl-Rotband.md",
+      "category": "medizin",
+      "image_description": "Ein markanter improvisierter Quarantänepfahl mit rotem Stoffband, Warnzeichen und einfacher Wegsperre in einer Wasteland-Siedlung oder an einem Ruineneingang. Die Szene soll klar Distanz, Seuchendisziplin und Gesundheitswarnung zeigen. Stil: quarantine marker, survival public health, austere and believable."
+    },
+    {
+      "id": "splitterzahn-kit",
+      "name": "Splitterzahn-Kit",
+      "story_file": "Assets/Medizin/Splitterzahn-Kit.md",
+      "category": "medizin",
+      "image_description": "Raues Wasteland-Zahnset auf einem Tisch: kleine Zange, Lederkeil, Spüllösung, Kräuterbecher, Stoffpolster und einfache Metallinstrumente. Keine Behandlungsszene, sondern ein hartes, glaubwürdiges Set gegen Zahnschmerz. Stil: primitive dental kit, survival medicine, rugged and unsettling."
+    },
+    {
+      "id": "stillwache-schlafsud",
+      "name": "Stillwache-Schlafsud",
+      "story_file": "Assets/Medizin/Stillwache-Schlafsud.md",
+      "category": "medizin",
+      "image_description": "Dunkler beruhigender Kräutersud in einem Metallbecher neben Hopfen, Weidenrinde, Beifuss und einer ruhigen Lagerfeuerszene. Die Stimmung soll still, müde und sicher wirken, nicht berauschend oder exzessiv. Stil: calming herbal medicine, sleep remedy, quiet night watch atmosphere."
+    },
+    {
+      "id": "stumpfpflege-harzpaste",
+      "name": "Stumpfpflege-Harzpaste",
+      "story_file": "Assets/Medizin/Stumpfpflege-Harzpaste.md",
+      "category": "medizin",
+      "image_description": "Kleine Dose mit harziger Pflegepaste, daneben Stoffpolster, Bandagen, Kräuterreste und Prothesen- oder Schienenmaterial auf einer Maker-Werkbank. Keine offene Verletzung, sondern ein glaubwürdiges Pflege- und Anpassungsstillleben. Stil: prosthetic care kit, rugged medical maintenance, detailed and grounded."
+    },
+    {
+      "id": "kinderatem-kiste",
+      "name": "Kinderatem-Kiste",
+      "story_file": "Assets/Medizin/Kinderatem-Kiste.md",
+      "category": "medizin",
+      "image_description": "Kleine, sorgfältig gepackte Gesundheitskiste für Kinder mit weichen Wickeln, Fläschchen, Tüchern, Bechern und milden Kräuterzutaten auf einer warmen Unterlage. Die Szene soll Schutz, Fürsorge und Knappheit zugleich ausstrahlen. Stil: child care survival kit, gentle post-apocalyptic medicine, soft but realistic."
+    },
+    {
+      "id": "fieberschirm-nullwind",
+      "name": "Fieberschirm Nullwind",
+      "story_file": "Assets/Medizin/Fieberschirm-Nullwind.md",
+      "category": "medizin",
+      "image_description": "Ein improvisierter Schonplatz mit Tuchschirm, Wassergefäß, Wickeln, Unterlage und einfacher Lagerpflege in einer ruhigen Wasteland-Unterkunft. Keine kranke Person sichtbar, nur das sorgfältig vorbereitete Fieberpflege-Setup. Stil: fever care station, survival nursing, calm and practical."
+    },
+    {
+      "id": "rezepte",
+      "name": "Rezepte",
+      "story_file": "Assets/Rezepte/index.md",
+      "category": "rezepte",
+      "image_description": "Wasteland-Kochplatz mit mehreren improvisierten Gerichten auf rostigen Blechen und alten Töpfen: dicke Eintöpfe, flache Bratlinge, Dosenreste, Kräuterbündel und Fleischstücke. Feuerstelle aus Schrott, einfache Werkzeuge, staubige Lageratmosphäre. Stil: survival cooking, gritty, appetitlich trotz Endzeit."
+    },
+    {
+      "id": "dosenacker-eintopf",
+      "name": "Dosenacker-Eintopf",
+      "story_file": "Assets/Rezepte/Dosenacker-Eintopf.md",
+      "category": "rezepte",
+      "image_description": "Dicker Wasteland-Eintopf in einem verbeulten Metalltopf über offener Flamme. Sichtbar: Bohnen, dunkles Fleisch, grüne Brennnesselreste und grobe Wurzelstücke. Daneben offene Konservendosen, ein Messer und ein staubiger Lagerplatz. Stil: hearty survival stew, gritty, warm firelight."
+    },
+    {
+      "id": "sumpf-roesti",
+      "name": "Sumpf-Rösti",
+      "story_file": "Assets/Rezepte/Sumpf-Roesti.md",
+      "category": "rezepte",
+      "image_description": "Mehrere flache, knusprig gebratene Rösti-artige Wasteland-Fladen auf einer alten Eisenplatte. Sichtbar: grobe Fasern, grüne Kräuterstücke und dunkle Röstränder. Hintergrund: sumpfige Sammelzone mit Rohrkolbenbündeln und improvisierter Kochstelle. Stil: rustic survival pancakes, tactile, smoky."
+    },
+    {
+      "id": "rotzschwein-in-prepper-pils",
+      "name": "Rotzschwein in Prepper Pils",
+      "story_file": "Assets/Rezepte/Rotzschwein-in-Prepper-Pils.md",
+      "category": "rezepte",
+      "image_description": "Kräftiger Schmortopf aus dunklem Schweinefleisch in bieriger Sauce, serviert in einem alten Topf neben einer Dose Prepper Pils. Bittere Kräuter, Hopfen und Dampf steigen auf. Das Setting ist eine raue Wasteland-Bar oder Lagerküche mit Metalltisch und schmutzigen Werkzeugen. Stil: post-apocalyptic comfort food, moody, cinematic."
+    },
+    {
+      "id": "nesselblech-mit-schaben-crunch",
+      "name": "Nesselblech mit Schaben-Crunch",
+      "story_file": "Assets/Rezepte/Nesselblech-mit-Schaben-Crunch.md",
+      "category": "rezepte",
+      "image_description": "Grüner, grober Lagerfladen auf einem verrosteten Blech, darüber geröstete knusprige Insekten als Topping. Neben dem Blech liegen Brennnesselbündel, Dosenreste und eine kleine improvisierte Pfanne. Die Szene soll abstoßend und gleichzeitig plausibel essbar wirken. Stil: wasteland survival snack, gritty realism, unsettling but grounded."
+    },
+    {
+      "id": "brombeer-hopfen-sud",
+      "name": "Brombeer-Hopfen-Sud",
+      "story_file": "Assets/Rezepte/Brombeer-Hopfen-Sud.md",
+      "category": "rezepte",
+      "image_description": "Dunkler, bitter-süßer Trunk in einem alten Glas oder Metallbecher, tief violett mit beerigem Schimmer. Daneben liegen Brombeeren, Hopfenzapfen und ein kleiner Topf auf Restglut. Hintergrund: improvisierte Lagerküche mit staubigen Holzflächen. Stil: rustic wasteland drink, rich colors, slightly melancholic."
+    },
+    {
+      "id": "aschehafen-pfanne",
+      "name": "Aschehafen-Pfanne",
+      "story_file": "Assets/Rezepte/Aschehafen-Pfanne.md",
+      "category": "rezepte",
+      "image_description": "Fettige, salzige Pfanne mit Dosenfleisch, gebratenen Pflanzenstücken und dunklen Rösträndern auf einem improvisierten Schrottkocher. Im Hintergrund Hafen- oder Handelspostenatmosphäre mit Kisten, Dosen und stumpfem Feuerlicht. Stil: rough one-pan meal, dockside survival cooking, gritty and believable."
+    },
+    {
+      "id": "hexenkessel-2066",
+      "name": "Hexenkessel 2066",
+      "story_file": "Assets/Rezepte/Hexenkessel-2066.md",
+      "category": "rezepte",
+      "image_description": "Dunkler, schwerer Wasteland-Eintopf in einem schwarzen Kessel über offenem Waldfeuer, mit groben Fleischstücken, dunklen Bohnen, Beerenresten und bitteren Kräutern. Die Szene wirkt wie ein Hillbilly-Lager: Holz, Rauch, Knochen, improvisierte Feuerstelle, schmutzige Werkzeuge, unheimlich aber essbar. Stil: swamp witch cooking, hillbilly survival stew, gritty and cinematic."
+    },
+    {
+      "id": "messingmarkt-hash",
+      "name": "Messingmarkt-Hash",
+      "story_file": "Assets/Rezepte/Messingmarkt-Hash.md",
+      "category": "rezepte",
+      "image_description": "Rostige Eisenpfanne mit einem knusprigen Hash aus Dosenfleisch, Wurzelstücken und grünem Wildkraut, gebraten auf einem Werkhofkocher. Im Hintergrund Messing, Leder, Werkzeuge und eine improvisierte Steampunk-Handelspostenküche. Stil: workshop cooking, industrial comfort food, warm metal light, tactile and believable."
+    },
+    {
+      "id": "pilgerrast-datensuppe",
+      "name": "Pilgerrast-Datensuppe",
+      "story_file": "Assets/Rezepte/Pilgerrast-Datensuppe.md",
+      "category": "rezepte",
+      "image_description": "Schlichte grün-goldene Suppe in kleinen Metallbechern neben einem einfachen Topf auf einem geordneten Lagerfeuer. Sichtbar sind Kräuter, Wurzelstücke und eine asketische Pilgerumgebung mit ordentlich gelegten Schalen, Stoffen und dezentem Ordenssymbol. Stil: austere ritual meal, quiet pilgrim camp, sacred survival cooking."
+    },
+    {
+      "id": "glaspforten-blechpastete",
+      "name": "Glaspforten-Blechpastete",
+      "story_file": "Assets/Rezepte/Glaspforten-Blechpastete.md",
+      "category": "rezepte",
+      "image_description": "Sauber angerichtete Pastete aus Konservenmasse in einer kleinen Metallform, mit dunkler Beerenglasur und wenigen dekorativen Beeren obenauf. Das Setting ist eine ungewöhnlich ordentliche Wasteland-Küche oder Zero-nahe Kantine mit kühlen Metallflächen, sauberem Licht und kontrollierter Eleganz. Stil: post-apocalyptic haute conserves, restrained luxury, cold and refined."
+    },
+    {
+      "id": "retro-rindenwickel",
+      "name": "Retro-Rindenwickel",
+      "story_file": "Assets/Rezepte/Retro-Rindenwickel.md",
+      "category": "rezepte",
+      "image_description": "Mehrere einfache Birkenrinden-Wickel, geöffnet neben einer flachen Glutgrube im Wald. Sichtbar sind grüne Füllung, Wurzelstücke und dunkle Ascheränder. Die Szene wirkt still, alt und handwerklich, mit wenig Technik und viel Naturmaterial. Stil: primitive forest cooking, quiet survival food, earthy and authentic."
+    },
+    {
+      "id": "satelliten",
+      "name": "Satelliten",
+      "story_file": "Assets/Sateliten/index.md",
+      "category": "sateliten",
+      "image_description": "Blick aus dem Weltraum auf die Erde. Mehrere Satelliten im Orbit, manche intakt, manche Schrott. Leuchtende Verbindungslinien (Datenströme). Hintergrund: Sterne und die Erdkrümmung. Stil: Sci-Fi, 'Orbital View', strategisch."
+    },
+    {
+      "id": "starlink-relais",
+      "name": "Starlink-Relais",
+      "story_file": "Assets/Sateliten/Starlink-Relais.md",
+      "category": "sateliten",
+      "image_description": "Kette von kleinen Satelliten im Orbit, die wie eine Perlenkette aussehen. Reflektieren Sonnenlicht. Senden Signale zur Erde. Stil: technisch, 'Communication Network'."
+    },
+    {
+      "id": "orbital-laserplattformen",
+      "name": "Orbital-Laserplattformen",
+      "story_file": "Assets/Sateliten/Orbital-Laserplattformen.md",
+      "category": "sateliten",
+      "image_description": "Großer, bedrohlicher Satellit mit einer riesigen Linse oder Kanone, die auf die Erde gerichtet ist. Rotes oder blaues Leuchten (Ladezustand). Wirkt wie eine Waffe. Stil: militärisch, bedrohlich, 'Orbital Weapon'."
+    },
+    {
+      "id": "orbitale-nukleartraeger",
+      "name": "Orbitale Nuklearträger",
+      "story_file": "Assets/Sateliten/Orbitale-Nukleartraeger.md",
+      "category": "sateliten",
+      "image_description": "Massiver, alter Satellit, der Raketensilos oder Sprengköpfe trägt. Wirkt verrostet, aber gefährlich. Ein Relikt des alten Krieges. Stil: 'Cold War in Space', düster, 'Doomsday Device'."
+    },
+    {
+      "id": "aufklaerungs-satelliten",
+      "name": "Aufklärungs-Satelliten",
+      "story_file": "Assets/Sateliten/Aufklaerungs-Satelliten.md",
+      "category": "sateliten",
+      "image_description": "Satellit mit vielen Linsen, Antennen und Sensoren. Richtet sich auf einen Punkt auf der Erde aus. Wirkt wie ein riesiges Auge im All. Stil: 'Spy Tech', beobachtend, 'Big Brother'."
+    },
+    {
+      "id": "messstationen-wetter-umwelt",
+      "name": "Messstationen (Wetter/Umwelt)",
+      "story_file": "Assets/Sateliten/Messstationen-Wetter-Umwelt.md",
+      "category": "sateliten",
+      "image_description": "Satellit mit Solarpanels und Messinstrumenten. Scannt die Atmosphäre (Wolken, Stürme). Datenvisualisierung (Overlays) von Wetterdaten. Stil: wissenschaftlich, analytisch, 'Data Gathering'."
+    },
+    {
+      "id": "radiostation",
+      "name": "Radiostation",
+      "story_file": "Radiostation/index.md",
+      "category": "radiostation",
+      "image_description": "Außenansicht einer befestigten Radiostation. Hoher Sendemast, Stacheldraht, Satellitenschüsseln. Liegt auf einem Hügel oder in einer Ruine. Himmel: dramatisch (Sonnenuntergang oder Sturm). Stil: 'Broadcast Tower', 'Last Voice'."
+    },
+    {
+      "id": "radioprogramm",
+      "name": "Radioprogramm – Doomsday Dispatch",
+      "story_file": "Radiostation/Programm/programm.md",
+      "category": "radiostation",
+      "image_description": "Abstraktes Bild von Radiowellen, die sich über eine Landkarte der Wasteland ausbreiten. Symbole für Musik, Nachrichten, Warnungen. Stil: grafisch, 'Signal Coverage'."
+    },
+    {
+      "id": "stackcast",
+      "name": "STACKCAST",
+      "story_file": "Radiostation/StackCast.md",
+      "category": "radiostation",
+      "image_description": "Visualisierung einer digitalen, künstlichen Stimme. Wellenformen, Glitch-Effekte, Code-Fragmente. Farben: Neonblau, Schwarz. Wirkt kalt und technisch. Stil: 'Digital Signal', 'AI Voice'."
+    },
+    {
+      "id": "moderatoren",
+      "name": "Moderatoren",
+      "story_file": "Radiostation/Dispatcher/index.md",
+      "category": "radiostation",
+      "image_description": "Gruppenbild (oder Collage) der menschlichen Stimmen von Doomsday Radio: Mad Dog, Rasti und Viktor Weiß (als Geist/Erinnerung). Mikrofon im Vordergrund. Hintergrund: Radiostudio zwischen Chaos und Archiv. Stil: 'Radio Personalities', Charakter-Porträt."
+    },
+    {
+      "id": "maddog",
+      "name": "Mad Dog",
+      "story_file": "Charaktere/Mad-Dog.md",
+      "category": "charaktere",
+      "image_description": "Mad Dog am Mikrofon. Wildes Haar, Sonnenbrille, Lederjacke, Zigarette im Mundwinkel. Schreit oder lacht ins Mikro. Studio ist chaotisch. Stil: rockig, energetisch, 'Radio Rebel'."
+    },
+    {
+      "id": "viktor-weiss",
+      "name": "Viktor Weiß",
+      "story_file": "Charaktere/Viktor-Weiss.md",
+      "category": "charaktere",
+      "image_description": "Viktor Weiß am Mikrofon. Anzug, gepflegt, ernsthafter Blick. Studio ist ordentlich. Wirkt wie ein Nachrichtensprecher der alten Schule. Stil: seriös, klassisch, 'News Anchor'."
+    },
+    {
+      "id": "rasti",
+      "name": "Rasti",
+      "story_file": "Charaktere/Rasti.md",
+      "category": "charaktere",
+      "image_description": "Rasti am Mikrofon in einer chaotischen Nachtwerkstatt von Doomsday Radio. Spätaktiver Maker-Dispatcher und redseliger Nerd mit schiefem Grinsen, neugierig-offenem Gesichtsausdruck, wacher verrückter Energie und der coolen, robusten Präsenz eines angesehenen Überlebenden. Er wirkt stärker und souveräner als zuvor, wie eine respektierte Maker-Legende, nicht wie ein bloßer Bastler. Alte Lötbrille auf der Stirn, ölverschmierte Jacke mit vielen Taschen und Gurten, Bartstoppeln, fingerlose Handschuhe, mehrere sichtbare Gadgets und Tools am Körper: Messgerät, Funkmodul, Signaltester, Kabelbinder, Multitool, Ersatzakku, improvisierte Tech-Armbänder. Er ist mitten im Reden, Mund offen, lebhafte Gestik, lehnt halb ins Mikrofon und fuchtelt mit Lötkolben oder Kabel, als hätte er gerade eine geniale und brandgefährliche neue Idee. Ausdruck: schnell genervt, schnell begeistert, naiv im besten Sinn, charmant-chaotisch, voller Gedankenüberschuss, ohne Härte oder Zynismus. Um ihn herum: offene Relais, Funken, Kabelsalat, improvisierte Geräte, Aschenbecher, Notizen, blinkende Anzeigen und schöne rostige Metallflächen, die warm leuchten. Atmosphäre: lebendige Funkstudio-Nacht, warmes Werkstattlicht, kalte Schatten, kreative Unordnung. Nicht ruhig, nicht melancholisch, sondern kreativ, wild, nerdig, rostaffin, magnetisch und in Bewegung. Stil: fotorealistisch, cinematic, detailreich, glaubwürdige Postapokalypse, 'mad inventor radio host', dynamisch, ausdrucksstark, iconic character portrait."
+    },
+    {
+      "id": "bolzen-branko",
+      "name": "Bolzen Branko",
+      "story_file": "Charaktere/Bolzen-Branko.md",
+      "category": "charaktere",
+      "image_description": "1:1 square photorealistic image of Bolzen Branko, a brutal hardliner legend in the Doomsday Radio wasteland, massive scarred man with broad silhouette, torn combat shirt, heavy boots, patched leather vest, old wounds, dust-caked skin and too many survival weapons, with the heavy modified bolt launcher called der Stempel visible as his signature weapon. He should look like a mobile violence catastrophe, but with one quiet protective detail: his vest and posture suggest he shelters something fragile close to his chest, hinting at the later Chicken Bob side without turning the image cute. He stands in a dusty roaming camp corridor with scrap barricades, old route markers, ash, rust, gear bundles and a hunted survival atmosphere. Rich wasteland palette with rust red, dirty amber, dust beige, ash grey, cold steel-blue shadows and small warning-red accents, cinematic natural light, strong textures, believable brutality, grounded photorealism, no cartoon look, no heroic fantasy gloss."
+    },
+    {
+      "id": "mara-veit",
+      "name": "Mara Veit",
+      "story_file": "Charaktere/Mara-Veit.md",
+      "category": "charaktere",
+      "image_description": "1:1 square photorealistic image of Mara Veit, the Leerrückkehrerin, a gaunt dust-caked woman returned from the Mahlwüste in the Doomsday Radio wasteland, realistic anatomy and harsh survival detail, dried skin, cracked lips, ash-covered travel layers, torn wraps, exhausted body language and a face that looks alive but partially absent. She should feel like a returned body that is not fully a person again. Set near a broken relay zone or ruined roadside shelter with damaged radio hardware, hanging cables, drifting dust and faint analog disturbance in the atmosphere, as if voices and signals break around her. Visible decay, dirt, grit and survival wear, but no supernatural cartoon effect. Rich wasteland palette with bleached sand tones, dust beige, dead rust, ash grey, cold steel-blue shadows and a faint sickly signal-green accent, cinematic natural light, airborne dust, eerie but believable, grounded, photorealistic."
+    },
+    {
+      "id": "magierjaeger",
+      "name": "Magierjäger",
+      "story_file": "Charaktere/Magierjaeger.md",
+      "category": "charaktere",
+      "image_description": "1:1 square photorealistic image of the Magierjäger Noah Krell, also called Krellsturm, a cold precise field specialist from the Magier in the Doomsday Radio wasteland. Lean controlled figure, dangerous calm presence, practical technical mage gear instead of fantasy robes: layered field coat, storm-worn fabrics, utility straps, dust filters, compact tools, sensor rigs and terrain-marking equipment. He should look like someone who manipulates routes, dust and pressure with terrifying control, not like an eccentric wizard. In the scene he stands in a broken rail or ruin corridor while dust, loose grit and small debris subtly bend to his will, suggesting storm control and terrain manipulation in a grounded way. Palette of ash grey, rust red, burned sand, cold petrol-blue shadows and small hazard-yellow accents, cinematic natural light, airborne dust, tactile textures, believable menace, ultra-detailed, photorealistic, grounded."
+    },
+    {
+      "id": "radio-bots",
+      "name": "Radio-Bots",
+      "story_file": "Radiostation/Radio-Bots/index.md",
+      "category": "radiostation",
+      "image_description": "Collage von verschiedenen KI-Bots: ThermoBot (Wetter-Icon), UNO-Orakel (Karten), Echo-1 (Musiknoten). Stil: digital, avatar-artig, 'AI Assistants'."
+    },
+    {
+      "id": "uno-orakel",
+      "name": "UNO-Orakel",
+      "story_file": "Radiostation/Radio-Bots/uno-orakel.md",
+      "category": "radiostation",
+      "image_description": "Drei UNO-Karten liegen auf einem Tisch (Vergangenheit, Gegenwart, Zukunft). Mystisches Licht, Rauch. Wirkt wie eine Tarot-Legung, aber mit UNO-Karten. Stil: mystisch, surreal, 'Card Reading'."
+    },
+    {
+      "id": "thermobot-9",
+      "name": "ThermoBot-9 (Wetter)",
+      "story_file": "Radiostation/Radio-Bots/ThermoBot-9.md",
+      "category": "radiostation",
+      "image_description": "Roboter-Kopf oder Bildschirm mit Wetter-Symbolen (Sonne, strahlende Wolke, Totenkopf). Anzeige von Temperatur und Strahlung. Stil: 'Weather Forecast', technisch, warnend."
+    },
+    {
+      "id": "echo-1",
+      "name": "Echo-1",
+      "story_file": "Radiostation/Radio-Bots/Echo-1.md",
+      "category": "radiostation",
+      "image_description": "Visualisierung von Musik: Schallwellen, Equalizer, Noten, die aus Schrott entstehen. Bunt, dynamisch. Stil: 'Music Viz', rhythmisch."
+    },
+    {
+      "id": "piep-matze",
+      "name": "Piep Matze",
+      "story_file": "Radiostation/Radio-Bots/piep-matze.md",
+      "category": "radiostation",
+      "image_description": "Compact Morse-code radio bot called Piep Matze in a ruined Doomsday Radio signal booth, small but vivid machine presence with scratched metal casing, worn antennae, glowing indicator lights, a built-in telegraph key and patched speaker grille, leaning forward in concentrated signal work while tapping out a daily code challenge, set in a battered radio corner with old relays, cables, rust, dust, signal lamps, notebook scraps and improvised audio hardware, visible decay, dirt, survival wear and tactile textures everywhere, but still full of life and physical presence. Rich wasteland palette with rust red, sunburnt orange and dusty beige, cold petrol-blue and steel-blue shadows, hazard-yellow and acid-green signal accents, cinematic natural studio light, airborne dust, believable post-apocalyptic atmosphere, iconic character portrait, grounded, photorealistic."
+    },
+    {
+      "id": "spotnik",
+      "name": "Spotnik",
+      "story_file": "Radiostation/Radio-Bots/spotnik.md",
+      "category": "radiostation",
+      "image_description": "1:1 square photorealistic image of Spotnik, a post-apocalyptic advertising radio bot in the Doomsday Radio studio, realistic machine anatomy and material detail, compact but flashy metal body with chipped paint, dented speaker grille, patched microphone arm, worn promo bulbs, sticker scraps, exposed wiring and survival-worn surfaces, leaning forward in an eager pitchman pose as if delivering a sponsor spot live on air, set in a ruined radio booth with improvised ad cards, battered studio hardware, cables, rusted panels, dust, ticket scraps and old jingle notes, visible signs of decay, dust, scratches, rust, dirt and survival, but still full of life and physical presence. Rich wasteland palette with rust red, sunburnt orange and dusty beige, petrol-blue and steel-blue shadows, hazard yellow and acid-green signal accents, cinematic natural studio lighting, airborne dust, strong depth, tactile textures, sharp focus on the main subject, dramatic but believable atmosphere, ultra-detailed, photorealistic, grounded, no stylized painting look, no flat sepia wash, no cartoon look."
+    },
+    {
+      "id": "nullapostell",
+      "name": "Nullapostell",
+      "story_file": "Radiostation/Radio-Bots/Nullapostell.md",
+      "category": "radiostation",
+      "image_description": "1:1 square photorealistic image of Nullapostell, a post-apocalyptic archive bot inside the ruined Doomsday Radio studio, realistic machine anatomy and material detail, narrow skeletal metal body with cracked casing, worn date-stamp modules, scratched speaker grille, exposed archive drawers, patched cables, old indicator bulbs and survival-worn surfaces, leaning forward over scattered documents and dead monitors as if reciting a failed apocalypse prophecy into the air, set in a dust-heavy archive corner with paper stacks, torn calendars, rusted filing cabinets, timeline notes, damaged terminals, cables, debris and old broadcast hardware, visible signs of decay, dust, scratches, rust, dirt and survival, but still full of life and physical presence. Rich wasteland palette with rust red, sunburnt orange and dusty beige, steel-blue and petrol-blue shadows, sickly archive-green and warning-amber accents, cinematic natural studio lighting, airborne dust, strong depth, tactile textures, sharp focus on the main subject, dramatic but believable atmosphere, ultra-detailed, photorealistic, grounded, no stylized painting look, no flat sepia wash, no cartoon look."
+    },
+    {
+      "id": "slogans",
+      "name": "Jingles and Slogans",
+      "story_file": "Radiostation/Radio-Bots/slogans.md",
+      "category": "radiostation",
+      "image_description": "Typografische Darstellung von Radio-Slogans ('Doomsday Dispatch', 'Live from the Wasteland'). Graffiti-Stil oder Neon-Schrift. Stil: 'Radio Branding', urban."
+    },
+    {
+      "id": "alltag-und-hygiene",
+      "name": "Alltag & Hygiene",
+      "story_file": "Assets/Alltag/index.md",
+      "category": "alltag",
+      "image_description": "Improvisierter Lageralltag in der Postapokalypse: Waschplatz aus Eimern, aufgehängte Stoffe, kleine Schlafnischen aus Planen, Latrinenbereich im Hintergrund, warme Feuerstelle, geordneter Müllplatz. Atmosphäre pragmatisch, rau, bewohnt, glaubwürdig. Stil: gritty wasteland daily life, documentary, detailed."
+    },
+    {
+      "id": "ascheseife",
+      "name": "Ascheseife",
+      "story_file": "Assets/Alltag/Ascheseife.md",
+      "category": "alltag",
+      "image_description": "Nahaufnahme eines improvisierten Seifenblocks aus Asche und Fett in einer rostigen Blechform, daneben Kräuter, Holzasche und Wasserbecher auf einer rauen Werkbank. Atmosphaere utilitaristisch, schmutzig, glaubwürdig. Stil: wasteland survival still life, earthy, tactile."
+    },
+    {
+      "id": "drei-eimer-waschplatz",
+      "name": "Drei-Eimer-Waschplatz",
+      "story_file": "Assets/Alltag/Drei-Eimer-Waschplatz.md",
+      "category": "alltag",
+      "image_description": "Ein improvisierter Waschplatz im Wasteland mit drei beschrifteten Eimern, Lappen an einer Leine, Bretterboden gegen Schlamm und wenigen sauberen Wasserreserven. Menschenhände waschen sich pragmatisch. Stil: gritty survival camp, practical hygiene station, cinematic realism."
+    },
+    {
+      "id": "latrinenrigg",
+      "name": "Latrinenrigg",
+      "story_file": "Assets/Alltag/Latrinenrigg.md",
+      "category": "alltag",
+      "image_description": "Eine improvisierte Wasteland-Latrine mit Sichtschutz aus Planen und Schrottblech, einfachem Holzrahmen über einer Grube, Ascheeimer daneben, abgelegen vom Lager. Atmosphaere rau, notwendig, nicht ekelhaft explizit. Stil: survival camp sanitation, grounded, realistic."
+    },
+    {
+      "id": "schlafnische",
+      "name": "Schlafnische",
+      "story_file": "Assets/Alltag/Schlafnische.md",
+      "category": "alltag",
+      "image_description": "Kleine private Schlafnische in einem Endzeitlager: Stoffbahnen, Schrottblech als Windschutz, weiche Unterlage aus Moos und Decken, persönlicher Becher und kleiner Talisman ueber dem Schlafplatz. Stimmung leise, armselig, aber wuerdevoll. Stil: intimate wasteland shelter, cinematic, human."
+    },
+    {
+      "id": "waermegrube",
+      "name": "Wärmegrube",
+      "story_file": "Assets/Alltag/Waermegrube.md",
+      "category": "alltag",
+      "image_description": "Eine Wärmegrube im Nachtlager: flache Bodenmulde mit warmen Steinen unter Decken und Brettern, schwaches Feuerlicht, kalte Umgebung, Menschen bereiten einen ruhigen Schlafplatz vor. Stil: survival engineering, warm glow in cold wasteland, grounded cinematic."
+    },
+    {
+      "id": "monatswickel-kit",
+      "name": "Monatswickel-Kit",
+      "story_file": "Assets/Alltag/Monatswickel-Kit.md",
+      "category": "alltag",
+      "image_description": "Ein diskretes Alltags-Hygiene-Set der Postapokalypse: sauber gefaltete Stoffwickel, Bindebaender, kleiner Blechbehaelter, Stueck Ascheseife und etwas Kraeuterzeug auf einem einfachen Tisch. Stil respektvoll, sachlich, ueberlebensorientiert, still life."
+    },
+    {
+      "id": "kinderversteck",
+      "name": "Kinderversteck",
+      "story_file": "Assets/Alltag/Kinderversteck.md",
+      "category": "alltag",
+      "image_description": "Versteckter Schutzraum fuer Kinder in einem Wasteland-Lager: niedriger Hohlraum hinter Kisten und Decken, weiche Unterlagen, kleiner Wasserbecher, gedimmtes Licht, unscheinbar von aussen. Atmosphaere still, traurig, beschuetzend. Stil: post-apocalyptic shelter, intimate, realistic."
+    },
+    {
+      "id": "muellgrube-mit-fliegendraht",
+      "name": "Müllgrube mit Fliegendraht",
+      "story_file": "Assets/Alltag/Muellgrube-mit-Fliegendraht.md",
+      "category": "alltag",
+      "image_description": "Geordneter Abfallplatz im Wasteland: eingegrabene Muellgrube mit Drahtabdeckung, getrennte Sammelbehaelter fuer Metall und Brennbares, Asche daneben, fern vom Lagerzentrum. Stil: practical survival infrastructure, dusty, believable."
+    },
+    {
+      "id": "totenhuelle-nullfaser",
+      "name": "Totenhülle Nullfaser",
+      "story_file": "Assets/Alltag/Totenhuelle-Nullfaser.md",
+      "category": "alltag",
+      "image_description": "Zusammengelegtes Leichentuch aus mehreren Stofflagen und Bindebaendern auf einer schlichten Trage, daneben Asche, Kraeuter und Handschutz. Wuerdevolle, ruhige Darstellung ohne explizite Gewalt. Stil: somber wasteland funerary tool, respectful, cinematic."
+    },
+    {
+      "id": "lauskamm-schrottzahn",
+      "name": "Lauskamm Schrottzahn",
+      "story_file": "Assets/Alltag/Lauskamm-Schrottzahn.md",
+      "category": "alltag",
+      "image_description": "Ein improvisierter feinzinkiger Kamm aus Schrott und Knochen auf einem rauen Tisch, daneben Wasserschale, Stoff und einfache Seife. Kleines, nuetzliches Werkzeug gegen Lagerlaeuse. Stil: practical wasteland hygiene tool, macro still life, tactile."
+    },
+    {
+      "id": "arbeit-und-handwerk",
+      "name": "Arbeit & Handwerk",
+      "story_file": "Assets/Arbeit/index.md",
+      "category": "arbeit",
+      "image_description": "Ein belebter Wasteland-Werkhof mit Flickbank, kleiner Schmiede, Trockenregalen, Metallreparaturen und improvisierten Arbeitsplaetzen aus Schrott, Holz und Planen. Atmosphaere funktional, hart, menschlich, handwerklich. Stil: gritty post-apocalyptic workshop yard, detailed, cinematic."
+    },
+    {
+      "id": "flickbank",
+      "name": "Flickbank",
+      "story_file": "Assets/Arbeit/Flickbank.md",
+      "category": "arbeit",
+      "image_description": "Improvisierte Reparaturbank mit Nadeln, Stoffresten, Lederriemen, Gurtband und schweren Maenteln auf einem rauen Holztisch im Wasteland-Lager. Stil: survival tailoring bench, tactile, realistic."
+    },
+    {
+      "id": "moonshine-brennplatz",
+      "name": "Moonshine-Brennplatz",
+      "story_file": "Assets/Arbeit/Moonshine-Brennplatz.md",
+      "category": "arbeit",
+      "image_description": "Improvisierte Brennerei der Postapokalypse mit Faessern, Kupferrohren, Feuerstelle und dreckigen Glasflaschen in einem Hillbilly-Lager. Atmosphaere gefaehrlich, lebendig, rau. Stil: wasteland distillery, gritty, cinematic realism."
+    },
+    {
+      "id": "schrotthaerte-schmiede",
+      "name": "Schrotthärte-Schmiede",
+      "story_file": "Assets/Arbeit/Schrotthaerte-Schmiede.md",
+      "category": "arbeit",
+      "image_description": "Heisse Maker-Schmiede aus Schrott und Stahl: Amboss, Funkenflug, gluehendes Metall, Zangen und Werkzeuge in einer improvisierten Industrieecke. Stil: post-apocalyptic forge, dramatic sparks, industrial."
+    },
+    {
+      "id": "gerberahmen",
+      "name": "Gerberahmen",
+      "story_file": "Assets/Arbeit/Gerberahmen.md",
+      "category": "arbeit",
+      "image_description": "Gespannte Tierhaut auf einem Holzrahmen in einem windigen Wasteland-Arbeitsbereich, daneben Schaber, Eimer, Seile und Gerbmaterial. Stil: survival leatherworking station, grounded, detailed."
+    },
+    {
+      "id": "trockengestell",
+      "name": "Trockengestell",
+      "story_file": "Assets/Arbeit/Trockengestell.md",
+      "category": "arbeit",
+      "image_description": "Erhoehtes Trockengestell im Endzeitlager mit Fleischstreifen, Kraeutern, Stoffwickeln und Haken unter einem improvisierten Dach. Luftig, funktional, glaubwuerdig. Stil: survival drying rack, documentary realism."
+    },
+    {
+      "id": "schlachtgrube",
+      "name": "Schlachtgrube",
+      "story_file": "Assets/Arbeit/Schlachtgrube.md",
+      "category": "arbeit",
+      "image_description": "Abgelegener, utilitaristischer Schlachtplatz in einem Wasteland-Lager mit Haken, Brettern, Eimern und Reinigungsasche, ohne explizite Gewalt. Fokus auf Infrastruktur und Arbeitslogik. Stil: survival butchering station, gritty, grounded."
+    },
+    {
+      "id": "nietenstand",
+      "name": "Nietenstand",
+      "story_file": "Assets/Arbeit/Nietenstand.md",
+      "category": "arbeit",
+      "image_description": "Metallreparaturplatz mit Blechen, Nieten, Hammer, Handbohrer und halb geflicktem Karrenrad auf einer robusten Werkbank. Stil: wasteland rivet station, practical engineering, realistic."
+    },
+    {
+      "id": "knochenwerkbank",
+      "name": "Knochenwerkbank",
+      "story_file": "Assets/Arbeit/Knochenwerkbank.md",
+      "category": "arbeit",
+      "image_description": "Werkbank mit gesaeuberten Knochenrohlingen, kleinen Saegen, Feilen und fertigen Knochenwerkzeugen wie Nadeln, Haken und Griffen. Stil: post-apocalyptic bone craft bench, tactile still life, realistic."
+    },
+    {
+      "id": "saatgutkiste",
+      "name": "Saatgutkiste",
+      "story_file": "Assets/Arbeit/Saatgutkiste.md",
+      "category": "arbeit",
+      "image_description": "Sorgfaeltig organisierte Saatgutkiste aus Holz mit kleinen Beuteln, Markierungen, trockenen Kraeutern und staubigem Licht in einem Retro-Lager. Stil: wasteland seed archive, quiet, hopeful, detailed."
+    },
+    {
+      "id": "ascheofen",
+      "name": "Ascheofen",
+      "story_file": "Assets/Arbeit/Ascheofen.md",
+      "category": "arbeit",
+      "image_description": "Kompakter improvisierter Ofen aus Trommel und Mauerresten mit gluehender Asche, Kochplatte und Werkstattumgebung in einem Wasteland-Camp. Stil: survival furnace, warm industrial glow, realistic."
+    },
+    {
+      "id": "zonen",
+      "name": "Zonen",
+      "story_file": "Assets/Zonen/index.md",
+      "category": "zonen",
+      "image_description": "Karte der Wasteland mit markierten Gefahrenzonen (rot). Verschiedene Landschaften: Wüste, Ruinen, Wald. Stil: 'Map', Übersicht."
+    },
+    {
+      "id": "verseuchte-zonen",
+      "name": "Verseuchte Zonen",
+      "story_file": "Assets/Zonen/index.md",
+      "category": "zonen",
+      "image_description": "Landschaftsbild einer verseuchten Zone. Nebel, seltsame Farben (grün/lila), mutierte Pflanzen, Warnschilder. Wirkt giftig und gefährlich. Stil: 'Toxic Landscape', atmosphärisch, bedrohlich."
+    },
+    {
+      "id": "aschering",
+      "name": "Aschering",
+      "story_file": "Assets/Zonen/Aschering.md",
+      "category": "zonen",
+      "image_description": "Ehemaliger Industriebezirk unter dichter Asche und Metallstaub. Verrostete Hallen, Förderkanäle, schlechte Sicht, orange-grauer Himmel. Atmosphäre toxisch und klaustrophobisch. Stil: Industrial Wasteland, düster, staubig."
+    },
+    {
+      "id": "gruenbrand-senke",
+      "name": "Grünbrand-Senke",
+      "story_file": "Assets/Zonen/Gruenbrand-Senke.md",
+      "category": "zonen",
+      "image_description": "Feuchter Kessel mit phosphoreszierenden Pilzfeldern, öligen Wasseraugen und giftigem Moor. Nachtstimmung mit unnatürlichem grünem Leuchten. Atmosphäre schön und zugleich tödlich. Stil: toxic swamp, bioluminescent horror."
+    },
+    {
+      "id": "nullbahn-korridor",
+      "name": "Nullbahn-Korridor",
+      "story_file": "Assets/Zonen/Nullbahn-Korridor.md",
+      "category": "zonen",
+      "image_description": "Zerschmolzene Hochgeschwindigkeitsstrecke mit eingestürzten Tunneln und alten Stromschienen. Funken, Nebel und enge Passage mit Hinterhaltgefühl. Atmosphäre technisch-gefährlich. Stil: post-rail ruin, cinematic tension."
+    },
+    {
+      "id": "bleigarten",
+      "name": "Bleigarten",
+      "story_file": "Assets/Zonen/Bleigarten.md",
+      "category": "zonen",
+      "image_description": "Verlassener Forschungspark mit versiegelten Labortrakten, zerbrochenen Gewächshäusern und langen Servicegängen. Kaltes Licht, sterile Relikte, Funkstille. Atmosphäre geheimnisvoll und kontaminiert. Stil: science ruin, eerie, controlled decay."
+    },
+    {
+      "id": "schacht-47",
+      "name": "Schacht 47",
+      "story_file": "Assets/Zonen/Schacht-47.md",
+      "category": "zonen",
+      "image_description": "Vertikales Minensystem mit rostigen Förderstrukturen, toxischen Gasfahnen und dunklen Schächten in die Tiefe. Seile, Absturzrisiko und schwere Industriefragmente. Atmosphäre brutal und lebensfeindlich. Stil: mining abyss, toxic, oppressive."
+    }
+  ]
+}
