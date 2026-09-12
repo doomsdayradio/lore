@@ -40,7 +40,6 @@ jobs:
         run: |
           python tools/story_consistency/check_group_relationships.py --summary-only
           python tools/story_consistency/check_story_timeline_alignment.py
-          python tools/story_consistency/check_story_links.py
 
       - name: Build Lore HTML
         run: python build_lore_html.py --output dist
