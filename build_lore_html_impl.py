@@ -46,7 +46,7 @@ LORE_CSS_FILES = {
     "overview": Path("site-assets/css/lore-overview.css"),
     "timeline": Path("site-assets/css/lore-timeline.css"),
 }
-LORE_CSS_CACHE_VERSION = "20260913-hardware1"
+LORE_CSS_CACHE_VERSION = "20260914-detail-images1"
 STYLE_BLOCK_RX = re.compile(r"\n  <style>\n(?P<css>.*?)\n  </style>\n", re.DOTALL)
 
 
