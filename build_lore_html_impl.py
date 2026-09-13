@@ -11,7 +11,6 @@ Generiert statische Lore-HTML aus content/story nach docs/story/lore.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import os
 import re
@@ -42,17 +41,13 @@ IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg")
 AUDIO_EXTENSIONS = (".mp3",)
 STORY_MEDIA_EXTENSIONS = {*(e.lower() for e in IMAGE_EXTENSIONS), *(e.lower() for e in AUDIO_EXTENSIONS)}
 GENERATED_OUTPUT_EXTENSIONS = {".html", ".css", ".json", ".js", *IMAGE_EXTENSIONS, *AUDIO_EXTENSIONS}
-PUBLIC_DESIGN_STYLESHEET = Path("design-system.css")
-LORE_CSS_CACHE_VERSION = "20260913-showcase1"
-STYLE_BLOCK_RX = re.compile(r"\s*<style\b[^>]*>.*?</style>\s*", re.IGNORECASE | re.DOTALL)
-STYLESHEET_LINK_RX = re.compile(
-  r"\n\s*<link\b(?=[^>]*\brel=[\"']stylesheet[\"'])[^>]*>\s*",
-  re.IGNORECASE,
-)
-GOOGLE_FONT_LINK_RX = re.compile(
-  r"\s*<link\b(?=[^>]*https://fonts\.(?:googleapis|gstatic)\.com)[^>]*>\s*",
-  re.IGNORECASE,
-)
+LORE_CSS_FILES = {
+    "detail": Path("site-assets/css/lore-detail.css"),
+    "overview": Path("site-assets/css/lore-overview.css"),
+    "timeline": Path("site-assets/css/lore-timeline.css"),
+}
+LORE_CSS_CACHE_VERSION = "20260913-hardware1"
+STYLE_BLOCK_RX = re.compile(r"\n  <style>\n(?P<css>.*?)\n  </style>\n", re.DOTALL)
 
 
 def _repo_root() -> Path:
@@ -141,19 +136,22 @@ def _escape_html(s: str) -> str:
     )
 
 
-def _externalize_single_style_block(html: str, css_href: str) -> tuple[str, None]:
-    html = STYLESHEET_LINK_RX.sub("", html)
-    html = GOOGLE_FONT_LINK_RX.sub("", html)
-    html = STYLE_BLOCK_RX.sub("\n", html)
-    link_tag = f'\n  <link rel="stylesheet" href="{css_href}" />\n'
-    if "</head>" not in html:
-        raise SystemExit("Lore-Template ohne Dokumentkopf erkannt.")
-    return html.replace("</head>", f"{link_tag}</head>", 1), None
+def _css_variant_for_output(out_rel: Path) -> str:
+    if out_rel == Path("index.html"):
+        return "overview"
+    if out_rel == Path("Kanon") / "Timeline" / "index.html":
+        return "timeline"
+    return "detail"
 
 
-def _stylesheet_cache_token(output_root: Path) -> str:
-    stylesheet = output_root / PUBLIC_DESIGN_STYLESHEET
-    return hashlib.sha256(stylesheet.read_bytes()).hexdigest()[:12]
+def _externalize_single_style_block(html: str, css_href: str) -> tuple[str, str | None]:
+    match = STYLE_BLOCK_RX.search(html)
+    if not match:
+        return html, None
+    css_text = match.group("css").strip("\n") + "\n"
+    link_tag = f'\n  <link rel="stylesheet" href="{_escape_html(css_href)}" />\n'
+    externalized = html[: match.start()] + link_tag + html[match.end() :]
+    return externalized, css_text
 
 
 def _render_inline_markdown(text: str) -> str:
@@ -993,24 +991,1334 @@ def _render_absolute_timeline_page(
   <meta name="description" content="{_escape_html(description)}" />
   <link rel="canonical" href="{_escape_html(page_url)}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {{
+      --bg: #2b2118;
+      --bg-a: #5a493c;
+      --bg-b: #3b3128;
+      --chassis-top: #a28b76;
+      --chassis-mid: #735f50;
+      --chassis-low: #4b3d32;
+      --bezel: #251d18;
+      --bezel-hi: #554539;
+      --panel: rgba(52, 43, 35, 0.8);
+      --panel-strong: rgba(63, 51, 41, 0.92);
+      --text: #e8e2d6;
+      --muted: #c8b9aa;
+      --accent: #f36c04;
+      --accent-hot: #ff9545;
+      --line: rgba(243, 108, 4, 0.48);
+      --card-width: 360px;
+      --panel-radius: 18px;
+      --title-font: "Bebas Neue", Impact, sans-serif;
+      --mono-font: "IBM Plex Mono", Menlo, monospace;
+      --lcd-bg: #d9cf9f;
+      --lcd-text: #5e552e;
+    }}
+    * {{ box-sizing: border-box; }}
+    html, body {{
+      margin: 0;
+      min-height: 100%;
+      height: 100dvh;
+      max-height: 100dvh;
+      overflow: hidden;
+      overflow: clip;
+    }}
+    *, *::before, *::after {{ box-sizing: border-box; }}
+    body {{
+      font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 12%, rgba(255, 157, 47, 0.18), transparent 20%),
+        radial-gradient(circle at 82% 14%, rgba(255, 209, 102, 0.08), transparent 18%),
+        radial-gradient(circle at 50% 100%, rgba(255, 90, 61, 0.14), transparent 34%),
+        url("../../../map/soiled-paper.jpg") center/420px auto repeat,
+        linear-gradient(165deg, var(--bg-a), var(--bg-b) 72%);
+      background-blend-mode: screen, screen, screen, multiply, normal;
+      max-height: 100dvh;
+    }}
+    body::before {{
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.28;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 7px),
+        repeating-linear-gradient(180deg, rgba(0,0,0,0.08) 0 2px, transparent 2px 8px),
+        radial-gradient(circle at 20% 24%, rgba(255,255,255,0.06) 0 2px, transparent 3px) 0 0 / 38px 38px;
+      mix-blend-mode: soft-light;
+    }}
+    .noise-layer {{
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0;
+      mix-blend-mode: screen;
+      transition: opacity .08s linear;
+    }}
+    .page {{
+      position: relative;
+      z-index: 3;
+      height: 100dvh;
+      max-height: 100dvh;
+      box-sizing: border-box;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 10px;
+      padding: 18px;
+      overflow: hidden;
+      overflow: clip;
+      max-width: 1520px;
+      margin: 0 auto;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0) 15%, rgba(0,0,0,0.14) 82%),
+        linear-gradient(180deg, var(--chassis-top), var(--chassis-mid) 48%, var(--chassis-low)),
+        radial-gradient(circle at 14% 14%, rgba(255,255,255,0.22), transparent 24%),
+        radial-gradient(circle at 84% 86%, rgba(0,0,0,0.24), transparent 28%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, rgba(0,0,0,0.02) 1px, rgba(0,0,0,0.02) 3px, transparent 3px, transparent 7px);
+      box-shadow:
+        0 34px 80px rgba(0,0,0,0.46),
+        0 10px 24px rgba(0,0,0,0.24),
+        inset 0 1px 0 rgba(255,255,255,0.24),
+        inset 0 -10px 18px rgba(0,0,0,0.24);
+    }}
+    .page::after {{
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-radius: 24px;
+      pointer-events: none;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        inset 0 0 0 1px rgba(0,0,0,0.16);
+    }}
+    .hero, .toolbar {{
+      position: relative;
+      z-index: 1;
+      border-radius: var(--panel-radius);
+    }}
+    .hero {{
+      border: 2px solid var(--bezel-hi);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01) 10%, rgba(0,0,0,0.14)),
+        linear-gradient(180deg, #130707, #060203);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        inset 0 -8px 12px rgba(0,0,0,0.24),
+        0 16px 34px rgba(0,0,0,.22);
+    }}
+    .hero {{
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: start;
+    }}
+    .hero h1 {{
+      margin: 0 0 8px;
+      font-family: var(--title-font);
+      font-size: clamp(40px, 5vw, 72px);
+      line-height: .9;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: #ffd166;
+      text-shadow:
+        0 3px 0 rgba(0,0,0,.28),
+        0 0 18px rgba(255, 157, 47, .14);
+    }}
+    .hero p {{ margin: 0; max-width: 70ch; color: var(--muted); line-height: 1.5; }}
+    .hero-link {{
+      color: var(--text); text-decoration: none; border: 1px solid rgba(255, 198, 104, .28);
+      padding: 12px 16px; border-radius: 999px; background: rgba(0,0,0,.24);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    }}
+    .toolbar {{
+      padding: 10px 12px;
+      display: grid;
+      grid-template-columns: minmax(280px, 1fr) auto auto;
+      align-items: center;
+      gap: 12px;
+      min-height: 76px;
+      border: 2px solid var(--bezel-hi);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01) 10%, rgba(0,0,0,0.14)),
+        linear-gradient(180deg, #130707, #060203);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        inset 0 -8px 12px rgba(0,0,0,0.24),
+        0 16px 34px rgba(0,0,0,.18);
+      overflow: hidden;
+    }}
+    .toolbar > * {{ position: relative; z-index: 1; }}
+    .toolbar-group {{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+      min-width: 0;
+      min-height: 52px;
+      color: var(--lcd-text);
+    }}
+    .toolbar-group.search-group {{
+      justify-content: stretch;
+    }}
+    .toolbar-group.zoom-group {{
+      justify-content: center;
+    }}
+    .toolbar-group.action-group {{
+      justify-content: flex-end;
+    }}
+    .toolbar-lcd {{
+      --snow-strength: 0;
+      --snow-opacity: 0;
+      --beat-pulse: 0;
+      display: inline-flex;
+      align-items: stretch;
+      gap: 10px;
+      padding: 8px 10px;
+      min-height: 52px;
+      height: 52px;
+      border: 1px solid rgba(109, 132, 63, .74);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(245, 252, 222, .2), transparent 40%),
+        linear-gradient(180deg, color-mix(in srgb, var(--lcd-bg) 93%, white 7%), color-mix(in srgb, var(--lcd-bg) 87%, #7f9465 13%) 58%, color-mix(in srgb, var(--lcd-bg) 79%, #6d8154 21%));
+      box-shadow:
+        inset 0 0 0 1px rgba(199,217,133,.2),
+        inset 0 0 0 2px rgba(48, 64, 24, .28),
+        inset 0 10px 14px rgba(216,229,162,.1),
+        inset 0 -12px 18px rgba(47,64,23,.2),
+        inset 0 -20px 26px rgba(28, 39, 14, .2),
+        inset 0 16px 20px rgba(216,229,162,.1);
+      position: relative;
+      overflow: hidden;
+      filter: contrast(calc(1 + var(--snow-strength) * 0.1)) saturate(calc(1 + var(--snow-strength) * 0.06)) brightness(calc(.995 + var(--beat-pulse) * .015));
+      transform: none;
+    }}
+    .toolbar-lcd::before {{
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: calc(.04 + var(--snow-strength) * .38 + var(--beat-pulse) * .0005);
+      background:
+        linear-gradient(90deg,
+          rgba(255, 66, 66, calc(var(--snow-strength) * .22)) 0%,
+          rgba(255, 66, 66, calc(var(--snow-strength) * .1)) 38%,
+          rgba(114, 190, 255, calc(var(--snow-strength) * .18)) 100%),
+        linear-gradient(180deg,
+          transparent 0 18%,
+          rgba(245, 255, 190, calc(var(--snow-strength) * .22)) 18% 21%,
+          transparent 21% 46%,
+          rgba(255, 120, 120, calc(var(--snow-strength) * .12)) 46% 49%,
+          transparent 49% 100%),
+        radial-gradient(circle at 84% 18%, rgba(238, 250, 170, .16), transparent 32%),
+        repeating-linear-gradient(90deg,
+          rgba(56, 86, 24, .06) 0 1px,
+          rgba(178, 210, 82, .02) 1px 2px,
+          transparent 2px 4px),
+        repeating-linear-gradient(0deg,
+          rgba(47, 72, 18, .12) 0 1px,
+          rgba(189, 215, 86, .03) 1px 3px,
+          transparent 3px 5px);
+      mix-blend-mode: screen;
+    }}
+    .toolbar-lcd::after {{
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 3;
+      opacity: calc(var(--snow-opacity) * .42 + var(--snow-strength) * .035 + var(--beat-pulse) * .0004);
+      background:
+        linear-gradient(0deg,
+          transparent 0 24%,
+          rgba(228, 247, 150, calc(var(--snow-strength) * .34)) 24% 28%,
+          transparent 28% 56%,
+          rgba(188, 220, 106, calc(var(--snow-strength) * .26)) 56% 60%,
+          transparent 60% 100%),
+        linear-gradient(90deg,
+          transparent 0 14%,
+          rgba(255,255,255, calc(var(--snow-strength) * .09)) 14% 16%,
+          transparent 16% 68%,
+          rgba(255,255,255, calc(var(--snow-strength) * .07)) 68% 71%,
+          transparent 71% 100%),
+        repeating-linear-gradient(0deg,
+          transparent 0 10px,
+          rgba(255,255,255, calc(var(--snow-strength) * .14)) 10px 11px,
+          transparent 11px 18px),
+        radial-gradient(circle, rgba(205, 226, 130, .36) 0 1px, transparent 1px 100%) 0 0 / 6px 6px,
+        repeating-linear-gradient(0deg, rgba(56, 78, 24, .09), rgba(56, 78, 24, .09) 1px, transparent 1px, transparent 3px);
+      mix-blend-mode: screen;
+    }}
+    .toolbar-lcd > * {{
+      position: relative;
+      z-index: 1;
+    }}
+    .toolbar-lcd.search-lcd {{
+      flex: 1 1 320px;
+      min-width: 220px;
+    }}
+    .toolbar-lcd.scale-lcd {{
+      flex: 0 0 auto;
+      min-width: 280px;
+      justify-content: space-between;
+    }}
+    .toolbar button {{
+      border: 1px solid rgba(109, 132, 63, .58);
+      background: rgba(255,255,255,0.03);
+      color: #f3e7c9;
+      padding: 9px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: var(--mono-font);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        inset 0 -1px 0 rgba(0,0,0,.14);
+    }}
+    .toolbar-group.action-group button {{
+      --led-color: #ff9b47;
+      --led-off: color-mix(in srgb, var(--led-color) 48%, #141920 52%);
+      appearance: none;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--panel-radius);
+      padding: 10px 22px 10px 12px;
+      color: var(--text);
+      font: 700 12px/1 var(--mono-font);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01)),
+        linear-gradient(180deg, #4a352a, #241815);
+      box-shadow:
+        0 10px 20px rgba(0,0,0,0.16),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: border-color 140ms ease, box-shadow 140ms ease;
+    }}
+    .toolbar-group.action-group button::after {{
+      content: "";
+      position: absolute;
+      right: 7px;
+      top: 7px;
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      border: 1px solid color-mix(in srgb, var(--led-color) 30%, rgba(225,235,246,.2) 70%);
+      background: var(--led-off);
+      opacity: .94;
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--led-color) 14%, rgba(0,0,0,.58) 86%);
+      pointer-events: none;
+      transform: scale(1);
+      filter: brightness(.72) saturate(.9);
+    }}
+    .toolbar-group.action-group button:hover {{
+      border-color: rgba(255,209,102,0.34);
+    }}
+    .toolbar-group.action-group #jumpToNow {{
+      --led-color: #52e07c;
+      color: #1d120c;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+        linear-gradient(180deg, #ff9d2f, #c95314);
+      border-color: rgba(255,209,102,0.38);
+    }}
+    .scale-readout {{
+      min-width: 196px;
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      color: var(--lcd-text);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      font: 700 15px/1.04 "VT323", var(--mono-font);
+      text-transform: uppercase;
+      letter-spacing: 0.22px;
+    }}
+    .scale-bar {{
+      width: 88px;
+      height: 8px;
+      position: relative;
+      border-top: 2px solid rgba(94, 85, 46, 0.88);
+    }}
+    .scale-bar::before,
+    .scale-bar::after {{
+      content: "";
+      position: absolute;
+      top: -4px;
+      width: 2px;
+      height: 10px;
+      background: rgba(94, 85, 46, 0.88);
+    }}
+    .scale-bar::before {{ left: 0; }}
+    .scale-bar::after {{ right: 0; }}
+    .scale-label {{
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: uppercase;
+    }}
+    .toolbar input[type="range"] {{
+      width: min(280px, 48vw);
+      height: 100%;
+      margin: 0;
+      accent-color: #7f9465;
+    }}
+    .toolbar-search {{
+      width: 100%;
+      min-width: 0;
+      height: 100%;
+      padding: 0 14px;
+      border-radius: 0;
+      border: 1px solid rgba(109, 132, 63, .74);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(245, 252, 222, .2), transparent 40%),
+        linear-gradient(180deg, color-mix(in srgb, var(--lcd-bg) 93%, white 7%), color-mix(in srgb, var(--lcd-bg) 87%, #7f9465 13%) 58%, color-mix(in srgb, var(--lcd-bg) 79%, #6d8154 21%));
+      color: var(--lcd-text);
+      outline: none;
+      font: 700 16px/1.02 "VT323", var(--mono-font);
+      letter-spacing: 0.22px;
+      appearance: none;
+      box-shadow:
+        inset 0 0 0 1px rgba(199,217,133,.2),
+        inset 0 0 0 2px rgba(48, 64, 24, .28),
+        inset 0 10px 14px rgba(216,229,162,.1),
+        inset 0 -12px 18px rgba(47,64,23,.2),
+        inset 0 -20px 26px rgba(28, 39, 14, .2),
+        inset 0 16px 20px rgba(216,229,162,.1);
+    }}
+    .toolbar-search::placeholder {{
+      color: color-mix(in srgb, var(--lcd-text) 68%, transparent);
+    }}
+    .toolbar-search:focus {{
+      border-color: rgba(109, 132, 63, .88);
+      box-shadow:
+        inset 0 0 0 1px rgba(199,217,133,.24),
+        inset 0 0 0 2px rgba(48, 64, 24, .3),
+        inset 0 10px 14px rgba(216,229,162,.1),
+        inset 0 -12px 18px rgba(47,64,23,.2),
+        inset 0 -20px 26px rgba(28, 39, 14, .2),
+        inset 0 16px 20px rgba(216,229,162,.1),
+        0 0 0 3px rgba(109, 132, 63, 0.12);
+    }}
+    .board-shell {{
+      min-height: 0; position: relative; border-radius: 24px; overflow: hidden;
+      border: 2px solid var(--bezel-hi);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01) 10%, rgba(0,0,0,0.14)),
+        linear-gradient(180deg, #11171d, #090c10 74%),
+        radial-gradient(circle at 20% 0%, rgba(141, 240, 202, 0.05), transparent 26%),
+        radial-gradient(circle at 82% 86%, rgba(255, 157, 47, 0.08), transparent 26%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        inset 0 -10px 18px rgba(0,0,0,0.28),
+        0 18px 40px rgba(0,0,0,.24);
+      transition: background .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }}
+    .board-shell[data-audio-state="idle"] {{
+      background:
+        radial-gradient(circle at top, rgba(76, 82, 92, 0.22), transparent 40%),
+        linear-gradient(180deg, rgba(52, 57, 64, 0.985), rgba(38, 42, 48, 0.975));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }}
+    .board-noise-layer {{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0;
+      mix-blend-mode: screen;
+      transition: opacity .08s linear;
+    }}
+    .timeline-hud {{
+      position: absolute; top: 14px; right: 14px; z-index: 5; display: grid; gap: 6px;
+      padding: 12px 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,.08);
+      background: rgba(10, 12, 16, 0.78); backdrop-filter: blur(10px); min-width: 200px;
+    }}
+    .timeline-hud strong {{ font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #ffd38d; }}
+    .timeline-hud span {{ color: var(--muted); font-size: 13px; line-height: 1.35; }}
+    .timeline-minimap {{
+      position: absolute;
+      top: 110px;
+      right: 14px;
+      z-index: 5;
+      width: 92px;
+      height: 320px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(10, 12, 16, 0.78);
+      backdrop-filter: blur(10px);
+      padding: 12px 10px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 10px;
+      cursor: default;
+    }}
+    .timeline-minimap-title {{
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #ffd38d;
+      text-align: center;
+    }}
+    .timeline-minimap-track {{
+      position: relative;
+      min-height: 0;
+    }}
+    .timeline-minimap-axis {{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, rgba(255, 198, 104, .18), rgba(255, 198, 104, .56), rgba(255, 198, 104, .18));
+    }}
+    .timeline-minimap-breaks {{
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }}
+    .timeline-minimap-break {{
+      position: absolute;
+      left: 50%;
+      width: 18px;
+      height: 20px;
+      transform: translate(-50%, -50%);
+      border-radius: 999px;
+      background: rgba(7, 9, 12, 0.96);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.06);
+    }}
+    .timeline-minimap-break::before,
+    .timeline-minimap-break::after {{
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1px;
+      height: 12px;
+      background: rgba(255, 211, 141, .75);
+      border-radius: 999px;
+    }}
+    .timeline-minimap-break::before {{
+      transform: translate(-5px, -50%) rotate(-26deg);
+    }}
+    .timeline-minimap-break::after {{
+      transform: translate(4px, -50%) rotate(-26deg);
+    }}
+    .timeline-minimap-points,
+    .timeline-minimap-viewport {{
+      position: absolute;
+      inset: 0;
+    }}
+    .timeline-minimap-point {{
+      position: absolute;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      transform: translate(-50%, -50%);
+      background: rgb(var(--strand-rgb, 255, 211, 141));
+      box-shadow: 0 0 0 2px rgba(var(--strand-rgb, 255, 211, 141), .12);
+      opacity: .9;
+    }}
+    .timeline-minimap-viewport-box {{
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 211, 141, .7);
+      background: rgba(255, 179, 71, .08);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
+      min-height: 18px;
+      cursor: grab;
+      touch-action: none;
+    }}
+    .timeline-minimap.dragging .timeline-minimap-viewport-box {{
+      cursor: grabbing;
+      background: rgba(255, 179, 71, .12);
+      border-color: rgba(255, 211, 141, .86);
+    }}
+    .board-scroll {{
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      overscroll-behavior: contain;
+      touch-action: pan-y;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }}
+    .board-scroll::-webkit-scrollbar {{
+      width: 0;
+      height: 0;
+      display: none;
+    }}
+    .timeline-board {{ position: relative; min-height: 100%; padding: 96px 24px 140px; }}
+    .audio-dock {{
+      --beat: 0;
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index: 8;
+      width: min(320px, calc(100vw - 28px));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      background: rgba(10, 12, 16, 0.86);
+      box-shadow:
+        0 18px 44px rgba(0,0,0,.28),
+        0 0 calc(10px + var(--beat) * 20px) rgba(255, 123, 57, calc(0.06 + var(--beat) * 0.22));
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+      transition: box-shadow .12s linear, border-color .12s linear;
+    }}
+    .audio-dock-inner {{
+      display: grid;
+      gap: 10px;
+      padding: 12px 14px;
+    }}
+    .audio-top {{
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }}
+    .audio-play {{
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 198, 104, .28);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 14px;
+      transform: scale(calc(1 + var(--beat) * 0.08));
+      transition: transform .1s linear, border-color .12s linear, background .12s linear;
+    }}
+    .audio-meta {{
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }}
+    .audio-kicker {{
+      color: #ffd38d;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }}
+    .audio-title {{
+      font-size: 13px;
+      color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }}
+    .audio-time {{
+      font-size: 12px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }}
+    .audio-visualizer {{
+      display: inline-flex;
+      align-items: end;
+      gap: 3px;
+      height: 18px;
+    }}
+    .beat-bar {{
+      width: 3px;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ffd38d, #ff8f4d);
+      transform-origin: center bottom;
+      transform: scaleY(0.18);
+      opacity: 0.72;
+      transition: transform .08s linear, opacity .08s linear;
+    }}
+    .audio-progress {{
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      outline: none;
+      accent-color: var(--accent);
+    }}
+    .audio-progress::-webkit-slider-thumb {{
+      -webkit-appearance: none;
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: #ffd38d;
+      border: none;
+    }}
+    .audio-progress::-moz-range-thumb {{
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: #ffd38d;
+      border: none;
+    }}
+    .audio-progress::-moz-range-track {{
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+    }}
+    .timeline-axis {{
+      position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; transform: translateX(-50%);
+      background: linear-gradient(180deg, transparent 0%, rgba(255, 198, 104, .52) 6%, rgba(255, 198, 104, .28) 94%, transparent 100%);
+      box-shadow: 0 0 24px rgba(255, 179, 71, .18);
+    }}
+    .timeline-breaks {{
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 4;
+    }}
+    .timeline-break {{
+      position: absolute;
+      left: 50%;
+      width: 34px;
+      height: 42px;
+      transform: translate(-50%, -50%);
+      border-radius: 999px;
+      background: rgba(8, 11, 15, 0.98);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.05),
+        0 8px 20px rgba(0,0,0,.2);
+    }}
+    .timeline-break::before,
+    .timeline-break::after {{
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 24px;
+      background: rgba(255, 211, 141, .88);
+      border-radius: 999px;
+      box-shadow: 0 0 10px rgba(255, 179, 71, .16);
+    }}
+    .timeline-break::before {{
+      transform: translate(-8px, -50%) rotate(-28deg);
+    }}
+    .timeline-break::after {{
+      transform: translate(6px, -50%) rotate(-28deg);
+    }}
+    .timeline-ruler, .timeline-years, .timeline-events {{ position: absolute; inset: 0; }}
+    .timeline-ruler {{ pointer-events: none; }}
+    .timeline-years {{ pointer-events: none; z-index: 6; }}
+    .ruler-mark {{ position: absolute; left: 50%; transform: translate(-50%, -50%); }}
+    .ruler-mark::before {{
+      content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 18px; height: 1px; background: rgba(255, 198, 104, .22);
+    }}
+    .ruler-mark.major::before {{ width: 42px; background: rgba(255, 198, 104, .48); }}
+    .ruler-label {{
+      position: absolute;
+      left: 50%;
+      color: rgba(243,231,201,.58);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      text-align: center;
+      pointer-events: none;
+    }}
+    .ruler-label.above {{
+      top: -12px;
+      transform: translate(-50%, -100%);
+    }}
+    .ruler-label.below {{
+      top: 12px;
+      transform: translate(-50%, 0);
+    }}
+    .year-marker {{ position: absolute; left: 0; right: 0; height: 0; z-index: 6; }}
+    .year-dot {{
+      position: absolute; left: 50%; width: 18px; height: 18px; transform: translate(-50%, -50%);
+      border-radius: 999px; background: linear-gradient(180deg, #ffd38d, #ff8f4d);
+      box-shadow: 0 0 0 6px rgba(255, 179, 71, .08), 0 0 24px rgba(255, 123, 57, .24);
+    }}
+    .year-label {{
+      position: absolute;
+      left: calc(50% + 28px);
+      transform: translateY(-50%);
+      display: grid;
+      gap: 4px;
+      max-width: min(24vw, 260px);
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 209, 102, .16);
+      border-radius: 12px;
+      background: rgba(18, 22, 30, .86);
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.22),
+        inset 0 0 0 1px rgba(255,255,255,.02);
+      backdrop-filter: blur(8px);
+    }}
+    .year-marker.compact .year-label {{
+      left: 50%;
+      right: auto;
+      transform: translate(-50%, calc(-100% - 12px));
+      text-align: center;
+      max-width: min(22vw, 220px);
+      gap: 2px;
+    }}
+    .year-marker.center-above .year-label {{
+      left: 50%;
+      right: auto;
+      transform: translate(-50%, calc(-100% - 14px));
+      text-align: center;
+      width: min(220px, 18vw);
+      max-width: min(220px, 18vw);
+      gap: 3px;
+    }}
+    .year-marker.center-below .year-label {{
+      left: 50%;
+      right: auto;
+      transform: translate(-50%, 14px);
+      text-align: center;
+      width: min(220px, 18vw);
+      max-width: min(220px, 18vw);
+      gap: 3px;
+    }}
+    .year-marker.side-left .year-label {{
+      left: auto;
+      right: calc(50% + 72px);
+      text-align: right;
+      max-width: min(15vw, 180px);
+      gap: 3px;
+    }}
+    .year-marker.side-right .year-label {{
+      left: calc(50% + 72px);
+      right: auto;
+      text-align: left;
+      max-width: min(15vw, 180px);
+      gap: 3px;
+    }}
+    .year-marker.epoch-left .year-label {{
+      left: auto;
+      right: calc(50% + 110px);
+      text-align: right;
+      width: min(13vw, 150px);
+      max-width: min(13vw, 150px);
+      gap: 2px;
+    }}
+    .year-marker.epoch-right .year-label {{
+      left: calc(50% + 110px);
+      right: auto;
+      text-align: left;
+      width: min(13vw, 150px);
+      max-width: min(13vw, 150px);
+      gap: 2px;
+    }}
+    .year-marker.prominent-above .year-label {{
+      left: 50%;
+      right: auto;
+      transform: translate(-50%, calc(-100% - 20px));
+      text-align: center;
+      width: min(240px, 26vw);
+      max-width: min(240px, 26vw);
+      gap: 6px;
+      padding: 10px 14px;
+    }}
+    .year-marker.prominent-below .year-label {{
+      left: 50%;
+      right: auto;
+      transform: translate(-50%, 20px);
+      text-align: center;
+      width: min(240px, 26vw);
+      max-width: min(240px, 26vw);
+      gap: 6px;
+      padding: 10px 14px;
+    }}
+    .year-label strong {{
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #ffd166;
+      line-height: 1;
+      text-shadow:
+        0 2px 0 rgba(0,0,0,.34),
+        0 0 14px rgba(255, 157, 47, .12);
+    }}
+    .year-label span {{
+      color: rgba(243, 231, 201, 0.78);
+      font-size: 13px;
+      line-height: 1.25;
+      text-shadow: 0 1px 0 rgba(0,0,0,.34);
+    }}
+    .year-marker.prominent-above .year-label strong,
+    .year-marker.prominent-below .year-label strong {{
+      font-size: 28px;
+      letter-spacing: .045em;
+      color: #ffd166;
+      text-shadow:
+        0 2px 0 rgba(0,0,0,.38),
+        0 0 18px rgba(255, 157, 47, .16);
+    }}
+    .year-marker.prominent-above .year-label span,
+    .year-marker.prominent-below .year-label span {{
+      font-size: 14px;
+      color: rgba(243, 231, 201, 0.88);
+    }}
+    .year-marker.nudge-up .year-label {{
+      margin-top: -46px;
+    }}
+    .year-marker.nudge-down .year-label {{
+      margin-top: 46px;
+    }}
+    .year-marker.far-up .year-label {{
+      margin-top: -96px;
+    }}
+    .year-marker.far-down .year-label {{
+      margin-top: 96px;
+    }}
+    .event-node {{
+      position: absolute; left: 50%; width: 10px; height: 10px; transform: translate(-50%, -50%);
+      border-radius: 999px; background: rgb(var(--strand-rgb, 255, 211, 141)); box-shadow: 0 0 0 4px rgba(var(--strand-rgb, 255, 179, 71), .08);
+      z-index: 3;
+    }}
+    .event-node.cluster {{
+      width: 14px; height: 14px; background: rgb(var(--strand-rgb, 255, 143, 77));
+      box-shadow: 0 0 0 6px rgba(var(--strand-rgb, 255, 123, 57), .12), 0 0 22px rgba(var(--strand-rgb, 255, 123, 57), .22);
+    }}
+    .event-card {{
+      position: absolute; width: min(var(--card-width), calc(50% - 176px)); z-index: 2;
+      transform-origin: center top;
+      transition: width .18s ease-out, opacity .22s ease-out, transform .22s ease-out, filter .22s ease-out;
+    }}
+    .event-card.left {{ right: calc(50% + 156px); }}
+    .event-card.right {{ left: calc(50% + 156px); }}
+    .event-connector {{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: rgba(var(--strand-rgb, 255, 198, 104), .42);
+      transform-origin: 0 50%;
+      z-index: 1;
+      pointer-events: none;
+    }}
+    .event-connector.hidden {{
+      opacity: 0;
+    }}
+    .event-card-inner {{
+      border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 14px 16px;
+      background: rgba(22, 27, 35, 0.96);
+      box-shadow:
+        0 12px 28px rgba(0,0,0,.28),
+        inset 0 0 0 1px rgba(255,255,255,.03);
+      display: grid; gap: 10px;
+      transition: background .22s ease-out, border-color .22s ease-out, box-shadow .22s ease-out;
+    }}
+    .event-card-inner::before {{
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      border-radius: 16px 0 0 16px;
+      background: rgba(var(--strand-rgb, 255, 211, 141), .9);
+    }}
+    .event-card-inner {{ position: relative; }}
+    .event-chips {{
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      max-height: 56px;
+      overflow: hidden;
+      transition: opacity .24s ease-out, transform .24s ease-out;
+    }}
+    .event-chip {{
+      display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border-radius: 999px;
+      border: 1px solid rgba(255, 198, 104, .16); background: rgba(255, 179, 71, 0.06);
+      color: #f2c778; font-size: 10px; text-transform: uppercase; letter-spacing: .05em;
+    }}
+    button.event-chip {{
+      cursor: pointer;
+      font: inherit;
+    }}
+    .event-chip.strand {{
+      border-color: rgba(var(--strand-rgb, 255, 198, 104), .32);
+      background: rgba(var(--strand-rgb, 255, 198, 104), .12);
+      color: rgb(var(--strand-rgb, 255, 211, 141));
+    }}
+    .event-meta-row {{
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }}
+    .event-filter-button {{
+      border: 1px solid rgba(var(--strand-rgb, 255, 198, 104), .28);
+      background: rgba(var(--strand-rgb, 255, 198, 104), .08);
+      color: rgb(var(--strand-rgb, 255, 211, 141));
+      border-radius: 999px;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      font: inherit;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background .18s ease-out, border-color .18s ease-out, opacity .18s ease-out;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }}
+    .event-filter-button:hover {{
+      background: rgba(var(--strand-rgb, 255, 198, 104), .16);
+      border-color: rgba(var(--strand-rgb, 255, 198, 104), .44);
+    }}
+    .event-filter-button .fa-solid {{
+      font-size: 13px;
+      pointer-events: none;
+    }}
+    .event-card h3 {{ margin: 0; font-size: 18px; transition: opacity .22s ease-out; }}
+    .event-card h3 a {{ color: inherit; text-decoration: none; }}
+    .event-card h3 a:hover {{ color: #ffd38d; }}
+    .event-stamp {{ color: #ffd38d; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; transition: opacity .22s ease-out; }}
+    .event-summary, .event-overview {{
+      margin: 0;
+      line-height: 1.5;
+      font-size: 14px;
+      max-height: 200px;
+      overflow: hidden;
+      transition: opacity .24s ease-out, transform .24s ease-out;
+    }}
+    .event-overview {{ color: var(--muted); }}
+    .event-link {{
+      color: #ffd38d;
+      text-decoration: none;
+      font-size: 14px;
+      max-height: 24px;
+      overflow: hidden;
+      transition: opacity .24s ease-out, transform .24s ease-out;
+    }}
+    .event-card[data-detail="summary"] .event-chips,
+    .event-card[data-detail="summary"] .event-overview,
+    .event-card[data-detail="summary"] .event-link {{
+      opacity: 0;
+      max-height: 0;
+      transform: translateY(-6px);
+      pointer-events: none;
+      margin: 0;
+    }}
+    .event-card[data-detail="summary"] .event-card-inner {{ padding-top: 12px; padding-bottom: 12px; }}
+    .event-card[data-detail="summary"] {{
+      opacity: 0.96;
+      transform: scale(0.95);
+      filter: saturate(0.94);
+    }}
+    .event-card[data-detail="summary"] .event-card-inner {{
+      gap: 8px;
+    }}
+    .event-card[data-detail="summary"] h3 {{
+      font-size: 16px;
+    }}
+    .event-card[data-detail="summary"] .event-summary {{
+      font-size: 13px;
+    }}
+    .event-card[data-detail="headline"] {{
+      opacity: 0.88;
+      transform: scale(0.86);
+      filter: saturate(0.86);
+    }}
+    .event-card[data-detail="headline"] .event-card-inner {{
+      padding: 10px 12px;
+      gap: 6px;
+      background: rgba(24, 29, 37, 0.92);
+      border-color: rgba(255,255,255,.14);
+      box-shadow:
+        0 10px 24px rgba(0,0,0,.24),
+        inset 0 0 0 1px rgba(255,255,255,.025);
+    }}
+    .event-card[data-detail="headline"] .event-chips,
+    .event-card[data-detail="headline"] .event-summary,
+    .event-card[data-detail="headline"] .event-overview,
+    .event-card[data-detail="headline"] .event-link,
+    .event-card[data-detail="headline"] .event-filter-button {{
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transform: translateY(-8px);
+      pointer-events: none;
+      margin: 0;
+    }}
+    .event-card[data-detail="headline"] h3 {{
+      font-size: 14px;
+    }}
+    .event-card[data-detail="headline"] .event-stamp {{
+      font-size: 11px;
+      opacity: 0.86;
+    }}
+    .event-card[data-detail="full"] .event-chips,
+    .event-card[data-detail="full"] .event-summary,
+    .event-card[data-detail="full"] .event-overview,
+    .event-card[data-detail="full"] .event-link {{
+      opacity: 1;
+      max-height: 240px;
+      transform: translateY(0);
+      pointer-events: auto;
+    }}
+    .event-card[data-kind="cluster"] .event-card-inner {{
+      background: rgba(28, 18, 14, 0.84);
+      border-color: rgba(var(--strand-rgb, 255, 179, 71), .16);
+    }}
+    .event-card[data-kind="cluster"] .event-summary {{
+      color: #f0d6a2;
+    }}
+    .event-count {{
+      color: #ffcf83;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }}
+    .board-shell[data-view-mode="strand"] .timeline-axis,
+    .board-shell[data-view-mode="strand"] .timeline-ruler,
+    .board-shell[data-view-mode="strand"] .timeline-years,
+    .board-shell[data-view-mode="strand"] .event-node,
+    .board-shell[data-view-mode="strand"] .event-connector,
+    .board-shell[data-view-mode="strand"] .timeline-hud,
+    .board-shell[data-view-mode="strand"] .timeline-minimap {{
+      display: none;
+    }}
+    .board-shell[data-view-mode="strand"] .timeline-board {{
+      padding: 24px 24px 120px;
+    }}
+    .board-shell[data-view-mode="strand"] .event-card,
+    .board-shell[data-view-mode="strand"] .event-card.left,
+    .board-shell[data-view-mode="strand"] .event-card.right {{
+      left: 50% !important;
+      right: auto !important;
+      width: min(860px, calc(100% - 24px)) !important;
+      transform: translateX(-50%) !important;
+    }}
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="summary"],
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="headline"] {{
+      opacity: 1;
+      filter: none;
+    }}
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="summary"] .event-card-inner,
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="headline"] .event-card-inner {{
+      padding: 14px 16px;
+      gap: 10px;
+      background: rgba(18, 21, 28, 0.82);
+    }}
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="summary"] .event-chips,
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="summary"] .event-overview,
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="summary"] .event-link,
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="headline"] .event-chips,
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="headline"] .event-summary,
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="headline"] .event-overview,
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="headline"] .event-link,
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="headline"] .event-filter-button {{
+      opacity: 1;
+      max-height: 240px;
+      transform: translateY(0);
+      pointer-events: auto;
+      margin: 0;
+      overflow: visible;
+    }}
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="summary"] h3,
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="headline"] h3 {{
+      font-size: 18px;
+    }}
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="summary"] .event-summary,
+    .board-shell[data-view-mode="strand"] .event-card[data-detail="headline"] .event-summary {{
+      font-size: 14px;
+    }}
+    .detail-modal {{
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(3, 5, 8, 0.72);
+      backdrop-filter: blur(10px);
+    }}
+    .detail-modal.open {{ display: flex; }}
+    .detail-modal-box {{
+      width: min(1100px, 100%);
+      height: min(84vh, 920px);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      background: rgba(10, 12, 16, 0.96);
+      box-shadow: 0 28px 72px rgba(0,0,0,.45);
+      overflow: hidden;
+    }}
+    .detail-modal-head {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+    }}
+    .detail-modal-title {{
+      margin: 0;
+      font-size: 14px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #ffd38d;
+    }}
+    .detail-modal-close {{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      border-radius: 999px;
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }}
+    .detail-modal-frame {{
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #0a0d12;
+    }}
+    @media (max-width: 760px) {{
+      html, body {{
+        overflow: auto;
+      }}
+      body {{
+        overflow: auto;
+      }}
+      .page {{
+        height: auto;
+        min-height: 100vh;
+        max-height: none;
+        grid-template-rows: auto auto 1fr;
+        padding: 10px;
+        overflow: visible;
+      }}
+      .hero {{
+        grid-template-columns: 1fr;
+      }}
+      .toolbar {{
+        grid-template-columns: 1fr;
+        gap: 8px;
+        align-items: stretch;
+      }}
+      .toolbar-group {{
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        min-height: 0;
+      }}
+      .toolbar-group.action-group {{
+        justify-content: flex-start;
+      }}
+      .toolbar-lcd {{
+        width: 100%;
+        height: 52px;
+      }}
+      .toolbar-lcd.scale-lcd {{
+        min-width: 0;
+      }}
+      .toolbar input[type="range"] {{
+        flex: 1 1 auto;
+        min-width: 0;
+      }}
+      .toolbar-search {{
+        width: 100%;
+        min-width: 0;
+      }}
+      .board-shell {{
+        min-height: 72vh;
+        border-radius: 18px;
+      }}
+      .board-scroll {{
+        height: 72vh;
+        min-height: 72vh;
+        -webkit-overflow-scrolling: touch;
+      }}
+      .timeline-axis, .ruler-mark, .year-dot, .event-node {{ left: 22px; }}
+      .year-label {{
+        left: 46px;
+        max-width: 86px;
+        padding: 6px 8px;
+      }}
+      .year-label strong {{
+        font-size: 12px;
+      }}
+      .year-label span {{
+        display: none;
+      }}
+      .year-marker.prominent-above .year-label,
+      .year-marker.prominent-below .year-label {{
+        left: 46px;
+        right: auto;
+        width: auto;
+        max-width: 86px;
+        transform: translateY(-50%);
+        text-align: left;
+        gap: 0;
+        padding: 6px 8px;
+      }}
+      .year-marker.prominent-above .year-label strong,
+      .year-marker.prominent-below .year-label strong {{
+        font-size: 12px;
+      }}
+      .event-card, .event-card.left, .event-card.right {{
+        left: 104px; right: auto; width: calc(100% - 118px);
+      }}
+      .event-connector {{
+        display: none;
+      }}
+      .event-meta-row {{
+        align-items: center;
+      }}
+      .event-chips {{
+        max-width: calc(100% - 42px);
+      }}
+      .audio-dock {{
+        position: static;
+        left: auto;
+        right: auto;
+        width: auto;
+        margin-top: 10px;
+      }}
+      .detail-modal {{
+        padding: 8px;
+      }}
+      .detail-modal-box {{
+        width: 100%;
+        height: calc(100vh - 16px);
+        border-radius: 12px;
+      }}
+      .timeline-minimap {{
+        display: none;
+      }}
+    }}
+  </style>
 </head>
 <body>
-  <canvas id="dust"></canvas>
-  <div class="scanlines"></div>
-  <div class="vignette"></div>
-  <div class="rust-stain a"></div>
-  <div class="glitch-line"></div>
-  <div class="corner tl"></div>
-  <main class="specimen">
-  <div class="page timeline-app">
-    <header class="specimen-header">
-      <div class="wordmark">
-        <div class="wordmark-text">
-          <span class="ddd-label">Lore // Archiv</span>
-          <strong>Timeline</strong>
-        </div>
-      </div>
-    </header>
+  <div class="page">
     <section class="hero">
       <div>
         <h1>Timeline</h1>
@@ -1069,7 +2377,6 @@ def _render_absolute_timeline_page(
       </div>
     </section>
   </div>
-  </main>
   <aside class="audio-dock">
     <div class="audio-dock-inner">
       <div class="audio-top">
@@ -1279,20 +2586,13 @@ def _render_absolute_timeline_page(
         const trackHeight = minimapTrack.clientHeight || 1;
         minimapPoints.innerHTML = minimapSourceItems().map((item) => {{
           const ratio = Math.max(0, Math.min(1, (item.timestamp_ms - startMs) / Math.max(1, endMs - startMs)));
-          return `<span class="timeline-minimap-point" data-top="${{ratio * trackHeight}}" data-strand-rgb="${{item.strand_rgb}}"></span>`;
+          return `<span class="timeline-minimap-point" style="top:${{ratio * trackHeight}}px; --strand-rgb:${{item.strand_rgb}};"></span>`;
         }}).join("");
-        minimapPoints.querySelectorAll(".timeline-minimap-point").forEach((point) => {{
-          point.style.top = `${{point.dataset.top}}px`;
-          point.style.setProperty("--strand-rgb", point.dataset.strandRgb);
-        }});
         if (minimapBreaks) {{
           minimapBreaks.innerHTML = timelineBreakSpecs().map((item) => {{
             const ratio = Math.max(0, Math.min(1, (item.timestamp_ms - startMs) / Math.max(1, endMs - startMs)));
-            return `<span class="timeline-minimap-break" data-top="${{ratio * trackHeight}}"></span>`;
+            return `<span class="timeline-minimap-break" style="top:${{ratio * trackHeight}}px"></span>`;
           }}).join("");
-          minimapBreaks.querySelectorAll(".timeline-minimap-break").forEach((point) => {{
-            point.style.top = `${{point.dataset.top}}px`;
-          }});
         }}
       }}
 
@@ -1304,11 +2604,8 @@ def _render_absolute_timeline_page(
         }}
         breaksLayer.innerHTML = timelineBreakSpecs().map((item) => {{
           const top = yFromTimestamp(item.timestamp_ms, activeZoom);
-          return `<span class="timeline-break" data-top="${{top}}"></span>`;
+          return `<span class="timeline-break" style="top:${{top}}px"></span>`;
         }}).join("");
-        breaksLayer.querySelectorAll(".timeline-break").forEach((point) => {{
-          point.style.top = `${{point.dataset.top}}px`;
-        }});
       }}
 
       function updateMinimapViewport() {{
@@ -1852,7 +3149,7 @@ def _render_absolute_timeline_page(
               const top = yFromTimestamp(ts, activeZoom);
               const label = month % 2 === 0 ? `${{monthNames[month]}} ${{year}}` : "";
               const posClass = ((year + month) % 2 === 0) ? "above" : "below";
-              marks.push(`<div class="ruler-mark ${{month % 2 === 0 ? "major" : ""}}" data-top="${{top}}">${{label ? `<span class="ruler-label ${{posClass}}">${{label}}</span>` : ""}}</div>`);
+              marks.push(`<div class="ruler-mark ${{month % 2 === 0 ? "major" : ""}}" style="top:${{top}}px">${{label ? `<span class="ruler-label ${{posClass}}">${{label}}</span>` : ""}}</div>`);
             }}
           }}
         }} else {{
@@ -1861,7 +3158,7 @@ def _render_absolute_timeline_page(
             const ts = Date.UTC(year, 0, 1);
             const top = yFromTimestamp(ts, activeZoom);
             const posClass = year % 2 === 0 ? "above" : "below";
-            marks.push(`<div class="ruler-mark major" data-top="${{top}}"><span class="ruler-label ${{posClass}}">${{year}}</span></div>`);
+            marks.push(`<div class="ruler-mark major" style="top:${{top}}px"><span class="ruler-label ${{posClass}}">${{year}}</span></div>`);
           }}
           const bufferHeight = viewportHeight * 0.9;
           const visibleTop = Math.max(0, viewportTop - bufferHeight);
@@ -1890,13 +3187,10 @@ def _render_absolute_timeline_page(
                 : "";
             const markIndex = Math.floor((ts - startMs) / stepMs);
             const posClass = (markIndex % 2 === 0) ? "above" : "below";
-            marks.push(`<div class="ruler-mark ${{isMonthStart || isDayStart ? "major" : ""}}" data-top="${{top}}">${{label ? `<span class="ruler-label ${{posClass}}">${{label}}</span>` : ""}}</div>`);
+            marks.push(`<div class="ruler-mark ${{isMonthStart || isDayStart ? "major" : ""}}" style="top:${{top}}px">${{label ? `<span class="ruler-label ${{posClass}}">${{label}}</span>` : ""}}</div>`);
           }}
         }}
         ruler.innerHTML = marks.join("");
-        ruler.querySelectorAll(".ruler-mark").forEach((mark) => {{
-          mark.style.top = `${{mark.dataset.top}}px`;
-        }});
       }}
 
       function renderYears(activeZoom) {{
@@ -1921,12 +3215,9 @@ def _render_absolute_timeline_page(
           }} else {{
             className = "year-marker center-below";
           }}
-          items.push(`<div class="${{className}}" data-year="${{year}}" data-top="${{top}}"><span class="year-dot"></span><div class="year-label"><strong>${{year}}</strong><span>${{labels[year]}}</span></div></div>`);
+          items.push(`<div class="${{className}}" data-year="${{year}}" style="top:${{top}}px"><span class="year-dot"></span><div class="year-label"><strong>${{year}}</strong><span>${{labels[year]}}</span></div></div>`);
         }}
         yearsLayer.innerHTML = items.join("");
-        yearsLayer.querySelectorAll(".year-marker").forEach((marker) => {{
-          marker.style.top = `${{marker.dataset.top}}px`;
-        }});
 
         const boardRect = board.getBoundingClientRect();
         const cardRects = cards.map((card) => card.getBoundingClientRect());
@@ -2695,7 +3986,7 @@ def _timeline_template(
             milestone_cards.append(
                 "\n".join(
                     [
-                        f'          <article class="milestone-card milestone-card-{side}" data-importance="{int(item.get("importance", 2))}" data-stack-index="{idx}">',
+                        f'          <article class="milestone-card milestone-card-{side}" data-importance="{int(item.get("importance", 2))}" style="--stack-index:{idx};">',
                         '            <div class="milestone-card-inner">',
                         f'              <div class="event-chips">{chip_html}</div>' if chip_html else '              <div class="event-chips"></div>',
                         f'              <h3><a href="{_escape_html(str(item.get("href", "")))}">{_escape_html(str(item.get("title", "")))}</a></h3>',
@@ -2712,7 +4003,7 @@ def _timeline_template(
             milestone_cards.append(
                 "\n".join(
                     [
-                        '          <article class="milestone-card milestone-card-left milestone-card-empty" data-importance="1" data-stack-index="0">',
+                        '          <article class="milestone-card milestone-card-left milestone-card-empty" data-importance="1" style="--stack-index:0;">',
                         '            <div class="milestone-card-inner">',
                         '              <h3>Noch keine Achse</h3>',
                         '              <p class="milestone-summary">Für diese Zeitstufe ist noch kein belastbarer Meilenstein hinterlegt.</p>',
@@ -2724,7 +4015,7 @@ def _timeline_template(
         stage_blocks.append(
             "\n".join(
                 [
-                    f'        <section class="timeline-stage" data-stage="{_escape_html(stage_key)}" data-card-count="{max(1, len(milestone_cards))}">',
+                    f'        <section class="timeline-stage" data-stage="{_escape_html(stage_key)}" style="--card-count:{max(1, len(milestone_cards))};">',
                     '          <div class="timeline-anchor">',
                     '            <span class="timeline-dot" aria-hidden="true"></span>',
                     f'            <div class="timeline-label"><strong>{_escape_html(stage_label)}</strong><span>{_escape_html(stage_description)}</span></div>',
@@ -3220,7 +4511,7 @@ def _timeline_template(
   </style>
 </head>
 <body>
-  <div class="page timeline-app">
+  <div class="page">
     <section class="hero">
       <div>
         <h1>Timeline</h1>
@@ -3371,7 +4662,7 @@ def _timeline_template(
           const level = isMajor ? "major" : isMid ? "mid" : "minor";
           const labelValue = Math.round((unit / mode.majorEvery) * mode.step) + 1;
           const label = isMajor ? `<span class="timeline-ruler-label">${{mode.label}} ${{labelValue}}</span>` : "";
-          marks.push(`<div class="timeline-ruler-mark" data-level="${{level}}" data-top="${{top}}">${{label}}</div>`);
+          marks.push(`<div class="timeline-ruler-mark" data-level="${{level}}" style="top:${{top}}px">${{label}}</div>`);
         }}
         ruler.innerHTML = marks.join("");
       }}
@@ -3537,7 +4828,7 @@ def _timeline_template(
 def _expected_output_files(
     story_root: Path, md_to_html: dict[str, Path]
 ) -> set[Path]:
-    expected = {Path("index.html"), PUBLIC_DESIGN_STYLESHEET, *md_to_html.values()}
+    expected = {Path("index.html"), *md_to_html.values()}
     expected.update(
         {
             Path("data/lore.json"),
@@ -3545,31 +4836,11 @@ def _expected_output_files(
             Path("lore-webmcp.js"),
         }
     )
+    expected.update(LORE_CSS_FILES.values())
     for src in story_root.rglob("*"):
         if src.is_file() and src.suffix.lower() in STORY_MEDIA_EXTENSIONS:
             expected.add(src.relative_to(story_root))
     return expected
-
-
-def _sync_public_design_stylesheet(output_root: Path, *, check: bool) -> bool:
-    source = Path(
-        os.environ.get(
-            "LORE_DESIGN_STYLESHEET_SOURCE",
-            str(_repo_root().parent / "site" / "design-system.css"),
-        )
-    )
-    if not source.is_file():
-        raise SystemExit(f"Kanonisches Showcase-Stylesheet fehlt: {source}")
-    target = output_root / PUBLIC_DESIGN_STYLESHEET
-    stylesheet = source.read_text(encoding="utf-8")
-    if check:
-        if not target.is_file() or target.read_text(encoding="utf-8") != stylesheet:
-            print("Abweichung:", target)
-            return False
-        return True
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(stylesheet, encoding="utf-8")
-    return True
 
 
 def _prune_empty_dirs(root: Path) -> None:
@@ -3771,7 +5042,7 @@ def _glossary_template(
   <style>
     *, *::before, *::after {{ box-sizing: border-box; }}
     html, body {{ margin: 0; min-height: 100%; }}
-    body {{ color: #f3e7c9; background: #0b0f14; font-family: "Share Tech Mono", monospace; line-height: 1.6; }}
+    body {{ color: #f3e7c9; background: #0b0f14; font-family: ui-sans-serif, system-ui, sans-serif; line-height: 1.6; }}
     #app {{ min-height: 100vh; display: grid; place-items: start center; padding: clamp(16px, 3vw, 32px); }}
     .panel {{ width: min(1180px, 96vw); overflow: hidden; border: 1px solid rgba(255,230,180,.22); border-radius: 18px; background: rgba(60,48,30,.52); box-shadow: 0 18px 40px rgba(165,90,0,.25); }}
     .content {{ padding: clamp(18px, 3vw, 34px); }}
@@ -3873,12 +5144,12 @@ def _detail_template(
   <meta name="twitter:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Share+Tech+Mono&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after {{ box-sizing: border-box; }}
     html, body {{ margin: 0; min-height: 100%; }}
     body {{
-      font-family: "Share Tech Mono", monospace;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
       color: #f3e7c9;
       background: #0b0f14;
       line-height: 1.65;
@@ -3905,9 +5176,9 @@ def _detail_template(
     .lore-body img {{ max-width: 100%; height: auto; border-radius: 10px; border: 1px solid rgba(255,230,180,0.2); }}
     .lore-body .detail-hero {{
       width: 100%;
-      height: auto;
-      object-fit: contain;
-      object-position: center top;
+      max-height: 320px;
+      object-fit: cover;
+      object-position: center 24%;
       display: block;
       margin-bottom: 16px;
     }}
@@ -3967,9 +5238,9 @@ def _detail_template(
     .lore-body .detail-gallery img {{
       width: 100%;
       max-width: 100%;
-      height: auto;
-      object-fit: contain;
-      object-position: center top;
+      max-height: 560px;
+      object-fit: cover;
+      object-position: center 24%;
     }}
     .lore-body a {{ color: #f59e0b; }}
     .lore-body pre {{ overflow-x:auto; background: rgba(0,0,0,0.25); padding:12px; border-radius:10px; }}
@@ -3979,27 +5250,25 @@ def _detail_template(
       --lore-oxide: #2b2118;
       --lore-chassis: #3a2c20;
       --lore-paper: #e8e2d6;
-      --lore-muted: rgba(240, 186, 146, .8);
-      --lore-rust: #b44b2f;
+      --lore-muted: #c8b9aa;
       --lore-orange: #f36c04;
-      --lore-signal: #ff9d2f;
-      --lore-active: #83ffab;
-      --lore-line: rgba(180, 75, 47, .35);
-      --lore-mono: "Share Tech Mono", "IBM Plex Mono", monospace;
-      --lore-reading: "Space Grotesk", "Segoe UI", sans-serif;
-      --lore-display: "Bebas Neue", Impact, "Orbitron", sans-serif;
+      --lore-signal: #83ffab;
+      --lore-line: rgba(180, 75, 47, .46);
+      --lore-mono: "Share Tech Mono", monospace;
+      --lore-reading: "Space Grotesk", sans-serif;
+      --lore-display: "Orbitron", sans-serif;
     }}
     body {{
       font-family: var(--lore-reading);
       color: var(--lore-paper);
-      background-color: #3b3128;
+      background-color: var(--lore-oxide);
       background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 4px);
     }}
     #app {{ padding: clamp(16px, 3vw, 42px); }}
     .panel {{
       width: min(1040px, 100%);
       border: 1px solid var(--lore-line);
-      border-radius: 10px;
+      border-radius: 8px;
       background: linear-gradient(180deg, #3a2c20, #221a14);
       box-shadow: 0 4px 16px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.12), inset 0 -12px 24px rgba(0,0,0,.18);
     }}
@@ -4007,64 +5276,44 @@ def _detail_template(
     .head {{ padding-bottom: 16px; border-bottom: 1px solid var(--lore-line); margin-bottom: 22px; }}
     .brand {{ gap: 14px; }}
     .logo {{ width: 58px; height: 58px; }}
-    h1 {{ font-family: var(--lore-display); font-size: clamp(2.2rem, 5vw, 4.4rem); font-weight: 800; letter-spacing: .01em; line-height: .95; color: var(--lore-paper); }}
-    .hardware-button {{
-      display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px;
-      border: 1px solid rgba(255, 157, 47, 0.5); border-radius: 4px;
-      background: rgba(71, 53, 42, 0.85); color: #d1ff45;
-      font-family: var(--lore-mono); font-size: .75rem; letter-spacing: .12em;
-      text-decoration: none; text-transform: uppercase; transition: all .2s ease;
+    h1 {{ font-family: var(--lore-display); font-size: clamp(18px, 2.5vw, 28px); letter-spacing: .06em; color: var(--lore-paper); }}
+    .home {{
+      border-color: rgba(255,157,47,.58); border-radius: 4px; padding: 10px 12px;
+      background: rgba(71,53,42,.9); color: var(--lore-paper); font-family: var(--lore-mono);
+      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
     }}
-    .hardware-button:hover {{ background: #d1ff45; color: #120e0c; box-shadow: 0 0 16px rgba(209, 255, 69, .35); transform: translateY(-1px); }}
-    .lore-shell {{
-      width: min(1040px, calc(100% - clamp(32px, 6vw, 84px))); margin: clamp(16px, 3vw, 42px) auto;
-      padding: clamp(18px, 3vw, 34px); overflow: hidden; border: 1px solid rgba(255, 255, 255, .18);
-      border-radius: 6px; background: linear-gradient(180deg, #3a2c20, #221a14);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .16), inset 0 -12px 24px rgba(0, 0, 0, .3);
-    }}
-    .lore-header {{ display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }}
-    .lore-title {{ display: flex; align-items: center; gap: 14px; }}
+    .home:hover {{ background: var(--lore-orange); color: #18120e; }}
     .lore-body {{ font-family: var(--lore-reading); color: var(--lore-paper); }}
-    .lore-body h1, .lore-body h2, .lore-body h3 {{ font-family: var(--lore-display); font-weight: 700; letter-spacing: .02em; color: var(--lore-paper); }}
+    .lore-body h2, .lore-body h3 {{ font-family: var(--lore-display); letter-spacing: .04em; color: var(--lore-paper); }}
     .lore-body h2 {{ border-bottom: 1px solid var(--lore-line); padding-bottom: 8px; margin-top: 32px; }}
     .lore-body a {{ color: var(--lore-orange); text-decoration-thickness: 1px; text-underline-offset: 3px; }}
     .lore-body img, .lore-body .detail-gallery img {{ border-radius: 4px; border-color: rgba(255,157,47,.34); }}
     .lore-body .detail-slogan {{ border-left-color: var(--lore-orange); border-radius: 0; background: rgba(24,18,14,.58); box-shadow: inset 0 0 0 1px rgba(255,157,47,.18); }}
-    .lore-body .detail-slogan-label {{ font-family: var(--lore-mono); color: var(--lore-active); letter-spacing: .14em; }}
+    .lore-body .detail-slogan-label {{ font-family: var(--lore-mono); color: var(--lore-signal); letter-spacing: .14em; }}
     .lore-body .detail-slogan-text {{ font-family: var(--lore-display); color: var(--lore-paper); }}
     .lore-body pre {{ border: 1px solid var(--lore-line); border-radius: 4px; background: var(--lore-ink); }}
     .lore-body code {{ border-radius: 2px; background: rgba(0,0,0,.24); }}
   </style>
 </head>
 <body>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="vignette" aria-hidden="true"></div>
-  <div class="rust-stain a" aria-hidden="true"></div>
-  <div class="rust-stain b" aria-hidden="true"></div>
-  <div class="rust-stain c" aria-hidden="true"></div>
-  <div class="glitch-line" aria-hidden="true"></div>
-  <div class="glitch-line" aria-hidden="true"></div>
-  <div class="corner tl" aria-hidden="true"></div>
-  <div class="corner tr" aria-hidden="true"></div>
-  <div class="corner bl" aria-hidden="true"></div>
-  <div class="corner br" aria-hidden="true"></div>
-  <main class="specimen">
-    <header class="specimen-header">
-      <div class="wordmark">
-        <span class="wordmark-mark"><img src="{_escape_html(logo_src)}" alt="DDD Logo" /></span>
-        <div class="wordmark-text">
-          <span class="ddd-label">Lore // Archiv</span>
-          <strong>{_escape_html(title)}</strong>
+  <div id="app">
+    <div class="panel">
+      <div class="content">
+        <div class="head">
+          <div class="brand">
+            <img class="logo" src="{_escape_html(logo_src)}" alt="DDD Logo" />
+            <div class="brand-copy">
+              <h1>{_escape_html(title)}</h1>
+            </div>
+          </div>
+          <a class="home" href="{_escape_html(home_href)}">Zur Lore-Startseite</a>
         </div>
-      </div>
-      <a class="hardware-button ddd-focus" href="{_escape_html(home_href)}">Zur Lore-Startseite</a>
-    </header>
-    <article class="archive-detail lore-body">
-      <div class="archive-detail-copy">
+        <article class="lore-body">
 {body_html}
+        </article>
       </div>
-    </article>
-  </main>
+    </div>
+  </div>
   <script defer src="/analytics-loader.js"></script>
 </body>
 </html>
@@ -4101,12 +5350,12 @@ def _overview_template(
   <meta name="twitter:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Share+Tech+Mono&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after {{ box-sizing: border-box; }}
     html, body {{ min-height: 100%; margin: 0; }}
     body {{
-      font-family: "Share Tech Mono", monospace;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
       color: #f3e7c9;
       background: #0b0f14;
       overflow-x: hidden;
@@ -4139,7 +5388,9 @@ def _overview_template(
     .knowledge-search {{ flex: 1 1 360px; min-height: 46px; border: 1px solid rgba(255,230,180,.3); border-radius: 10px; padding: 0 14px; color:#f3e7c9; background:#17130f; font: inherit; }}
     .knowledge-search:focus {{ outline: 2px solid #f5c35a; outline-offset: 2px; }}
     .knowledge-count {{ color:#d2bf95; font-size: 13px; white-space:nowrap; }}
-    .knowledge-filters {{ display:flex; align-items:center; gap: 8px; flex-wrap:wrap; }}
+    .knowledge-filters {{ display:flex; gap: 7px; flex-wrap:wrap; }}
+    .knowledge-filter {{ border:1px solid rgba(255,230,180,.24); border-radius: 999px; padding: 7px 11px; color:#f3e7c9; background:rgba(255,230,180,.06); cursor:pointer; font: inherit; font-size:12px; }}
+    .knowledge-filter:hover, .knowledge-filter.active {{ color:#18110a; border-color:#f5c35a; background:#f5c35a; }}
     .knowledge-empty {{ display:none; padding: 24px; border:1px dashed rgba(255,230,180,.3); border-radius: 12px; color:#d2bf95; }}
     .knowledge-empty.visible {{ display:block; }}
     .topic[hidden], .subsection[hidden], .section[hidden] {{ display:none; }}
@@ -4167,7 +5418,7 @@ def _overview_template(
       list-style:none;
       cursor:pointer;
       padding: 2px 0;
-      border-radius: 10px;
+      border-radius: 8px;
     }}
     .kanon-overview {{ border: 1px solid rgba(255,230,180,.16); border-radius: 10px; background: rgba(0,0,0,.12); }}
     .kanon-overview summary {{ padding: 10px 12px; color: #f5c35a; cursor: pointer; font-size: 12px; }}
@@ -4301,12 +5552,13 @@ def _overview_template(
       object-position: center 20%;
       border-bottom: 1px solid rgba(255,230,180,0.22);
     }}
-    .topic h3 {{ margin: 12px 12px 0; font-size: 14px; text-transform: uppercase; letter-spacing: .8px; }}
-    .topic .path {{ margin:0 12px; font-size:11px; color:#d2bf95; opacity:.9; }}
-    .topic .overview {{ margin:0 12px; color:#f3e7c9; line-height:1.45; font-size:14px; flex: 1 1 auto; }}
-    .topic .topic-link {{ margin:0 12px; color:#f5c35a; font-size:12px; text-decoration:none; }}
+    .topic .body {{ padding: 12px; display:flex; flex-direction:column; gap: 8px; flex: 1 1 auto; }}
+    .topic h3 {{ margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: .8px; }}
+    .topic .path {{ margin:0; font-size:11px; color:#d2bf95; opacity:.9; }}
+    .topic .overview {{ margin:0; color:#f3e7c9; line-height:1.45; font-size:14px; flex: 1 1 auto; }}
+    .topic .topic-link {{ color:#f5c35a; font-size:12px; text-decoration:none; }}
     .topic button {{
-      margin: auto 12px 12px; width: calc(100% - 24px); border: 1px solid rgba(255,230,180,0.3);
+      margin-top: auto; width: 100%; border: 1px solid rgba(255,230,180,0.3);
       border-radius: 10px; background: rgba(0,0,0,0.22); color:#f3e7c9;
       padding: 10px; cursor: pointer; font-weight: 600;
     }}
@@ -4333,7 +5585,7 @@ def _overview_template(
       border:1px solid rgba(255,230,180,0.35); background: transparent; color:#f3e7c9;
       border-radius: 999px; padding: 6px 10px; cursor: pointer;
     }}
-    .modal-content img {{ max-width: 100%; height: auto; border-radius: 6px; border:1px solid rgba(255,230,180,0.2); }}
+    .modal-content img {{ max-width: 100%; height: auto; border-radius: 8px; border:1px solid rgba(255,230,180,0.2); }}
     .modal-content .popup-hero {{
       width: 100%;
       max-height: 380px;
@@ -4394,7 +5646,7 @@ def _overview_template(
       object-position: center 24%;
     }}
     .modal-content a {{ color: #f59e0b; }}
-    .modal-content pre {{ overflow-x:auto; background: rgba(0,0,0,0.25); padding:10px; border-radius:4px; }}
+    .modal-content pre {{ overflow-x:auto; background: rgba(0,0,0,0.25); padding:10px; border-radius:8px; }}
     .footer {{ font-size: 12px; color: #d2bf95; display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; }}
     .signature {{
       margin: 4px 0 0;
@@ -4423,38 +5675,34 @@ def _overview_template(
     .knowledge-toolbar {{ border-color: rgba(243,108,4,.38); background: var(--lore-panel-strong); }}
     .knowledge-search {{ border-color: rgba(232,226,214,.3); color: var(--lore-text); background: #3b3128; }}
     .knowledge-search:focus {{ outline-color: var(--lore-orange); }}
+    .knowledge-filter {{ color: var(--lore-text); border-color: rgba(232,226,214,.24); background: rgba(232,226,214,.06); }}
+    .knowledge-filter:hover, .knowledge-filter.active {{ color: #1e2a21; border-color: var(--lore-signal); background: var(--lore-signal); }}
     .section, .subsection, .subsubsection, .kanon-overview {{ border-color: rgba(232,226,214,.2); background: rgba(59,49,40,.48); }}
     .kanon-overview summary, .topic .topic-link, .modal-content a {{ color: var(--lore-orange); }}
     :root {{
-      --lore-ink: #18120e;
-      --lore-oxide: #2b2118;
-      --lore-chassis: #3a2c20;
-      --lore-paper: #e8e2d6;
-      --lore-page: #3b3128;
+      --lore-page: #2b2118;
       --lore-panel: #3a2c20;
       --lore-panel-strong: #221a14;
       --lore-text: #e8e2d6;
-      --lore-muted: rgba(240, 186, 146, .8);
-      --lore-rust: #b44b2f;
+      --lore-muted: #c8b9aa;
       --lore-orange: #f36c04;
-      --lore-signal: #ff9d2f;
-      --lore-active: #83ffab;
-      --lore-line: rgba(180, 75, 47, .35);
-      --lore-mono: "Share Tech Mono", "IBM Plex Mono", monospace;
-      --lore-reading: "Space Grotesk", "Segoe UI", sans-serif;
-      --lore-display: "Bebas Neue", Impact, "Orbitron", sans-serif;
+      --lore-signal: #83ffab;
+      --lore-line: rgba(180, 75, 47, .46);
+      --lore-mono: "Share Tech Mono", monospace;
+      --lore-reading: "Space Grotesk", sans-serif;
+      --lore-display: "Orbitron", sans-serif;
     }}
     body {{
       font-family: var(--lore-reading);
       color: var(--lore-text);
-      background-color: #3b3128;
+      background-color: var(--lore-page);
       background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 4px);
     }}
     #app {{ padding: clamp(16px, 3vw, 42px); }}
     .panel {{
       width: min(1200px, 100%);
       border: 1px solid var(--lore-line);
-      border-radius: 10px;
+      border-radius: 8px;
       background: linear-gradient(180deg, #3a2c20, #221a14);
       box-shadow: 0 4px 16px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.12), inset 0 -12px 24px rgba(0,0,0,.18);
     }}
@@ -4462,7 +5710,7 @@ def _overview_template(
     .header {{ border-color: var(--lore-line); border-radius: 4px; padding: 16px; background: rgba(24,18,14,.3); }}
     .brand {{ gap: 14px; }}
     .logo {{ width: 64px; height: 64px; }}
-    h1 {{ font-family: var(--lore-display); font-size: clamp(2.2rem, 5vw, 4.4rem); font-weight: 800; letter-spacing: .01em; line-height: .95; color: var(--lore-text); }}
+    h1 {{ font-family: var(--lore-display); font-size: clamp(20px, 3vw, 34px); letter-spacing: .06em; color: var(--lore-text); }}
     .lede {{ color: var(--lore-muted); }}
     .tag, .section-count {{
       border-color: rgba(255,157,47,.5); border-radius: 3px; color: var(--lore-signal);
@@ -4472,61 +5720,32 @@ def _overview_template(
     .knowledge-search {{ border-color: rgba(255,157,47,.4); border-radius: 4px; min-height: 44px; background: #18120e; font-family: var(--lore-reading); }}
     .knowledge-search:focus {{ outline: 2px solid var(--lore-signal); outline-offset: 2px; }}
     .knowledge-count, .section-summary, .subsection-summary, .subsubsection-summary, .footer, .signature {{ color: var(--lore-muted); }}
-    .subsection .details-btn, .topic button, .modal-close {{
+    .knowledge-filter, .subsection .details-btn, .topic button, .modal-close {{
       border-color: rgba(255,157,47,.5); border-radius: 4px; background: rgba(71,53,42,.82);
       color: var(--lore-text); font-family: var(--lore-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
     }}
-    .subsection .details-btn:hover, .topic button:hover, .modal-close:hover {{
-      color: var(--lore-text); border-color: var(--lore-rust); background: var(--lore-rust); box-shadow: none;
+    .knowledge-filter:hover, .knowledge-filter.active, .subsection .details-btn:hover, .topic button:hover, .modal-close:hover {{
+      color: #18120e; border-color: var(--lore-signal); background: var(--lore-signal); box-shadow: none;
     }}
     .section {{ border-color: var(--lore-line); border-radius: 6px; padding: 16px; background: rgba(24,18,14,.28); }}
-    .section h2, .subsection h3, .subsubsection h4, .topic h3, .modal-title {{ font-family: var(--lore-display); font-weight: 700; color: var(--lore-text); letter-spacing: .02em; }}
-    .section h2 {{ font-size: clamp(1.6rem, 3.5vw, 2.8rem); line-height: 1.05; color: var(--lore-text); }}
+    .section h2, .subsection h3, .subsubsection h4, .topic h3, .modal-title {{ font-family: var(--lore-display); color: var(--lore-text); letter-spacing: .08em; }}
+    .section h2 {{ color: var(--lore-signal); font-size: .9rem; }}
     .section summary {{ border-radius: 0; }}
     .section-caret, .subsection-caret {{ color: var(--lore-orange); }}
     .subsection, .subsubsection, .kanon-overview {{ border-color: rgba(255,157,47,.28); border-radius: 4px; background: rgba(24,18,14,.3); }}
     .kanon-overview summary {{ color: var(--lore-orange); font-family: var(--lore-mono); letter-spacing: .1em; }}
     .topic {{ border-color: var(--lore-line); border-radius: 6px; background: #221a14; }}
     .topic img {{ border-bottom-color: var(--lore-line); }}
-    .topic .path {{ color: var(--lore-muted); font-family: var(--lore-mono); }}
+    .topic .path {{ color: var(--lore-signal); font-family: var(--lore-mono); }}
     .topic .overview {{ color: var(--lore-text); }}
     .topic .topic-link, .modal-content a {{ color: var(--lore-orange); }}
     .modal {{ background: rgba(14,11,9,.86); }}
     .modal-box {{ border-color: var(--lore-line); border-radius: 6px; background: linear-gradient(180deg, #3a2c20, #221a14); box-shadow: 0 4px 16px rgba(0,0,0,.58); }}
     .modal-content img {{ border-radius: 4px; border-color: rgba(255,157,47,.34); }}
     .modal-content .detail-slogan {{ border-left-color: var(--lore-orange); border-radius: 0; background: rgba(24,18,14,.58); box-shadow: inset 0 0 0 1px rgba(255,157,47,.18); }}
-    .modal-content .detail-slogan-label {{ font-family: var(--lore-mono); color: var(--lore-active); letter-spacing: .14em; }}
+    .modal-content .detail-slogan-label {{ font-family: var(--lore-mono); color: var(--lore-signal); letter-spacing: .14em; }}
     .modal-content .detail-slogan-text {{ font-family: var(--lore-display); color: var(--lore-text); }}
     .modal-content pre {{ border: 1px solid var(--lore-line); border-radius: 4px; background: #18120e; }}
-    .lore-shell {{
-      width: min(1200px, calc(100% - clamp(32px, 6vw, 84px))); margin: clamp(16px, 3vw, 42px) auto;
-      padding: clamp(18px, 3vw, 34px); overflow: hidden; border: 1px solid rgba(255, 255, 255, .18);
-      border-radius: 6px; background: linear-gradient(180deg, #3a2c20, #221a14);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .16), inset 0 -12px 24px rgba(0, 0, 0, .3);
-    }}
-    .lore-header {{ display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }}
-    .lore-title {{ display: flex; align-items: center; gap: 14px; }}
-    .section, .subsection, .subsubsection, .kanon-overview {{ border: 0; border-radius: 0; background: transparent; }}
-    .sections {{ counter-reset: lore-section; }}
-    .section {{
-      counter-increment: lore-section; padding: 44px 0 52px;
-      border-bottom: 1px solid var(--lore-line);
-    }}
-    .section-head {{
-      display: grid; grid-template-columns: 60px minmax(0, 1fr) minmax(180px, 260px);
-      gap: 20px; align-items: start; margin-bottom: 18px;
-    }}
-    .section-caret {{
-      width: auto; color: var(--lore-rust); font-family: var(--lore-display);
-      font-size: 0; font-weight: 800; line-height: 1;
-    }}
-    .section-caret::after {{ content: counter(lore-section, decimal-leading-zero); font-size: 1.4rem; }}
-    .section h2 {{ margin: 0; }}
-    .section-count {{
-      justify-self: end; margin-top: 4px; color: var(--lore-muted); border: 0; border-radius: 0;
-      padding: 0; background: transparent; font-family: var(--lore-reading); font-size: .92rem;
-      letter-spacing: 0; text-transform: none;
-    }}
     @media (max-width: 980px) {{ .cards {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }} }}
     @media (max-width: 640px) {{
       .cards {{ grid-template-columns: 1fr; }}
@@ -4539,65 +5758,52 @@ def _overview_template(
         width: 100%;
         margin: 0 0 16px 0;
       }}
-      .section {{ padding: 28px 0; }}
+      .section {{ padding: 10px; }}
       .section summary {{ padding: 6px 2px; }}
-      .section-head {{ grid-template-columns: 32px minmax(0, 1fr); gap: 10px; }}
-      .section-count {{ grid-column: 2; justify-self: start; margin-top: -4px; }}
+      .section-head {{ gap: 6px; }}
     }}
   </style>
 </head>
 <body>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="vignette" aria-hidden="true"></div>
-  <div class="rust-stain a" aria-hidden="true"></div>
-  <div class="rust-stain b" aria-hidden="true"></div>
-  <div class="rust-stain c" aria-hidden="true"></div>
-  <div class="glitch-line" aria-hidden="true"></div>
-  <div class="glitch-line" aria-hidden="true"></div>
-  <div class="corner tl" aria-hidden="true"></div>
-  <div class="corner tr" aria-hidden="true"></div>
-  <div class="corner bl" aria-hidden="true"></div>
-  <div class="corner br" aria-hidden="true"></div>
-  <main class="specimen">
-    <header class="specimen-header">
-      <div class="wordmark">
-        <span class="wordmark-mark"><img src="ddd_radio_logo.png" alt="Doomsday Dispatch Logo" /></span>
-        <div class="wordmark-text">
-          <span class="ddd-label">Lore // Archiv</span>
-          <strong>Doomsday Dispatch</strong>
+  <div id="app">
+    <div class="panel">
+      <div class="content">
+        <div class="header">
+          <div class="brand">
+            <img class="logo" src="ddd_radio_logo.png" alt="Doomsday Dispatch Logo" />
+            <div class="brand-copy">
+              <h1>Doomsday Dispatch // Lore</h1>
+              <p class="lede">Alle Themen aus <code>content/story</code> als Kurzübersicht mit Popup-Details.</p>
+            </div>
+          </div>
+          <span class="tag">{count}</span>
         </div>
-      </div>
-      <div class="system-status-pill"><span>TOPICS: {count}</span></div>
-    </header>
-    <section class="module-card" aria-label="Lore durchsuchen und filtern">
-      <div class="module-card-body">
+        <div class="knowledge-toolbar" aria-label="Lore durchsuchen und filtern">
           <div class="knowledge-search-row">
             <input class="knowledge-search" id="loreSearch" type="search" placeholder="Lore durchsuchen: Ort, Gruppe, Figur, Begriff …" aria-label="Lore durchsuchen" autocomplete="off" />
             <span class="knowledge-count" id="loreCount">{count} Einträge</span>
           </div>
-          <div class="knowledge-filters" id="loreFilters">
-            <label class="ddd-label" for="loreCategory">Bereich</label>
-            <select class="filter-select" id="loreCategory" aria-label="Lore-Bereich auswählen">{filters_html}</select>
-          </div>
-      </div>
-    </section>
-    <p class="knowledge-empty" id="loreEmpty">Keine passenden Lore-Einträge gefunden. Versuche einen anderen Suchbegriff oder setze den Bereichsfilter zurück.</p>
-    <section class="sections" aria-label="Lore-Themen">
+          <div class="knowledge-filters" id="loreFilters" aria-label="Lore-Bereiche">{filters_html}</div>
+        </div>
+        <p class="knowledge-empty" id="loreEmpty">Keine passenden Lore-Einträge gefunden. Versuche einen anderen Suchbegriff oder setze den Bereichsfilter zurück.</p>
+        <section class="sections" aria-label="Lore-Themen">
 {sections_html}
-    </section>
-    <footer class="footer">
-      <span>FREQ: 107.END</span>
-      <span>STATUS: LIVE / INTERFERENCE POSSIBLE</span>
-      <span>Lore-Archiv</span>
-    </footer>
-    <p class="signature">"Eine Welt, die sich über Radio vermittelt, ordnet und erinnert."</p>
-  </main>
+        </section>
+        <div class="footer">
+          <span>FREQ: 107.END</span>
+          <span>STATUS: LIVE / INTERFERENCE POSSIBLE</span>
+          <span>Lore-Archiv</span>
+        </div>
+        <p class="signature">"Eine Welt, die sich über Radio vermittelt, ordnet und erinnert."</p>
+      </div>
+    </div>
+  </div>
 
   <div class="modal" id="topicModal" aria-hidden="true">
     <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="topicModalTitle">
       <div class="modal-head">
         <h3 class="modal-title" id="topicModalTitle"></h3>
-        <button type="button" class="hardware-button ddd-focus modal-close" id="topicModalClose">Schliessen</button>
+        <button class="modal-close" id="topicModalClose">Schliessen</button>
       </div>
       <div class="modal-content" id="topicModalContent"></div>
     </div>
@@ -4610,9 +5816,9 @@ def _overview_template(
       const search = document.getElementById("loreSearch");
       const count = document.getElementById("loreCount");
       const empty = document.getElementById("loreEmpty");
-      const topics = [...document.querySelectorAll(".archive-card[data-search], .topic[data-search]")];
+      const topics = [...document.querySelectorAll(".topic[data-search]")];
       const sections = [...document.querySelectorAll(".section")];
-      const filter = document.getElementById("loreCategory");
+      const filters = [...document.querySelectorAll(".knowledge-filter")];
       let activeCategory = "";
       const normalize = (value) => value.toLocaleLowerCase("de-DE").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "");
       function applyFilter() {{
@@ -4623,15 +5829,16 @@ def _overview_template(
           topic.hidden = !matches;
           if (matches) visible += 1;
         }});
-        document.querySelectorAll(".subsection, .subsubsection").forEach((subsection) => {{ subsection.hidden = !subsection.querySelector(".archive-card:not([hidden]), .topic:not([hidden])"); }});
-        sections.forEach((section) => {{ section.hidden = !section.querySelector(".archive-card:not([hidden]), .topic:not([hidden])"); }});
+        document.querySelectorAll(".subsection").forEach((subsection) => {{ subsection.hidden = !subsection.querySelector(".topic:not([hidden])"); }});
+        sections.forEach((section) => {{ section.hidden = !section.querySelector(".topic:not([hidden])"); }});
         count.textContent = `${{visible}} von {count}`;
         empty.classList.toggle("visible", visible === 0);
       }}
-      filter.addEventListener("change", () => {{
-        activeCategory = filter.value || "";
+      filters.forEach((filter) => filter.addEventListener("click", () => {{
+        activeCategory = filter.dataset.category || "";
+        filters.forEach((item) => item.classList.toggle("active", item === filter));
         applyFilter();
-      }});
+      }}));
       search.addEventListener("input", applyFilter);
     }})();
 
@@ -4639,14 +5846,11 @@ def _overview_template(
     const modalTitle = document.getElementById("topicModalTitle");
     const modalContent = document.getElementById("topicModalContent");
     const closeBtn = document.getElementById("topicModalClose");
-    let lastModalTrigger = null;
 
     function closeModal() {{
       modal.classList.remove("open");
-      lastModalTrigger?.focus();
       modal.setAttribute("aria-hidden", "true");
       modalContent.innerHTML = "";
-      lastModalTrigger = null;
     }}
 
     document.querySelectorAll("[data-topic-id]").forEach((btn) => {{
@@ -4654,12 +5858,10 @@ def _overview_template(
         const id = btn.getAttribute("data-topic-id");
         const holder = document.getElementById("topic-content-" + id);
         if (!holder) return;
-        lastModalTrigger = btn;
         modalTitle.textContent = btn.getAttribute("data-topic-title") || "Topic";
         modalContent.innerHTML = holder.innerHTML;
         modal.classList.add("open");
         modal.setAttribute("aria-hidden", "false");
-        closeBtn.focus();
       }});
     }});
 
@@ -4691,9 +5893,6 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
         output_root, expected_files, check=check
     ):
         return False
-    if not _sync_public_design_stylesheet(output_root, check=check):
-      return False
-    stylesheet_cache_token = _stylesheet_cache_token(output_root)
 
     if not check:
         _copy_lore_logo(story_root, output_root)
@@ -4703,6 +5902,11 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
 
     md_extensions = ["extra", "nl2br"]
     generated: list[tuple[Path, str]] = []
+    css_outputs = {
+        variant: output_root / css_rel for variant, css_rel in LORE_CSS_FILES.items()
+    }
+    css_content_by_variant: dict[str, str] = {}
+
     cards_by_section: dict[str, dict[str, list[str]]] = {}
     section_subgroups: dict[str, set[str]] = {}
     assets_nested_categories: dict[str, set[str]] = {}
@@ -4826,10 +6030,21 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
             )
 
         if detail_html is not None:
-            css_href = _relative_href(out_path.parent, output_root / PUBLIC_DESIGN_STYLESHEET)
-            detail_html, css_text = _externalize_single_style_block(
-              detail_html, f"{css_href}?v={stylesheet_cache_token}"
+            css_variant = _css_variant_for_output(out_rel)
+            css_target = css_outputs[css_variant]
+            css_href = (
+                f"{_relative_href(out_path.parent, css_target)}"
+                f"?v={LORE_CSS_CACHE_VERSION}"
             )
+            detail_html, css_text = _externalize_single_style_block(detail_html, css_href)
+            if css_text is not None:
+                known_css = css_content_by_variant.get(css_variant)
+                if known_css is None:
+                    css_content_by_variant[css_variant] = css_text
+                elif known_css != css_text:
+                    raise SystemExit(
+                        f"Uneinheitlicher CSS-Block fuer Variante '{css_variant}' erkannt."
+                    )
             if check:
                 if not out_path.exists():
                     print("Fehlt:", out_path)
@@ -4933,16 +6148,20 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
             )
 
         card_search = f"{title} {rel_key} {overview}"
-        card_class = "archive-card" if image_html else "archive-card archive-card--text"
         card_html = (
             "\n".join(
                 [
-          f'          <article class="{card_class}" data-search="{_escape_html(card_search.casefold())}" data-category="{_escape_html(section)}">',
+              f'          <article class="topic" data-search="{_escape_html(card_search.casefold())}" data-category="{_escape_html(section)}">',
                     f"            {image_html}" if image_html else "",
-                  '            <div class="archive-card-copy">',
+                    '            <div class="body">',
                     f"              <h3>{_escape_html(title)}</h3>",
+                    f'              <p class="path">{_escape_html(rel_key)}</p>',
                     f'              <p class="overview">{_render_inline_markdown(overview)}</p>',
-                    f'              <a class="hardware-button ddd-focus topic-link" href="{_escape_html(detail_href)}">Details öffnen</a>',
+                    f'              <a class="topic-link" href="{_escape_html(detail_href)}">Vollansicht öffnen</a>',
+                    (
+                        f'              <button type="button" data-topic-id="{_escape_html(topic_id)}" '
+                        f'data-topic-title="{_escape_html(title)}">Details...</button>'
+                    ),
                     "            </div>",
                     "          </article>",
                 ]
@@ -5002,9 +6221,9 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
 
     ordered_sections = sorted(section_subgroups.keys(), key=_section_sort_key)
     filters_html = (
-      '<option value="">Alle Bereiche</option>'
+      '<button type="button" class="knowledge-filter active" data-category="">Alle Bereiche</button>'
       + ''.join(
-        f'<option value="{_escape_html(section_name)}">{_escape_html(index_title_by_dir.get((section_name,), section_name))}</option>'
+        f'<button type="button" class="knowledge-filter" data-category="{_escape_html(section_name)}">{_escape_html(index_title_by_dir.get((section_name,), section_name))}</button>'
         for section_name in ordered_sections
       )
     )
@@ -5026,7 +6245,7 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
             cards_html = "\n".join(subgroups.get("Alle", []))
             section_body = "\n".join(
                 [
-                    '            <div class="archive-grid">',
+                    '            <div class="cards">',
                     cards_html,
                     "            </div>",
                 ]
@@ -5052,7 +6271,7 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
                 if subgroup_popup:
                     popup_id, popup_title = subgroup_popup
                     subgroup_popup_btn = (
-                        f'<button type="button" class="hardware-button ddd-focus details-btn" data-topic-id="{_escape_html(popup_id)}" '
+                        f'<button type="button" class="details-btn" data-topic-id="{_escape_html(popup_id)}" '
                         f'data-topic-title="{_escape_html(popup_title)}">Details...</button>'
                     )
                 # Wenn eine Untergruppe nur via index.md beschrieben ist (z. B. Der Stack/Zeros),
@@ -5061,6 +6280,7 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
                     cards_html = "\n".join(
                         [
                             '              <article class="topic">',
+                            '                <div class="body">',
                             f"                  <h3>{_escape_html(subgroup_title)}</h3>",
                             (
                                 f'                  <p class="overview">{_render_inline_markdown(subgroup_summary)}</p>'
@@ -5068,9 +6288,10 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
                                 else ""
                             ),
                             (
-                                f'                  <button class="hardware-button ddd-focus" type="button" data-topic-id="{_escape_html(popup_id)}" '
+                                f'                  <button type="button" data-topic-id="{_escape_html(popup_id)}" '
                                 f'data-topic-title="{_escape_html(popup_title)}">Details...</button>'
                             ),
+                            "                </div>",
                             "              </article>",
                         ]
                     )
@@ -5135,7 +6356,7 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
                                 f'            <details class="subsection"{" open" if section_name == "Kanon" and subgroup_name == "Allgemein" else ""}>',
                                 "              <summary>",
                                 '                <div class="subsection-meta">',
-                                f'                  <h3 class="archive-subsection-title"><span class="subsection-caret" aria-hidden="true">▶</span>{_escape_html(subgroup_title)}</h3>',
+                                f'                  <h3><span class="subsection-caret" aria-hidden="true">▶</span>{_escape_html(subgroup_title)}</h3>',
                                 f"                  {subgroup_popup_btn}" if subgroup_popup_btn else "",
                                 "                </div>",
                                 "              </summary>",
@@ -5147,7 +6368,7 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
                                 (
                                     "\n".join(
                                         [
-                                            '              <div class="archive-grid">',
+                                            '              <div class="cards">',
                                             cards_html,
                                             "              </div>",
                                         ]
@@ -5166,7 +6387,7 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
                             [
                                 '            <section class="subsection">',
                                 '              <div class="subsection-meta">',
-                                f'                <h3 class="archive-subsection-title">{_escape_html(subgroup_title)}</h3>',
+                                f'                <h3>{_escape_html(subgroup_title)}</h3>',
                                 f"                {subgroup_popup_btn}" if subgroup_popup_btn else "",
                                 "              </div>",
                                 (
@@ -5177,7 +6398,7 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
                                 (
                                     "\n".join(
                                         [
-                                            '              <div class="archive-grid">',
+                                            '              <div class="cards">',
                                             cards_html,
                                             "              </div>",
                                         ]
@@ -5200,19 +6421,15 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
         section_blocks.append(
             "\n".join(
                 [
-                    f'          <details class="archive-section section"{" open" if section_idx == 0 or section_name == "Kanon" else ""}>',
-                    '            <summary class="archive-section-summary ddd-focus">',
-                    f'              <span class="archive-section-number">{section_idx + 1:02d}</span>',
-                    '              <span class="archive-section-title">',
-                    f'                <span class="ddd-label">Lore-Katalog</span>',
-                    f'                <strong>{_escape_html(section_title)}</strong>',
-                    '              </span>',
-                    '              <span class="archive-section-meta">',
-                    f'                <span>{_topic_count_label(total_cards)}</span>',
-                    '                <span class="archive-section-caret" aria-hidden="true">▶</span>',
-                    '              </span>',
+                    f'          <details class="section"{" open" if section_idx == 0 or section_name == "Kanon" else ""}>',
+                    "            <summary>",
+                    '              <div class="section-head">',
+                    "                <span class=\"section-caret\" aria-hidden=\"true\">▶</span>",
+                    f'                <h2>{_escape_html(section_title)}</h2>',
+                    f'                <span class="section-count">{_topic_count_label(total_cards)}</span>',
+                    "              </div>",
                     "            </summary>",
-                    '            <div class="archive-section-body section-body">',
+                    '            <div class="section-body">',
                     (
                       f'              <p class="section-summary">{_render_inline_markdown(section_summary_short)}</p>'
                       if section_summary_short
@@ -5253,17 +6470,24 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
     )
     # Die Overview-Seite nutzt <base href="../"> und rechnet Links relativ zu docs/story.
     # Deshalb muss das CSS-Href ebenfalls von diesem öffentlichen Basispfad aus berechnet werden.
-    start_css_href = _relative_href(overview_public_base_dir, output_root / PUBLIC_DESIGN_STYLESHEET)
-    start_html, _ = _externalize_single_style_block(
-      start_html, f"{start_css_href}?v={stylesheet_cache_token}"
+    start_css_href = _relative_href(
+        overview_public_base_dir, css_outputs[_css_variant_for_output(Path("index.html"))]
     )
+    start_css_href = f"{start_css_href}?v={LORE_CSS_CACHE_VERSION}"
+    start_html, start_css_text = _externalize_single_style_block(start_html, start_css_href)
+    if start_css_text is not None:
+        css_content_by_variant["overview"] = start_css_text
 
     timeline_css_href = _relative_href(
-      timeline_index_path.parent, output_root / PUBLIC_DESIGN_STYLESHEET
+        timeline_index_path.parent,
+        css_outputs[_css_variant_for_output(Path("Kanon") / "Timeline" / "index.html")],
     )
-    timeline_index_html, _ = _externalize_single_style_block(
-      timeline_index_html, f"{timeline_css_href}?v={stylesheet_cache_token}"
+    timeline_css_href = f"{timeline_css_href}?v={LORE_CSS_CACHE_VERSION}"
+    timeline_index_html, timeline_css_text = _externalize_single_style_block(
+        timeline_index_html, timeline_css_href
     )
+    if timeline_css_text is not None:
+        css_content_by_variant["timeline"] = timeline_css_text
 
     webmcp_adapter = """(() => {
   const register = () => {
@@ -5319,9 +6543,19 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
         if timeline_index_path.read_text(encoding="utf-8") != timeline_index_html:
             print("Abweichung:", timeline_index_path)
             return False
+        for css_variant, css_text in css_content_by_variant.items():
+            css_path = css_outputs[css_variant]
+            if not css_path.exists():
+                print("Fehlt:", css_path)
+                return False
+            if css_path.read_text(encoding="utf-8") != css_text:
+                print("Abweichung:", css_path)
+                return False
     else:
         generated.append((start_path, start_html))
         generated.append((timeline_index_path, timeline_index_html))
+        for css_variant, css_text in css_content_by_variant.items():
+            generated.append((css_outputs[css_variant], css_text))
         for out_path, html in generated:
             out_path.parent.mkdir(parents=True, exist_ok=True)
             out_path.write_text(html, encoding="utf-8")
