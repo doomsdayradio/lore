@@ -5176,9 +5176,9 @@ def _detail_template(
     .lore-body img {{ max-width: 100%; height: auto; border-radius: 10px; border: 1px solid rgba(255,230,180,0.2); }}
     .lore-body .detail-hero {{
       width: 100%;
-      max-height: 320px;
-      object-fit: cover;
-      object-position: center 24%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
       display: block;
       margin-bottom: 16px;
     }}
@@ -5238,9 +5238,9 @@ def _detail_template(
     .lore-body .detail-gallery img {{
       width: 100%;
       max-width: 100%;
-      max-height: 560px;
-      object-fit: cover;
-      object-position: center 24%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
     }}
     .lore-body a {{ color: #f59e0b; }}
     .lore-body pre {{ overflow-x:auto; background: rgba(0,0,0,0.25); padding:12px; border-radius:10px; }}
