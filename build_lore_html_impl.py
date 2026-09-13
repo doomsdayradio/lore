@@ -992,21 +992,21 @@ def _render_absolute_timeline_page(
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
     :root {{
-      --bg: #0a0d12;
-      --bg-a: #3b3028;
-      --bg-b: #1b1613;
-      --chassis-top: #8f7c6a;
-      --chassis-mid: #665548;
-      --chassis-low: #44362d;
-      --bezel: #181312;
-      --bezel-hi: #3e3128;
-      --panel: rgba(10, 12, 16, 0.78);
-      --panel-strong: rgba(16, 20, 27, 0.9);
-      --text: #f3e7c9;
-      --muted: #ceb991;
-      --accent: #ffb347;
-      --accent-hot: #ff7b39;
-      --line: rgba(255, 198, 104, 0.52);
+      --bg: #2b2118;
+      --bg-a: #5a493c;
+      --bg-b: #3b3128;
+      --chassis-top: #a28b76;
+      --chassis-mid: #735f50;
+      --chassis-low: #4b3d32;
+      --bezel: #251d18;
+      --bezel-hi: #554539;
+      --panel: rgba(52, 43, 35, 0.8);
+      --panel-strong: rgba(63, 51, 41, 0.92);
+      --text: #e8e2d6;
+      --muted: #c8b9aa;
+      --accent: #f36c04;
+      --accent-hot: #ff9545;
+      --line: rgba(243, 108, 4, 0.48);
       --card-width: 360px;
       --panel-radius: 18px;
       --title-font: "Bebas Neue", Impact, sans-serif;
@@ -4048,15 +4048,15 @@ def _timeline_template(
   <meta name="twitter:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
   <style>
     :root {{
-      --bg: #0a0d12;
-      --panel: rgba(25, 18, 12, 0.88);
-      --panel-strong: rgba(43, 30, 18, 0.92);
-      --line: rgba(255, 198, 104, 0.24);
-      --line-strong: rgba(255, 198, 104, 0.44);
-      --text: #f3e7c9;
-      --muted: #ceb991;
-      --accent: #ffb347;
-      --accent-hot: #ff7b39;
+      --bg: #2b2118;
+      --panel: rgba(52, 43, 35, 0.88);
+      --panel-strong: rgba(63, 51, 41, 0.92);
+      --line: rgba(243, 108, 4, 0.24);
+      --line-strong: rgba(243, 108, 4, 0.44);
+      --text: #e8e2d6;
+      --muted: #c8b9aa;
+      --accent: #f36c04;
+      --accent-hot: #ff9545;
       --stub-width: 360px;
       --epoch-width: 360px;
       --axis-gap: 180px;
