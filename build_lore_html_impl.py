@@ -46,6 +46,7 @@ LORE_CSS_FILES = {
     "overview": Path("site-assets/css/lore-overview.css"),
     "timeline": Path("site-assets/css/lore-timeline.css"),
 }
+LORE_CSS_CACHE_VERSION = "20260913-palette1"
 STYLE_BLOCK_RX = re.compile(r"\n  <style>\n(?P<css>.*?)\n  </style>\n", re.DOTALL)
 
 
@@ -5886,7 +5887,10 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
         if detail_html is not None:
             css_variant = _css_variant_for_output(out_rel)
             css_target = css_outputs[css_variant]
-            css_href = _relative_href(out_path.parent, css_target)
+            css_href = (
+                f"{_relative_href(out_path.parent, css_target)}"
+                f"?v={LORE_CSS_CACHE_VERSION}"
+            )
             detail_html, css_text = _externalize_single_style_block(detail_html, css_href)
             if css_text is not None:
                 known_css = css_content_by_variant.get(css_variant)
@@ -6324,6 +6328,7 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
     start_css_href = _relative_href(
         overview_public_base_dir, css_outputs[_css_variant_for_output(Path("index.html"))]
     )
+    start_css_href = f"{start_css_href}?v={LORE_CSS_CACHE_VERSION}"
     start_html, start_css_text = _externalize_single_style_block(start_html, start_css_href)
     if start_css_text is not None:
         css_content_by_variant["overview"] = start_css_text
@@ -6332,6 +6337,7 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
         timeline_index_path.parent,
         css_outputs[_css_variant_for_output(Path("Kanon") / "Timeline" / "index.html")],
     )
+    timeline_css_href = f"{timeline_css_href}?v={LORE_CSS_CACHE_VERSION}"
     timeline_index_html, timeline_css_text = _externalize_single_style_block(
         timeline_index_html, timeline_css_href
     )
