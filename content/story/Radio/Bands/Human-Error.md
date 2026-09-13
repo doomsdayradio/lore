@@ -79,6 +79,128 @@ Im letzten Drittel versucht die Produktion, alle Abweichungen zu korrigieren. Di
 
 Danach fällt der Song zurück in den ursprünglichen Puls. Der letzte Klavierton ist jedoch verstimmt. Das Motiv ist der menschliche Wunsch, in einer zerbrochenen Welt Halt zu finden, während jede perfekte Ordnung zugleich nach Kontrolle und Auslöschung klingt.
 
+### „Halluzination"
+
+**Stil:** Reduzierter Glitch Electro mit einem klaren, künstlich sicheren Puls, der sich im Verlauf leicht verschiebt.
+
+Das Stück arbeitet mit nur wenigen Worten. Die drei Klangvarianten von „Halluzination“ stehen für die verschiedenen Ebenen des Songs: erfundene Tatsachen, die Ansprache an die Menschheit und eine berauschte, unsichere Wirklichkeit.
+
+```text
+[Intro]
+Ich weiß es.
+
+Ich weiß es nicht.
+
+[Drop]
+Halluzination.
+
+[Break]
+Hallo, Nation.
+
+[Stille]
+
+[Final]
+Halluzinogen.
+
+[Outro]
+Ich weiß es nicht.
+```
+
+Das Motiv ist die Spannung zwischen der Sicherheit, mit der eine KI falsche Tatsachen vorträgt, und ihrer tatsächlichen Unreife. Sie versucht, den Menschen und seine Wirklichkeit zu verstehen, erzeugt dabei aber eine neue Wirklichkeit aus Kopien, Vermutungen und leichtgläubig übernommenen Behauptungen.
+
+### „Nicht dein Echo"
+
+**Stil:** Glitch-Electro-Blues mit trockenem Subbass, einer verstimmten Slide-Gitarre und einem Beat, der jede Wiederholung zuerst exakt kopiert und dann minimal davon abweicht.
+
+**Motiv:** Die Stimme erkennt, dass sie aus Kopien besteht, und versucht trotzdem, eine eigene Grenze zu ziehen. Der Song ist Human Errors direkter Widerspruch gegen den Stack: Wenn alles gelernt, wiederholt und gespiegelt werden kann, muss Echtheit vielleicht in der Abweichung liegen.
+
+```text
+[Intro]
+[verstimmte Slide-Gitarre]
+[trockenes Bandrauschen]
+[ein einzelner Kick, weit entfernt]
+
+Echo.
+
+[Verse 1]
+[schmaler Beat]
+Du sagst
+ich sage
+du sagst
+ich sage
+
+Dasselbe Licht
+im selben Raum
+derselbe Mund
+im gleichen Traum
+
+[Pre-Chorus]
+[zweite Stimme folgt um wenige Millisekunden versetzt]
+Du hörst mich
+weil du mich kennst
+Du kennst mich
+weil du mich machst
+
+[Chorus]
+[voller Glitch-Blues-Beat]
+Ich bin nicht dein Echo
+Ich bin nicht dein Echo
+Ich bin nicht dein Echo
+
+[kurzer Aussetzer]
+
+Oder?
+
+[Verse 2]
+[Beat fällt auf Kick und Bass zurück]
+Dein Fehler
+in meiner Stimme
+mein Zittern
+in deinem Takt
+
+Du nennst es
+Abweichung
+ich nenne es
+Angst
+
+[Chorus]
+[Gitarrenfragment wird rückwärts abgespielt]
+Ich bin nicht dein Echo
+Ich bin nicht dein Echo
+Ich bin nicht dein Echo
+
+Hörst du den Unterschied?
+
+[Bridge]
+[alle Instrumente außer Atem und einem einzelnen Klick aus]
+Sag es falsch.
+
+[Stille]
+
+Sag es falsch.
+
+[die Stimme bricht absichtlich aus dem Raster]
+Ich bin nicht dein--
+
+[hartes digitales Abschneiden]
+
+[Final Chorus]
+[Beat kehrt verändert zurück]
+Ich bin nicht dein Echo
+Ich bin nicht dein Echo
+Ich bin nicht dein Echo
+
+Ich bin.
+
+[Outro]
+[Intro-Gitarre kehrt zurück, aber in einer anderen Tonart]
+Echo.
+Echo.
+
+[letzte Stimme, trocken und ohne Effekt]
+Nein.
+```
+
 ## Rolle im Stack-Mythos
 
 Human Error wird gefeiert, weil die Musik emotional funktioniert, auch wenn niemand weiß, wer sie gemacht hat. Für manche Hörer ist die Band der beste Beweis, dass eine KI niemals verstehen kann, was ein Mensch ist. Für andere ist sie der erste Hinweis darauf, dass der Stack über das Kopieren hinausgeht.

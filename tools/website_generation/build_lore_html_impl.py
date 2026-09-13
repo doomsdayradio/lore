@@ -5333,9 +5333,7 @@ def _overview_template(
     .knowledge-search {{ flex: 1 1 360px; min-height: 46px; border: 1px solid rgba(255,230,180,.3); border-radius: 10px; padding: 0 14px; color:#f3e7c9; background:#17130f; font: inherit; }}
     .knowledge-search:focus {{ outline: 2px solid #f5c35a; outline-offset: 2px; }}
     .knowledge-count {{ color:#d2bf95; font-size: 13px; white-space:nowrap; }}
-    .knowledge-filters {{ display:flex; gap: 7px; flex-wrap:wrap; }}
-    .knowledge-filter {{ border:1px solid rgba(255,230,180,.24); border-radius: 999px; padding: 7px 11px; color:#f3e7c9; background:rgba(255,230,180,.06); cursor:pointer; font: inherit; font-size:12px; }}
-    .knowledge-filter:hover, .knowledge-filter.active {{ color:#18110a; border-color:#f5c35a; background:#f5c35a; }}
+    .knowledge-filters {{ display:flex; align-items:center; gap: 8px; flex-wrap:wrap; }}
     .knowledge-empty {{ display:none; padding: 24px; border:1px dashed rgba(255,230,180,.3); border-radius: 12px; color:#d2bf95; }}
     .knowledge-empty.visible {{ display:block; }}
     .topic[hidden], .subsection[hidden], .section[hidden] {{ display:none; }}
@@ -5637,7 +5635,10 @@ def _overview_template(
             <input class="knowledge-search" id="loreSearch" type="search" placeholder="Lore durchsuchen: Ort, Gruppe, Figur, Begriff …" aria-label="Lore durchsuchen" autocomplete="off" />
             <span class="knowledge-count" id="loreCount">{count} Einträge</span>
           </div>
-          <div class="knowledge-filters" id="loreFilters" aria-label="Lore-Bereiche">{filters_html}</div>
+          <div class="knowledge-filters" id="loreFilters">
+            <label class="ddd-label" for="loreCategory">Bereich</label>
+            <select class="filter-select" id="loreCategory" aria-label="Lore-Bereich auswählen">{filters_html}</select>
+          </div>
         </div>
         <p class="knowledge-empty" id="loreEmpty">Keine passenden Lore-Einträge gefunden. Versuche einen anderen Suchbegriff oder setze den Bereichsfilter zurück.</p>
         <section class="sections" aria-label="Lore-Themen">
@@ -5672,7 +5673,7 @@ def _overview_template(
       const empty = document.getElementById("loreEmpty");
       const topics = [...document.querySelectorAll(".topic[data-search]")];
       const sections = [...document.querySelectorAll(".section")];
-      const filters = [...document.querySelectorAll(".knowledge-filter")];
+      const filter = document.getElementById("loreCategory");
       let activeCategory = "";
       const normalize = (value) => value.toLocaleLowerCase("de-DE").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "");
       function applyFilter() {{
@@ -5688,11 +5689,10 @@ def _overview_template(
         count.textContent = `${{visible}} von {count}`;
         empty.classList.toggle("visible", visible === 0);
       }}
-      filters.forEach((filter) => filter.addEventListener("click", () => {{
-        activeCategory = filter.dataset.category || "";
-        filters.forEach((item) => item.classList.toggle("active", item === filter));
+      filter.addEventListener("change", () => {{
+        activeCategory = filter.value || "";
         applyFilter();
-      }}));
+      }});
       search.addEventListener("input", applyFilter);
     }})();
 
@@ -6072,9 +6072,9 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
 
     ordered_sections = sorted(section_subgroups.keys(), key=_section_sort_key)
     filters_html = (
-      '<button type="button" class="knowledge-filter active" data-category="">Alle Bereiche</button>'
+      '<option value="">Alle Bereiche</option>'
       + ''.join(
-        f'<button type="button" class="knowledge-filter" data-category="{_escape_html(section_name)}">{_escape_html(index_title_by_dir.get((section_name,), section_name))}</button>'
+        f'<option value="{_escape_html(section_name)}">{_escape_html(index_title_by_dir.get((section_name,), section_name))}</option>'
         for section_name in ordered_sections
       )
     )
@@ -6207,7 +6207,7 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
                                 f'            <details class="subsection"{" open" if section_name == "Kanon" and subgroup_name == "Allgemein" else ""}>',
                                 "              <summary>",
                                 '                <div class="subsection-meta">',
-                                f'                  <h3><span class="subsection-caret" aria-hidden="true">▶</span>{_escape_html(subgroup_title)}</h3>',
+                                f'                  <h3 class="archive-subsection-title"><span class="subsection-caret" aria-hidden="true">▶</span>{_escape_html(subgroup_title)}</h3>',
                                 f"                  {subgroup_popup_btn}" if subgroup_popup_btn else "",
                                 "                </div>",
                                 "              </summary>",
@@ -6238,7 +6238,7 @@ def build(story_root: Path, output_root: Path, *, check: bool = False) -> bool:
                             [
                                 '            <section class="subsection">',
                                 '              <div class="subsection-meta">',
-                                f'                <h3>{_escape_html(subgroup_title)}</h3>',
+                                f'                <h3 class="archive-subsection-title">{_escape_html(subgroup_title)}</h3>',
                                 f"                {subgroup_popup_btn}" if subgroup_popup_btn else "",
                                 "              </div>",
                                 (
