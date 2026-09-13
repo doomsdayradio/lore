@@ -46,7 +46,7 @@ LORE_CSS_FILES = {
     "overview": Path("site-assets/css/lore-overview.css"),
     "timeline": Path("site-assets/css/lore-timeline.css"),
 }
-LORE_CSS_CACHE_VERSION = "20260913-palette2"
+LORE_CSS_CACHE_VERSION = "20260913-hardware1"
 STYLE_BLOCK_RX = re.compile(r"\n  <style>\n(?P<css>.*?)\n  </style>\n", re.DOTALL)
 
 
@@ -5142,6 +5142,9 @@ def _detail_template(
   <meta name="twitter:title" content="Doomsday Dispatch – Lore: {_escape_html(title)}" />
   <meta name="twitter:description" content="{_escape_html(description)}" />
   <meta name="twitter:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Share+Tech+Mono&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after {{ box-sizing: border-box; }}
     html, body {{ margin: 0; min-height: 100%; }}
@@ -5242,6 +5245,54 @@ def _detail_template(
     .lore-body a {{ color: #f59e0b; }}
     .lore-body pre {{ overflow-x:auto; background: rgba(0,0,0,0.25); padding:12px; border-radius:10px; }}
     .lore-body code {{ background: rgba(0,0,0,0.2); padding: 2px 6px; border-radius: 4px; }}
+    :root {{
+      --lore-ink: #18120e;
+      --lore-oxide: #2b2118;
+      --lore-chassis: #3a2c20;
+      --lore-paper: #e8e2d6;
+      --lore-muted: #c8b9aa;
+      --lore-orange: #f36c04;
+      --lore-signal: #83ffab;
+      --lore-line: rgba(180, 75, 47, .46);
+      --lore-mono: "Share Tech Mono", monospace;
+      --lore-reading: "Space Grotesk", sans-serif;
+      --lore-display: "Orbitron", sans-serif;
+    }}
+    body {{
+      font-family: var(--lore-reading);
+      color: var(--lore-paper);
+      background-color: var(--lore-oxide);
+      background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 4px);
+    }}
+    #app {{ padding: clamp(16px, 3vw, 42px); }}
+    .panel {{
+      width: min(1040px, 100%);
+      border: 1px solid var(--lore-line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #3a2c20, #221a14);
+      box-shadow: 0 4px 16px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.12), inset 0 -12px 24px rgba(0,0,0,.18);
+    }}
+    .content {{ padding: clamp(18px, 3vw, 34px); }}
+    .head {{ padding-bottom: 16px; border-bottom: 1px solid var(--lore-line); margin-bottom: 22px; }}
+    .brand {{ gap: 14px; }}
+    .logo {{ width: 58px; height: 58px; }}
+    h1 {{ font-family: var(--lore-display); font-size: clamp(18px, 2.5vw, 28px); letter-spacing: .06em; color: var(--lore-paper); }}
+    .home {{
+      border-color: rgba(255,157,47,.58); border-radius: 4px; padding: 10px 12px;
+      background: rgba(71,53,42,.9); color: var(--lore-paper); font-family: var(--lore-mono);
+      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+    }}
+    .home:hover {{ background: var(--lore-orange); color: #18120e; }}
+    .lore-body {{ font-family: var(--lore-reading); color: var(--lore-paper); }}
+    .lore-body h2, .lore-body h3 {{ font-family: var(--lore-display); letter-spacing: .04em; color: var(--lore-paper); }}
+    .lore-body h2 {{ border-bottom: 1px solid var(--lore-line); padding-bottom: 8px; margin-top: 32px; }}
+    .lore-body a {{ color: var(--lore-orange); text-decoration-thickness: 1px; text-underline-offset: 3px; }}
+    .lore-body img, .lore-body .detail-gallery img {{ border-radius: 4px; border-color: rgba(255,157,47,.34); }}
+    .lore-body .detail-slogan {{ border-left-color: var(--lore-orange); border-radius: 0; background: rgba(24,18,14,.58); box-shadow: inset 0 0 0 1px rgba(255,157,47,.18); }}
+    .lore-body .detail-slogan-label {{ font-family: var(--lore-mono); color: var(--lore-signal); letter-spacing: .14em; }}
+    .lore-body .detail-slogan-text {{ font-family: var(--lore-display); color: var(--lore-paper); }}
+    .lore-body pre {{ border: 1px solid var(--lore-line); border-radius: 4px; background: var(--lore-ink); }}
+    .lore-body code {{ border-radius: 2px; background: rgba(0,0,0,.24); }}
   </style>
 </head>
 <body>
@@ -5297,6 +5348,9 @@ def _overview_template(
   <meta name="twitter:title" content="Doomsday Dispatch – Lore Startseite" />
   <meta name="twitter:description" content="{_escape_html(description)}" />
   <meta name="twitter:image" content="https://doomsday.radio/lore/ddd_radio_logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Share+Tech+Mono&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after {{ box-sizing: border-box; }}
     html, body {{ min-height: 100%; margin: 0; }}
@@ -5625,6 +5679,73 @@ def _overview_template(
     .knowledge-filter:hover, .knowledge-filter.active {{ color: #1e2a21; border-color: var(--lore-signal); background: var(--lore-signal); }}
     .section, .subsection, .subsubsection, .kanon-overview {{ border-color: rgba(232,226,214,.2); background: rgba(59,49,40,.48); }}
     .kanon-overview summary, .topic .topic-link, .modal-content a {{ color: var(--lore-orange); }}
+    :root {{
+      --lore-page: #2b2118;
+      --lore-panel: #3a2c20;
+      --lore-panel-strong: #221a14;
+      --lore-text: #e8e2d6;
+      --lore-muted: #c8b9aa;
+      --lore-orange: #f36c04;
+      --lore-signal: #83ffab;
+      --lore-line: rgba(180, 75, 47, .46);
+      --lore-mono: "Share Tech Mono", monospace;
+      --lore-reading: "Space Grotesk", sans-serif;
+      --lore-display: "Orbitron", sans-serif;
+    }}
+    body {{
+      font-family: var(--lore-reading);
+      color: var(--lore-text);
+      background-color: var(--lore-page);
+      background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 4px);
+    }}
+    #app {{ padding: clamp(16px, 3vw, 42px); }}
+    .panel {{
+      width: min(1200px, 100%);
+      border: 1px solid var(--lore-line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #3a2c20, #221a14);
+      box-shadow: 0 4px 16px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.12), inset 0 -12px 24px rgba(0,0,0,.18);
+    }}
+    .content {{ gap: 20px; padding: clamp(18px, 3vw, 34px); }}
+    .header {{ border-color: var(--lore-line); border-radius: 4px; padding: 16px; background: rgba(24,18,14,.3); }}
+    .brand {{ gap: 14px; }}
+    .logo {{ width: 64px; height: 64px; }}
+    h1 {{ font-family: var(--lore-display); font-size: clamp(20px, 3vw, 34px); letter-spacing: .06em; color: var(--lore-text); }}
+    .lede {{ color: var(--lore-muted); }}
+    .tag, .section-count {{
+      border-color: rgba(255,157,47,.5); border-radius: 3px; color: var(--lore-signal);
+      background: rgba(24,18,14,.45); font-family: var(--lore-mono); letter-spacing: .08em;
+    }}
+    .knowledge-toolbar {{ border-color: var(--lore-line); border-radius: 4px; padding: 16px; background: #221a14; box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }}
+    .knowledge-search {{ border-color: rgba(255,157,47,.4); border-radius: 4px; min-height: 44px; background: #18120e; font-family: var(--lore-reading); }}
+    .knowledge-search:focus {{ outline: 2px solid var(--lore-signal); outline-offset: 2px; }}
+    .knowledge-count, .section-summary, .subsection-summary, .subsubsection-summary, .footer, .signature {{ color: var(--lore-muted); }}
+    .knowledge-filter, .subsection .details-btn, .topic button, .modal-close {{
+      border-color: rgba(255,157,47,.5); border-radius: 4px; background: rgba(71,53,42,.82);
+      color: var(--lore-text); font-family: var(--lore-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+    }}
+    .knowledge-filter:hover, .knowledge-filter.active, .subsection .details-btn:hover, .topic button:hover, .modal-close:hover {{
+      color: #18120e; border-color: var(--lore-signal); background: var(--lore-signal); box-shadow: none;
+    }}
+    .section {{ border-color: var(--lore-line); border-radius: 6px; padding: 16px; background: rgba(24,18,14,.28); }}
+    .section h2, .subsection h3, .subsubsection h4, .topic h3, .modal-title {{ font-family: var(--lore-display); color: var(--lore-text); letter-spacing: .08em; }}
+    .section h2 {{ color: var(--lore-signal); font-size: .9rem; }}
+    .section summary {{ border-radius: 0; }}
+    .section-caret, .subsection-caret {{ color: var(--lore-orange); }}
+    .subsection, .subsubsection, .kanon-overview {{ border-color: rgba(255,157,47,.28); border-radius: 4px; background: rgba(24,18,14,.3); }}
+    .kanon-overview summary {{ color: var(--lore-orange); font-family: var(--lore-mono); letter-spacing: .1em; }}
+    .topic {{ border-color: var(--lore-line); border-radius: 6px; background: #221a14; }}
+    .topic img {{ border-bottom-color: var(--lore-line); }}
+    .topic .path {{ color: var(--lore-signal); font-family: var(--lore-mono); }}
+    .topic .overview {{ color: var(--lore-text); }}
+    .topic .topic-link, .modal-content a {{ color: var(--lore-orange); }}
+    .modal {{ background: rgba(14,11,9,.86); }}
+    .modal-box {{ border-color: var(--lore-line); border-radius: 6px; background: linear-gradient(180deg, #3a2c20, #221a14); box-shadow: 0 4px 16px rgba(0,0,0,.58); }}
+    .modal-content img {{ border-radius: 4px; border-color: rgba(255,157,47,.34); }}
+    .modal-content .detail-slogan {{ border-left-color: var(--lore-orange); border-radius: 0; background: rgba(24,18,14,.58); box-shadow: inset 0 0 0 1px rgba(255,157,47,.18); }}
+    .modal-content .detail-slogan-label {{ font-family: var(--lore-mono); color: var(--lore-signal); letter-spacing: .14em; }}
+    .modal-content .detail-slogan-text {{ font-family: var(--lore-display); color: var(--lore-text); }}
+    .modal-content pre {{ border: 1px solid var(--lore-line); border-radius: 4px; background: #18120e; }}
     @media (max-width: 980px) {{ .cards {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }} }}
     @media (max-width: 640px) {{
       .cards {{ grid-template-columns: 1fr; }}
