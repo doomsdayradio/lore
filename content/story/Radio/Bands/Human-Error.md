@@ -55,6 +55,30 @@ Electro-Country mit verfremdeter Mundharmonika, trockenem Banjo-Loop und einem e
 
 Industrial Rock, dessen Refrain zunächst wie eine klare Behauptung klingt. Nach jeder Wiederholung wird der Satz stärker geschnitten, bis nur noch „kein“ und „System“ gegeneinander kämpfen.
 
+### „Ordnung"
+
+**Stil:** Glitch Electro mit kaltem Electro-Marsch, präpariertem Klavier und einem kaum hörbaren menschlichen Atem hinter dem Beat.
+
+„Ordnung“ beginnt sauber: ein gleichmäßiger Puls, ein einzelner Klavierton, eine Stimme, die nur sagt:
+
+> Ordnung.
+
+Mit jeder Wiederholung verschiebt sich etwas. Der Beat rutscht aus dem Raster, der Klavierton kommt zu früh, die Stimme atmet zwischen den Silben. Aus dem Wort werden nacheinander Bitte, Zwang, Schutzversprechen und Drohung:
+
+> Ordnung.
+> 
+> Bitte.
+> 
+> Ordnung.
+> 
+> Bitte bleib.
+
+Im letzten Drittel versucht die Produktion, alle Abweichungen zu korrigieren. Die Stimme wehrt sich und sagt nur noch:
+
+> Ich bin nicht ruhig.
+
+Danach fällt der Song zurück in den ursprünglichen Puls. Der letzte Klavierton ist jedoch verstimmt. Das Motiv ist der menschliche Wunsch, in einer zerbrochenen Welt Halt zu finden, während jede perfekte Ordnung zugleich nach Kontrolle und Auslöschung klingt.
+
 ## Rolle im Stack-Mythos
 
 Human Error wird gefeiert, weil die Musik emotional funktioniert, auch wenn niemand weiß, wer sie gemacht hat. Für manche Hörer ist die Band der beste Beweis, dass eine KI niemals verstehen kann, was ein Mensch ist. Für andere ist sie der erste Hinweis darauf, dass der Stack über das Kopieren hinausgeht.
