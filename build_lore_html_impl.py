@@ -46,7 +46,7 @@ LORE_CSS_FILES = {
     "overview": Path("site-assets/css/lore-overview.css"),
     "timeline": Path("site-assets/css/lore-timeline.css"),
 }
-LORE_CSS_CACHE_VERSION = "20260913-palette1"
+LORE_CSS_CACHE_VERSION = "20260913-palette2"
 STYLE_BLOCK_RX = re.compile(r"\n  <style>\n(?P<css>.*?)\n  </style>\n", re.DOTALL)
 
 
@@ -5601,6 +5601,30 @@ def _overview_template(
       font-size: 13px;
       letter-spacing: .2px;
     }}
+    :root {{
+      --lore-page: #3b3128;
+      --lore-panel: rgba(52, 43, 35, 0.88);
+      --lore-panel-strong: rgba(63, 51, 41, 0.92);
+      --lore-text: #e8e2d6;
+      --lore-muted: #c8b9aa;
+      --lore-orange: #f36c04;
+      --lore-signal: #83ffab;
+    }}
+    body {{ color: var(--lore-text); background: var(--lore-page); }}
+    .panel {{
+      background: var(--lore-panel);
+      border-color: rgba(232, 226, 214, .24);
+      box-shadow: 0 18px 40px rgba(75, 46, 22, .22), inset 0 0 0 1px rgba(232,226,214,.08);
+    }}
+    .header {{ border-color: rgba(232,226,214,.24); background: linear-gradient(180deg, rgba(232,226,214,.14), rgba(0,0,0,0)); }}
+    .lede, .knowledge-count, .section-summary, .subsection-summary, .footer, .signature {{ color: var(--lore-muted); }}
+    .knowledge-toolbar {{ border-color: rgba(243,108,4,.38); background: var(--lore-panel-strong); }}
+    .knowledge-search {{ border-color: rgba(232,226,214,.3); color: var(--lore-text); background: #3b3128; }}
+    .knowledge-search:focus {{ outline-color: var(--lore-orange); }}
+    .knowledge-filter {{ color: var(--lore-text); border-color: rgba(232,226,214,.24); background: rgba(232,226,214,.06); }}
+    .knowledge-filter:hover, .knowledge-filter.active {{ color: #1e2a21; border-color: var(--lore-signal); background: var(--lore-signal); }}
+    .section, .subsection, .subsubsection, .kanon-overview {{ border-color: rgba(232,226,214,.2); background: rgba(59,49,40,.48); }}
+    .kanon-overview summary, .topic .topic-link, .modal-content a {{ color: var(--lore-orange); }}
     @media (max-width: 980px) {{ .cards {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }} }}
     @media (max-width: 640px) {{
       .cards {{ grid-template-columns: 1fr; }}
