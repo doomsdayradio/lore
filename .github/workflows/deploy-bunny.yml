@@ -43,9 +43,14 @@ jobs:
 
       - name: Build Lore HTML
         run: |
-          curl --fail --location --retry 3 \
+          if ! curl --fail --location --retry 3 \
             https://doomsday.radio/design-system/latest/design-system.css \
-            --output design-system.css
+            --output design-system.css; then
+            echo "Versioned CDN snapshot is not published yet; using the current public root snapshot."
+            curl --fail --location --retry 3 \
+              https://doomsday.radio/design-system.css \
+              --output design-system.css
+          fi
           python build_lore_html.py --output dist
 
       - name: Validate public design contract
