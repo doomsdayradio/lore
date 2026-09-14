@@ -43,7 +43,7 @@ AUDIO_EXTENSIONS = (".mp3",)
 STORY_MEDIA_EXTENSIONS = {*(e.lower() for e in IMAGE_EXTENSIONS), *(e.lower() for e in AUDIO_EXTENSIONS)}
 GENERATED_OUTPUT_EXTENSIONS = {".html", ".css", ".json", ".js", *IMAGE_EXTENSIONS, *AUDIO_EXTENSIONS}
 PUBLIC_DESIGN_STYLESHEET = Path("design-system.css")
-LORE_CSS_CACHE_VERSION = "20260914-detail-images1"
+LORE_CSS_CACHE_VERSION = "20260914-heading-colors1"
 STYLE_BLOCK_RX = re.compile(r"\s*<style\b[^>]*>.*?</style>\s*", re.IGNORECASE | re.DOTALL)
 STYLESHEET_LINK_RX = re.compile(
   r"\n\s*<link\b(?=[^>]*\brel=[\"']stylesheet[\"'])[^>]*>\s*",
