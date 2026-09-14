@@ -26,14 +26,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Checkout Showcase source
-        uses: actions/checkout@v5
-        with:
-          repository: doomsdayradio/svc-design
-          ref: main
-          path: _showcase
-          token: ${{ secrets.CROSS_REPO_READ_TOKEN }}
-
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
@@ -50,14 +42,14 @@ jobs:
           python tools/story_consistency/check_story_timeline_alignment.py
 
       - name: Build Lore HTML
-        env:
-          LORE_DESIGN_STYLESHEET_SOURCE: _showcase/design-system.css
         run: |
-          python _showcase/tools/build_public_design_system.py --output _showcase/design-system.css
+          curl --fail --location --retry 3 \
+            https://doomsday.radio/design-system/latest/design-system.css \
+            --output design-system.css
           python build_lore_html.py --output dist
 
       - name: Validate public design contract
-        run: python tools/validate_public_design.py --docs-root dist --canonical-stylesheet _showcase/design-system.css
+        run: python tools/validate_public_design.py --docs-root dist --canonical-stylesheet design-system.css
 
       - name: Generate Sitemap
         run: python generate_sitemap.py --docs-root dist --base-url https://doomsday.radio/lore

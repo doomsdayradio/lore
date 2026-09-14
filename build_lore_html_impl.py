@@ -3555,7 +3555,7 @@ def _sync_public_design_stylesheet(output_root: Path, *, check: bool) -> bool:
     source = Path(
         os.environ.get(
             "LORE_DESIGN_STYLESHEET_SOURCE",
-            str(_repo_root().parent / "site" / "design-system.css"),
+          str(Path("design-system.css")),
         )
     )
     if not source.is_file():
