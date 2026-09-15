@@ -25,6 +25,26 @@ python build_lore_html.py --output dist
 python generate_sitemap.py --docs-root dist --base-url https://doomsday.radio/lore
 ```
 
+The generated HTML can be checked for the shared, privacy-aware analytics
+loader without changing files:
+
+```bash
+python inject_umami_loader.py --docs-root dist --check
+```
+
+Run the unit tests with:
+
+```bash
+python -m unittest -v
+```
+
+### EPUB migration status
+
+`build_epub.py` contains the legacy EPUB generator for selected stories. Its
+input and output paths still assume the former monorepo layout, so it is not
+part of the supported local build above. Migrate those paths before using it as
+an independent repository tool.
+
 ### Bunny Deployment
 
 The `main` branch deploys automatically to Bunny S3 (`s3://${BUNNY_STORAGE_ZONE}/lore/`) via GitHub Actions.
