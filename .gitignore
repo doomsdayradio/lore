@@ -8,12 +8,23 @@ build/
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
+.coverage
+htmlcov/
 
 # OS artifacts
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
 
 # Virtual environments
 .venv/
 venv/
 ENV/
+
+# Local configuration
+.env
+.env.*
+!.env.example
+!.env.*.example
