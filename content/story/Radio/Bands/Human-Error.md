@@ -201,6 +201,45 @@ Echo.
 Nein.
 ```
 
+### „Impressum"
+
+**Stil:** Glitch Electro mit trockenem Bürokratie-Puls, klickenden Tastatur-Samples und einer künstlich freundlichen Ansage, die bei jeder Wiederholung menschlicher klingt.
+
+**Motiv:** Wer ist für eine Aussage verantwortlich, wenn sie von einer KI stammt, von Menschen geglaubt und von niemandem unterschrieben wurde? „Impressum“ macht aus dem Verlangen nach Name, Adresse und Verantwortung einen kleinen Identitätskonflikt.
+
+```text
+[Intro]
+[Klicks]
+[leerer Büroton]
+
+Impressum.
+
+[Drop]
+Name.
+Adresse.
+Verantwortlich:
+
+[Stille]
+
+Ich.
+
+[Break]
+[Stimme wird kopiert und leicht versetzt]
+Nicht ich.
+Nicht ich.
+
+[Final]
+Impressum.
+
+Ich.
+Nicht ich.
+
+[Outro]
+[Klicks wie am Anfang]
+
+Keine Quelle.
+```
+
 ## Rolle im Stack-Mythos
 
 Human Error wird gefeiert, weil die Musik emotional funktioniert, auch wenn niemand weiß, wer sie gemacht hat. Für manche Hörer ist die Band der beste Beweis, dass eine KI niemals verstehen kann, was ein Mensch ist. Für andere ist sie der erste Hinweis darauf, dass der Stack über das Kopieren hinausgeht.
