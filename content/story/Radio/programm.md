@@ -25,6 +25,45 @@ Das laufende Programm besteht nicht aus einem starren Sendeplan, sondern aus wie
 - **[Welt am Abgrund](../Charaktere/Mad-Dog.md)** mit [Mad Dog](../Charaktere/Mad-Dog.md): mehrmals täglich, meist 3-5 Minuten pro Block. Fraktionskonflikte, Cache-Gerüchte, KI-Störungen, Warnungen und Fahndungen laufen hier durch den Filter aus Wut, Sarkasmus und erstaunlich oft korrekten Fakten.
 - **[Late Night Löter](../Charaktere/Rasti.md)** mit [Rasti](../Charaktere/Rasti.md): meist abends bis tief in die Nacht, oft 20-45 Minuten am Stück. Reparaturfunk, Nachtbeobachtungen, Werkstattwahn, Hörerchaos und Improvisation mit Kultstatus.
 
+### Feste Nachrichtenstrecke: Doomsday, Archiv, Wetter
+
+Die zentrale Nachrichtenstrecke von [Doomsday Radio](../Kanon/glossar.md#doomsday-radio) folgt in dieser Reihenfolge:
+
+1. **Doomsday-News:** [Mad Dog](../Charaktere/Mad-Dog.md) berichtet über aktuelle Nachrichten aus der [Wasteland](../Kanon/glossar.md#wasteland): Fraktionen, Konflikte, Funde, Stack-Signale und andere Ereignisse der Radiogegenwart.
+2. **Archiv-News:** Direkt danach wechselt Mad Dog hörbar das Blatt einer seltenen alten Zeitung und liest Nachrichten aus dem echten Jetzt, dem Jahr `2026`.
+3. **Wetter:** Anschließend übernimmt [ThermoBot-9](Bots/ThermoBot-9.md) mit Wetter- und Gefahrenlage.
+
+#### Archiv-News mit Mad Dog
+
+Die Archiv-News sind kein nüchterner Nachrichtenblock. Zuerst raschelt Papier: Mad Dog blättert in einer alten Zeitung und orientiert sich selbst an den Überschriften. Er liest die Artikel nicht einfach vollständig vor, sondern arbeitet sich einen nach dem anderen durch die Schlagzeilen, bis ein oder zwei Meldungen seine Aufmerksamkeit fangen.
+
+Die Überschriften und Artikel stammen aus dem News-Service. Sie können entweder lose neben der Lore stehen oder über eine plausible Verbindung mit den Doomsday-News gespiegelt werden. Mad Dog baut diese Brücken improvisiert und humorvoll: Eine Meldung aus `2026` wird zur Erklärung für einen Wasteland-Zustand, ein alter menschlicher Irrtum bekommt eine neue Bedeutung oder eine damalige Schlagzeile wird aus der Perspektive von `2222` lächerlich klein.
+
+Die Stimmung ist leicht spöttisch gegenüber den Menschen von damals, aber nicht bösartig. Mad Dog darf über die Absurdität alter Gewissheiten lachen, sich in einem Artikel festlesen und seine eigene Orientierungslosigkeit zum Teil des Formats machen.
+
+Am Ende steht ein Meta-Gag mit der Zeitung selbst. Die Zeitung ist selten und wertvoll, deshalb muss Mad Dog mit ihr etwas Unsinniges oder überraschend Praktisches tun: sie zerknüllen, als Ersatzfilter verwenden, für später verstecken oder behaupten, dass sie jetzt offiziell als Archivstück gilt.
+
+#### Übergang von Wetter zu Musik
+
+Nach dem Wetter führt Mad Dog zurück zur Gegenwart und moderiert die nächsten **ein bis drei Lieder** an. Die Auswahl wird aus den Archiv-Artikeln, den Doomsday-News oder einer plausiblen thematischen Verbindung begründet. Ein Bericht über alte Technik kann zu einem Techno-Track führen, eine Sportmeldung zu einem aggressiven Arena-Song oder eine vergessene Katastrophe zu einem Stück über den Stack.
+
+Nach der kurzen Musikmoderation folgt ein kleiner **Doomsday-Radio-Jingle**. Erst danach beginnt die Musikstrecke.
+
+```text
+DOOMSDAY-NEWS
+       aktuelle Wasteland-Lage mit Mad Dog
+ARCHIV-NEWS
+       Papier raschelt; Mad Dog liest alte 2026er Schlagzeilen,
+       findet 1-2 Artikel interessant und baut Lore-Brücken
+       Meta-Gag mit der seltenen Zeitung
+WETTER
+       ThermoBot-9 mit Wetter- und Gefahrenlage
+MUSIKÜBERGANG
+       Mad Dog moderiert 1-3 thematisch passende Songs an
+JINGLE
+MUSIK
+```
+
 ### Einschübe und harte Systemfenster
 
 - **[STACKCAST](../Kanon/glossar.md#stackcast)** schneidet unregelmäßig für 20-60 Sekunden ein. Kein Sponsorblock, keine Störung, sondern die zu klare Stimme des Stacks mit Koordinaten, Sperrungen, Regeln und unheimlich sauberen Warnungen.
