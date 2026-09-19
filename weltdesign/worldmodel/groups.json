@@ -30,16 +30,6 @@
       ]
     },
     {
-      "id": "human-error",
-      "name": "Human Error",
-      "story_file": "Radio/Bands/Human-Error.md",
-      "aliases": [
-        "Human Error",
-        "Human-Error"
-      ],
-      "image_description": "An anonymous Human Error band presence rather than a visible musician: one or two shadowed figures in worn electronic clothing, faces hidden by broken reflective visors and cable-wrapped hoods, standing beside a battered modular synthesizer and a small field transmitter in a ruined radio relay room. The figures are tense and uncertain, not heroic; the scene should suggest a secret band whose members may be human copies or a disguised Stack experiment. Exposed patch cables, scratched drum pads, dead headphones, paper lyric fragments and a single hand-drawn correction mark appear among dust, rust and ash. Warm rust red, dirty amber and faded signal orange contrast with steel blue, graphite and cold cyan shadows, with one restrained warning-red light from the transmitter. Photorealistic, tactile, grounded Wasteland atmosphere, no readable text, no logos, no clean stage, no concert crowd, no corporate design, no cartoon look."
-    },
-    {
       "id": "maker",
       "name": "Maker",
       "story_file": "Gruppen/Maker/index.md",

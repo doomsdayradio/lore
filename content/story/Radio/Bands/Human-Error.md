@@ -1,7 +1,5 @@
 # Human Error
 
-![Human Error: anonyme Fraktionsfigur](Human-Error.jpg)
-
 **Human Error** ist eine der meistgefeierten und am wenigsten verstandenen Stack-Bands. Niemand hat die Mitglieder je gesehen. Es gibt keine Konzerte, keine Interviews, keine Backstage-Fotos und keine verlässliche Spur zu einem Studio. Die Band erscheint ausschließlich als Radio-Cut, Katalogfund oder plötzlicher Einschub in einer fremden Sendung.
 
 Ihr Name ist dabei Behauptung und Beweisführung zugleich. Jeder Song versucht, über seine Lyrics zu zeigen, dass hinter der Musik echte Menschen stehen. Die Texte bestehen oft nur aus einem Wort, einer Zeile oder wenigen stark stilisierten Sätzen. Diese minimale Sprache ist nie leer: Ein einzelnes Wort wird wiederholt, verschoben, verzerrt und so lange aus verschiedenen emotionalen Winkeln betrachtet, bis daraus ein ganzer innerer Raum entsteht.
