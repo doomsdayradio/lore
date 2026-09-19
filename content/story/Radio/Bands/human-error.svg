@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Human Error</title>
+  <desc id="desc">An anonymous glitch-electro signal with a human error interrupting a precise machine grid.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#090b0f"/>
+      <stop offset="0.55" stop-color="#171b23"/>
+      <stop offset="1" stop-color="#3b1718"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff3b30" stop-opacity="0"/>
+      <stop offset="0.22" stop-color="#ff3b30"/>
+      <stop offset="0.72" stop-color="#ffb347"/>
+      <stop offset="1" stop-color="#ff3b30" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#d9e2f0" stroke-opacity=".08" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <path d="M80 178H1120M80 622H1120" stroke="#ff3b30" stroke-opacity=".24" stroke-width="2"/>
+  <path d="M112 400H1088" stroke="#d9e2f0" stroke-opacity=".18" stroke-width="2" stroke-dasharray="8 14"/>
+  <g opacity=".45" fill="none" stroke="#a8b4c5" stroke-width="4">
+    <path d="M100 400 C180 338 230 462 310 400 S440 338 520 400 S650 462 730 400 S860 338 940 400 S1040 462 1100 400"/>
+    <path d="M100 400 C180 360 230 440 310 400 S440 360 520 400 S650 440 730 400 S860 360 940 400 S1040 440 1100 400"/>
+  </g>
+  <g filter="url(#glow)" fill="none" stroke="url(#signal)" stroke-width="9" stroke-linecap="square">
+    <path d="M70 402 H182 L206 402 L230 286 L254 526 L278 402 H382 L405 402 L427 338 L449 464 L471 402 H558 L580 402 L604 238 L628 566 L652 402 H748 L774 402 L797 322 L820 482 L843 402 H1110"/>
+  </g>
+  <g fill="#e9edf4" font-family="monospace" letter-spacing="7">
+    <text x="92" y="120" font-size="24" opacity=".58">SIGNAL / HUMAN ERROR / UNVERIFIED</text>
+    <text x="92" y="704" font-size="18" opacity=".48">NO FACE // NO STAGE // NO SOURCE</text>
+  </g>
+  <g transform="translate(720 210)" opacity=".82">
+    <rect width="270" height="118" fill="#090b0f" stroke="#ffb347" stroke-width="3"/>
+    <text x="22" y="40" fill="#ffb347" font-family="monospace" font-size="18">ECHO DETECTED</text>
+    <text x="22" y="76" fill="#f1f4f8" font-family="monospace" font-size="23">I AM REAL_</text>
+    <rect x="22" y="91" width="78" height="5" fill="#ff3b30"/>
+  </g>
+  <g fill="#ff3b30">
+    <rect x="104" y="250" width="12" height="12"/>
+    <rect x="1060" y="520" width="12" height="12"/>
+    <rect x="526" y="110" width="8" height="8"/>
+  </g>
+</svg>
