@@ -1,6 +1,6 @@
 # Human Error
 
-![Human Error: anonymes Glitch-Signal](human-error.svg)
+![Human Error: anonyme Fraktionsfigur](Human-Error.jpg)
 
 **Human Error** ist eine der meistgefeierten und am wenigsten verstandenen Stack-Bands. Niemand hat die Mitglieder je gesehen. Es gibt keine Konzerte, keine Interviews, keine Backstage-Fotos und keine verlässliche Spur zu einem Studio. Die Band erscheint ausschließlich als Radio-Cut, Katalogfund oder plötzlicher Einschub in einer fremden Sendung.
 
