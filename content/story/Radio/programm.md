@@ -25,6 +25,12 @@ Das laufende Programm besteht nicht aus einem starren Sendeplan, sondern aus wie
 - **[Welt am Abgrund](../Charaktere/Mad-Dog.md)** mit [Mad Dog](../Charaktere/Mad-Dog.md): mehrmals täglich, meist 3-5 Minuten pro Block. Fraktionskonflikte, Cache-Gerüchte, KI-Störungen, Warnungen und Fahndungen laufen hier durch den Filter aus Wut, Sarkasmus und erstaunlich oft korrekten Fakten.
 - **[Late Night Löter](../Charaktere/Rasti.md)** mit [Rasti](../Charaktere/Rasti.md): meist abends bis tief in die Nacht, oft 20-45 Minuten am Stück. Reparaturfunk, Nachtbeobachtungen, Werkstattwahn, Hörerchaos und Improvisation mit Kultstatus.
 
+### Sendungsprofile
+
+Die Sendungsprofile beschreiben Format, Ablauf und mögliche Stimmen getrennt voneinander. Eine Sendung kann deshalb je nach redaktioneller Entscheidung von unterschiedlichen Moderatorinnen und Moderatoren getragen werden.
+
+- **[Archiv-News](Shows/Archiv-News.md):** primär mit [Mad Dog](../Charaktere/Mad-Dog.md), vertretungsweise mit [Rasti](../Charaktere/Rasti.md).
+
 ### Feste Nachrichtenstrecke: Doomsday, Archiv, Wetter
 
 Die zentrale Nachrichtenstrecke von [Doomsday Radio](../Kanon/glossar.md#doomsday-radio) folgt in dieser Reihenfolge:
