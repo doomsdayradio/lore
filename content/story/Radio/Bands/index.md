@@ -5,7 +5,7 @@ Die Musik bei [Doomsday Radio](../../Kanon/glossar.md#doomsday-radio) läuft vol
 ## Bands & Tracks
 
 - [Human Error](Human-Error.md)
-- [Die Wikis](Die-Wikis.md)
+- [Die Wickeys](Die-Wickeys.md)
 - [Rausch](Rausch.md)
 - [Zero Day Choir](Zero-Day-Choir.md)
 - [The Last Audience](The-Last-Audience.md)
