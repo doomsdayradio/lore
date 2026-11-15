@@ -240,6 +240,40 @@ Nicht ich.
 Keine Quelle.
 ```
 
+### „Lautstärke"
+
+**Stil:** German Schlager mit Mallorca-Party-Puls und geflüsterten, phonetischen Vocals, die Silbe für Silbe aus dem Takt fallen.
+
+**Motiv:** Lautstärke als Ersatz für Normalität: Je lauter die Behauptung, desto weniger muss sie stimmen. Der Song zerlegt sein Wort und sein Gegenwort „Normalität" in Laute, bis aus dem Party-Puls nur noch die Frage bleibt, was davon je ein Zustand war.
+
+```text
+[Intro - geflüstert, phonetisch, instabil]
+Lau. Laut. Laut-stär-ke.
+
+Noh. Nor. Noh-ma-li-tät.
+
+[Build - Silben mit falscher Aussprache]
+Lautstääärke. Laut-stäh-ke.
+Norma-lität. Nomalität.
+
+[Drop]
+Lauter Stärke. Lauter Stärke. Laut ist Stärke.
+
+[Break]
+Normal laut. Laut normal. Stärke laut.
+
+[Stille]
+
+[Final - Stimmen verlieren Konsonanten]
+Laut-stär-- Lau-stäk-- Laut.
+Nor-ma-li-- Noh-ma-li-- Nomalität.
+
+[Outro - eine trockene Stimme]
+Normal? Laut?
+
+[cut]
+```
+
 ## Rolle im Stack-Mythos
 
 Human Error wird gefeiert, weil die Musik emotional funktioniert, auch wenn niemand weiß, wer sie gemacht hat. Für manche Hörer ist die Band der beste Beweis, dass eine KI niemals verstehen kann, was ein Mensch ist. Für andere ist sie der erste Hinweis darauf, dass der Stack über das Kopieren hinausgeht.
