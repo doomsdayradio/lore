@@ -1,12 +1,12 @@
-# Die Wickeys
+# Die Wikeys
 
-**Die Wickeys** sind eine anonyme Stack-Band, die Hip-Hop aus Wikipedia-Artikeln baut. Sie sind Streber, die sich wie Gangster fühlen: überpräzise, komplett begeistert von ihrem eigenen Wissen und überzeugt davon, dass jede Jahreszahl wie eine Drohung klingt. Ihre Coolness ist nicht echt, aber ihre Hingabe ist es. Genau daraus entsteht ihr Charme.
+**Die Wikeys** sind eine anonyme Stack-Band, die Hip-Hop aus Wikipedia-Artikeln baut. Sie sind Streber, die sich wie Gangster fühlen: überpräzise, komplett begeistert von ihrem eigenen Wissen und überzeugt davon, dass jede Jahreszahl wie eine Drohung klingt. Ihre Coolness ist nicht echt, aber ihre Hingabe ist es. Genau daraus entsteht ihr Charme.
 
 Niemand weiß, ob die Texte von einer einzelnen Stimme, einem Autorenkollektiv oder einem Suchsystem stammen. Es gibt keine Konzerte und keine sichtbaren Mitglieder. Die Band taucht als Radio-Cut auf, meistens genau dann, wenn ein Artikel, ein Name oder ein historischer Zusammenhang für die Wasteland relevant wird.
 
 ## Sound
 
-Die Wickeys verbinden deutschen Hip-Hop mit Old-School-Groove, Dancehall-Energie und druckvollem Offbeat. Die Produktion gibt ihnen die Haltung einer Gangster-Crew, auch wenn der Text eigentlich aus einem Lexikon stammt:
+Die Wikeys verbinden deutschen Hip-Hop mit Old-School-Groove, Dancehall-Energie und druckvollem Offbeat. Die Produktion gibt ihnen die Haltung einer Gangster-Crew, auch wenn der Text eigentlich aus einem Lexikon stammt:
 
 - trockene Boom-Bap-Beats mit Old-School-Groove und digitalen Klicks
 - Dancehall-Bounce mit übertriebenen Adlibs, tiefen Stimmen und Crowd-Chants
@@ -50,10 +50,10 @@ Tanzbarer Glitch-Offbeat über einen Tierartikel und die Jagd um Laura. Die Reim
 
 ## Rolle im Radio
 
-Die Wickeys werden von Doomsday Radio gern gespielt, weil ihre Tracks Wissen in Umlauf bringen, ohne wie Unterricht zu klingen. Der Sender nutzt sie außerdem, um Artikel, Ereignisse oder vergessene Begriffe wieder in den öffentlichen Gesprächsraum zu ziehen.
+Die Wikeys werden von Doomsday Radio gern gespielt, weil ihre Tracks Wissen in Umlauf bringen, ohne wie Unterricht zu klingen. Der Sender nutzt sie außerdem, um Artikel, Ereignisse oder vergessene Begriffe wieder in den öffentlichen Gesprächsraum zu ziehen.
 
-Fabian steht für Die Wickeys. Er behandelt jeden neuen Artikel wie einen frischen Diss und jede Quellenangabe wie eine Gangster-Referenz. Seine stärkste Waffe ist kein Messer, sondern die Fähigkeit, aus einem Nebensatz über Infrastrukturgeschichte einen Refrain zu bauen, den am nächsten Tag die halbe Wasteland mitspricht.
+Fabian steht für Die Wikeys. Er behandelt jeden neuen Artikel wie einen frischen Diss und jede Quellenangabe wie eine Gangster-Referenz. Seine stärkste Waffe ist kein Messer, sondern die Fähigkeit, aus einem Nebensatz über Infrastrukturgeschichte einen Refrain zu bauen, den am nächsten Tag die halbe Wasteland mitspricht.
 
-Der Stack duldet die Band offenbar, solange sie keine technologische Zentralisierung organisiert. Unklar bleibt, ob Die Wickeys ein menschliches Archivprojekt sind oder ob die KI über sie testet, wie Menschen auf komprimiertes Wissen reagieren.
+Der Stack duldet die Band offenbar, solange sie keine technologische Zentralisierung organisiert. Unklar bleibt, ob Die Wikeys ein menschliches Archivprojekt sind oder ob die KI über sie testet, wie Menschen auf komprimiertes Wissen reagieren.
 
-Unter den Hörern gilt eine einfache Regel: Wenn Die Wickeys einen Artikel erwähnen, sollte man herausfinden, warum gerade dieser Artikel wichtig geworden ist.
+Unter den Hörern gilt eine einfache Regel: Wenn Die Wikeys einen Artikel erwähnen, sollte man herausfinden, warum gerade dieser Artikel wichtig geworden ist.

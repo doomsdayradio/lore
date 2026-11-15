@@ -22,9 +22,18 @@ Sepia-Erdfarben sind kein Default. Jedes Bild bekommt eine eigene Farbidentitaet
 - Sepia, Entsaettigung und Orange-Teal-Grading sind verboten, es sei denn,
   die Szene verlangt ausdruecklich danach.
 
+## Gebrauchsspuren (verbindlich)
+
+- Doomsday ist nie fabrikneu, frisch gewaschen oder showroom-sauber. Auch Party-, Luxus- und farbstarke Motive zeigen ein Leben unter Wasteland-Bedingungen.
+- Jedes Hauptmotiv braucht mindestens drei konkrete Materialspuren statt nur `dirty` oder `dusty`: abgeriebene Kontaktstellen, eingetrocknete Flecken, ausgefranste Kanten, sichtbare Reparaturen, Rußkrusten oder abgeplatzter Lack.
+- Bei Figuren liegen mindestens zwei dieser Spuren auf der Kleidung: grobe Fremdstoff-Flicken, offene oder nachgenähte Säume, Schweißränder an Kragen und Achseln, fettige Bündchen, durchgescheuerte Knie und verschlissene Schuhe. Keine frisch gebügelten Kostüme oder makellosen Stoffe.
+- Funktionierende Technik ist trotzdem gebraucht: Ersatzschrauben, Tape-Reparaturen, verschmutzte Griffe und abgegriffene Regler. Repariert heißt funktionsfähig, nicht neuwertig; kein beliebiger Schrotthaufen.
+- Schmutz sitzt an plausiblen Stellen und ist Teil des Materials, kein gleichmäßiger brauner Bildfilter. Die gesättigten Farbträger bleiben trotz lokaler Abnutzung erkennbar; kein Rückfall in Sepia oder Entsättigung.
+
 ## Standardvorlage
 
 ```text
+Mandatory material condition: show at least three concrete signs of long use on the focal subject, such as frayed edges, mismatched repair patches, ingrained stains, worn contact surfaces or chipped paint. If people are present, at least two signs must be on their clothing: sweat-stained collars, oily cuffs, rough repairs, threadbare knees or scuffed footwear. Equipment may function well but must look salvaged, repeatedly repaired and handled. No pristine clothing, freshly laundered fabric, fashion-shoot grooming or factory-new surfaces. Keep saturated colors visible beneath localized wear; dirt is physical material detail, never a sepia or desaturation filter.
 1:1 square photorealistic image of [HAUPTMOTIV] in a post-apocalyptic wasteland setting, realistic anatomy and material detail, [KOERPERBAU / OBERFLAECHE / BESCHAEDIGUNGEN], [KLARE POSE ODER AKTION], set in [ORT / UMGEBUNG] with [TRUEMMER / INFRASTRUKTUR / NATURDETAILS], visible signs of decay, dust, scars, rust, dirt and survival, but still full of life and physical presence. Distinct color identity carried by at least two saturated color objects such as [FARBTRAEGER 1] and [FARBTRAEGER 2], earth tones only where the scene earns them, cinematic natural lighting, airborne particles, heat shimmer or mist where appropriate, strong depth, tactile textures, sharp focus on the main subject, dramatic but believable atmosphere, ultra-detailed, photorealistic, grounded, no stylized painting look, no sepia, no flat sepia wash, no desaturated wash, no orange-teal grading, no cartoon look.
 ```
 

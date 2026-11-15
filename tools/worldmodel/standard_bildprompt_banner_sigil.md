@@ -23,9 +23,17 @@ Sepia-Erdfarben sind kein Default. Jedes Bild bekommt eine eigene Farbidentitaet
 - Sepia, Entsaettigung und Orange-Teal-Grading sind verboten, es sei denn,
   die Szene verlangt ausdruecklich danach.
 
+## Gebrauchsspuren (verbindlich)
+
+- Kein Banner, Zeichen oder Trägermaterial wirkt fabrikneu, frisch gereinigt oder dekorativ auf alt getrimmt. Mindestens drei konkrete Materialspuren sind sichtbar.
+- Stoff zeigt ausgefranste Kanten, grobe Fremdstoff-Flicken, nachgenähte Risse und eingetrocknete Flecken; Metall abgeplatzten Lack, Abrieb an Befestigungen, Rostnester und ersetzte Schrauben; Beton lokale Ruß-, Wasser- und Abplatzspuren.
+- Anwesende Figuren tragen ebenfalls sichtbar gebrauchte Kleidung mit mindestens zwei konkreten Spuren wie Schweißrändern, verschmutzten Bündchen oder geflickten Säumen.
+- Das Zeichen und seine gesättigten Farben bleiben unter lokaler Abnutzung lesbar. Kein sauberer Logo-Mockup, kein gleichmäßiger Schmutzfilter, kein Sepia oder Entsättigungswash.
+
 ## Standardvorlage
 
 ```text
+Mandatory material condition: show at least three concrete signs of long use on the sign and its support, such as frayed fabric, mismatched sewn patches, ingrained stains, chipped paint, rust around replaced fasteners or soot on cracked concrete. If people are present, their clothing must show at least two concrete signs of wear and repair. No pristine textile, factory-new metal, clean logo mockup or decorative fake distressing. Keep the symbol and saturated colors readable beneath localized physical wear, never a uniform brown dirt filter.
 1:1 square photorealistic image of [BANNER / SIGIL / WARNZEICHEN] in the Doomsday Radio wasteland setting, realistic material and surface detail, [TRAEGERMATERIAL / BESCHAEDIGUNG / VERARBEITUNG], marked with [ZEICHEN / EMBLEM / SYMBOLIK], the symbol expressing [BEDEUTUNG / AUSSENWIRKUNG / FUNKTION] rather than decorative heraldry, set in [PASSENDE UMGEBUNG] with [RELEVANTE DETAILS IM HINTERGRUND], visible signs of decay, dust, stains, abrasion, rust, ash, mud or soot and survival, but still full of life and physical presence. Distinct color identity carried by at least two saturated color objects such as [FARBTRAEGER 1] and [FARBTRAEGER 2], earth tones only where the scene earns them, cinematic natural lighting, airborne particles, smoke, dust or mist where appropriate, strong depth, tactile textures, sharp focus on the banner or sigil, dramatic but believable atmosphere, ultra-detailed, photorealistic, grounded, no stylized painting look, no clean corporate logo look, no sepia, no desaturated wash, no orange-teal grading, no cartoon look.
 ```
 
