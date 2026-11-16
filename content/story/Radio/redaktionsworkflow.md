@@ -6,6 +6,8 @@ Dieses Dokument beschreibt, wie aus einer kanonischen Geschichte ein sendefähig
 
 - `content/story/Kanon/` beantwortet: **Was ist in der Welt passiert?**
 - `content/story/Radio/` beantwortet: **Wie spielen wir diesen Stoff on air aus?**
+- Der Dienst `agents` beantwortet zusätzlich: **Wie wichtig ist dieser Text
+	für die Lore, und wie lore-intensiv soll seine Ausspielung sein?**
 
 Kanon und Ausspielung werden bewusst getrennt gehalten. Änderungen am Weltgeschehen gehören in den Kanon. Änderungen an Form, Dramaturgie, Moderation oder Skript gehören ins Radio.
 
@@ -78,6 +80,26 @@ Mögliche Fassungen:
 
 So wird verhindert, dass schöne Texte geschrieben werden, bevor die Form sauber entschieden ist.
 
+### 6. Lore-Relevanz prüfen
+
+Vor der Veröffentlichung wird jeder Text durch den Lore-Judge bewertet. Das
+gilt auch für scheinbar kleine Texte wie Anmoderationen, Übergänge, Jingles,
+Archiv-News und Wetterüberleitungen. Der Agent beurteilt nicht nur, ob ein
+Text kanonisch korrekt ist, sondern auch, ob er für die Welt banal,
+atmosphärisch, weltbezogen, lore-relevant oder kanonwürdig ist.
+
+Die Redaktion legt für jede Sendung ein Lore-Intensitätsprofil fest:
+
+- **niedrig:** Atmosphäre, Humor und Musikanschlüsse; keine neuen Lore-Fakten
+- **gemischt:** einzelne Lore-Bezüge zwischen leichteren Radiosegmenten
+- **hoch:** Figuren, Fraktionen, Ereignisse und neue Zusammenhänge tragen die
+	Sendung
+
+Der Judge darf einen Text als `kanon_pruefen` oder `kanon_kandidat` markieren,
+aber niemals selbstständig Kanon erzeugen. Eine neue Weltinformation wird erst
+nach menschlicher Freigabe in `Kanon/` eingetragen. Eine Anmoderation kann also
+sehr lore-intensiv sein und trotzdem reine Ausspielung bleiben.
+
 ## Arbeitsprinzipien
 
 - Erst Kanon, dann Redaktion
@@ -93,4 +115,5 @@ So wird verhindert, dass schöne Texte geschrieben werden, bevor die Form sauber
 3. Gleichnamigen Ordner unter `Radio/` anlegen.
 4. In `staffelplan.md` die Formatkurve definieren.
 5. Unter `folgen/` die Episodenlogik bauen.
-6. Unter `skripte/` die sendefähigen Fassungen schreiben.
+6. Lore-Relevanz und Zielintensität mit dem Lore-Judge prüfen.
+7. Unter `skripte/` die sendefähigen Fassungen schreiben.

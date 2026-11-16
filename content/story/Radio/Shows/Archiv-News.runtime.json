@@ -1,0 +1,47 @@
+{
+  "profile_kind": "show",
+  "profile_id": "archiv-news",
+  "version": "1",
+  "format": "archiv-news",
+  "title": "Archiv-News",
+  "purpose": "Historische Nachrichtenfragmente als unterhaltsame Doomsday-Radio-Sendung aus der späteren Perspektive einordnen.",
+  "duration": "3-5 Minuten pro Nachrichtenblock",
+  "audience": "Überlebende und Hörer, die alte Nachrichten aus der späteren Weltperspektive hören.",
+  "editorial_scope": {
+    "input_types": ["archivnews", "archivnews-beitrag"],
+    "required_context": ["news_source", "publication_year"],
+    "exclusions": ["Keine erfundenen Fakten oder nicht belegten Lore-Verbindungen als Tatsachen ausgeben."]
+  },
+  "show_structure": {
+    "opening": "Host-Ansage mit Energie, Haltung und einem starken Spruch",
+    "content_blocks": [{"id": "news_block", "purpose": "Nachricht zuerst verständlich machen, dann kommentieren", "required": true}],
+    "transitions": "Kurze gesprochene Übergänge zwischen den Fragmenten; keine Regieanweisungen oder Platzhalter im Manuskript",
+    "closing": "Schwarzer Abgang mit offenem Blick auf die spätere Katastrophe"
+  },
+  "style_targets": {
+    "tone": "Spöttisch, hörbar und nicht bösartig",
+    "pacing": "Kompakt mit klaren Nachrichtenblöcken",
+    "humor": "Absurde und schwarze Beobachtungen ohne Spott über Betroffene",
+    "perspective": "Die Menschen und Gewissheiten von damals dürfen aus der späteren Wasteland-Perspektive leicht verspottet werden; der Spott richtet sich gegen ihre Absurditäten, nicht gegen Opfer oder reale Betroffene.",
+    "sound": "Zeitung, Studio und Senderatmosphäre nur als hörbare Produktionselemente"
+  },
+  "spoken_constraints": {
+    "min_jokes": 1,
+    "direct_address": true,
+    "first_person_host_voice": true,
+    "required_beats": ["Kurzer Host-Hook mit Haltung", "Nachricht verständlich und ohne Redaktionssprache", "Mindestens ein absurder oder schwarzer Gag", "Kurzer fürsorglicher Nachhall ohne Sentimentalität"],
+    "forbidden_beats": ["Regieanweisungen, Platzhalter und Moderatorprofil-Metadaten im Manuskript"]
+  },
+  "moderator_resolution": {
+    "source": "lore",
+    "selection": "Separat gewählte Stimme aus den kanonischen Lore-Charakterprofilen",
+    "relationship_policy": "Keine feste Moderatorenzuordnung im Agent-Service"
+  },
+  "output_contract": {
+    "performed_text": "Vollständiges Sendemanuskript in der gewählten Lore-Stimme",
+    "segments": "Liste aus intro, news_block, transition und outro",
+    "delivery_notes": "Sprechtempo, Pausen, Betonungen und Sound-Hinweise",
+    "unsupported_claims": "Unsicherheiten, die im Manuskript markiert bleiben müssen",
+    "human_decisions": "Offene redaktionelle Entscheidungen außerhalb des Manuskripts"
+  }
+}

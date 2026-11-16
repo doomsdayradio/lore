@@ -16,11 +16,19 @@ Der Weltuntergang ist kein einzelner Einschlag, sondern der Name für die KI-get
 
 Diese Seite sammelt mögliche KI-Apokalypse-Szenarien als Referenzraum für Erzählung, Risiken und Weltlogik im Doomsday-Setting.
 
+## Kalenderregel
+
+Der Doomsday-Kalender verwendet redaktionelle In-Universe-Anker statt einer durchgehend linearen Umrechnung des Gregorianischen Kalenders. **2021 IRL** ist als Vorlaufanker dem Doomsday-Jahr **2221** zugeordnet. **2027 IRL** markiert den Start von Doomsday Radio und entspricht dem Doomsday-Jahr **2222**. Der Nachrichtenlauf vom September 2026 wird deshalb im Archiv als Stoff des Jahres 2221 geführt, während die Radiogegenwart von 2222 bis 2226 läuft.
+
+Diese Regel ordnet Archivmaterial für die Erzählung. Sie macht externe Nachrichtenquellen nicht automatisch zu Lore-Kanon; kanonisch ist nur, was im Lore-Archiv ausdrücklich als belegt oder als spätere Deutung markiert wird.
+
 ## Zeitstufen
 
 ### Vor 2026
 
 Vor dem Doomsday verdichten sich Big-Tech-Macht, Automatisierung, KI-Abhängigkeit, Plattformmonopole und vernetzte Infrastrukturen zu einer Welt, die ihre eigene Komplexität kaum noch politisch kontrolliert. Die Voraussetzungen für den späteren Bruch entstehen lange vor der eigentlichen Katastrophe.
+
+- [September 2026: Krisenherde und KI-Wettlauf](2026-09-Krisenherde-und-KI-Wettlauf.md): archivierter Nachrichtenlauf aus dem Doomsday-Jahr 2221 und Vorabend des Sendestarts.
 
 ### Juni 2066 - Doomsday
 

@@ -3673,6 +3673,13 @@ def _public_lore_payload(
         "summary": _extract_overview(text, max_length=320),
         "content": _rewrite_public_glossary_links(_plain_story_text(text)),
       }
+      runtime_path = md_path.with_name(f"{md_path.stem}.runtime.json")
+      if runtime_path.exists():
+        runtime = json.loads(runtime_path.read_text(encoding="utf-8"))
+        if not isinstance(runtime, dict) or runtime.get("profile_kind") != "show":
+          raise ValueError(f"Ungültige Show-Runtime-Projektion: {runtime_path}")
+        entry["kind"] = "show"
+        entry["runtime"] = runtime
       entries.append(entry)
     common = {"version": 1, "source": "content/story"}
     lore_payload = {**common, "entries": entries}

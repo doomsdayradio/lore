@@ -9,6 +9,17 @@ Wichtige Fixpunkte:
 - **2222 bis 2226** - das laufende Radio-Jetzt von **[Doomsday Radio](../glossar.md#doomsday-radio)**, gegliedert in fünf dramaturgische Staffeln, in denen die wichtigsten Storylines in Echtzeit ineinandergreifen.
 - **2232 bis 2326** - Fernes Rauschen, Endgame-Prognosen und der mögliche finale Zustand des Stack.
 
+## Doomsday-Kalender und IRL-Referenz
+
+Die Jahreszahlen des Doomsday-Kalenders sind redaktionelle In-Universe-Anker. Sie bilden keine durchgehend lineare Umrechnung des Gregorianischen Kalenders ab.
+
+- **2021 IRL = 2221 Doomsday**: redaktioneller Vorlauf- und Gegenwartsanker.
+- **2027 IRL = 2222 Doomsday**: Start von **[Doomsday Radio](../glossar.md#doomsday-radio)**.
+- Der Nachrichtenlauf vom **September 2026 IRL** wird im Archiv dem Doomsday-Jahr **2221** zugeordnet.
+- Die Radiogegenwart läuft danach als In-Universe-Zyklus von **2222 bis 2226**.
+
+Diese Zuordnung ist Teil des Kanons. Sie darf nicht als Aussage der historischen Nachrichtenquellen über deren eigene Zeitrechnung gelesen werden.
+
 ## Benannte Abschnitte
 
 Die Timeline trennt zwischen **Jahresmarkern** und **benannten Großabschnitten**.
@@ -112,6 +123,7 @@ Machtbildung         Systemkaskaden           Geschichten und Meilensteine final
 ## Einträge
 
 - [Staffel 1: Signale am Abgrund](Staffel-1-Signale-am-Abgrund.md) - WIP-Entwurf für fünf gleichwertige Geschichten im Jahr 2222, ohne Festlegung auf Radioformate.
+- [September 2026: Krisenherde und KI-Wettlauf](2026-09-Krisenherde-und-KI-Wettlauf.md) - Nachrichtenlauf aus 2026 IRL, im Doomsday-Kalender als Vorabendjahr 2221 geführt.
 - [2066.6: Als die Hillbillys zu faulen begannen](2066.6-Als-die-Hillbillys-zu-faulen-begannen.md) - langsamer Verfall aus Giften, Ritualen, Inzucht und Schimmelrattenbefall, der später zur echten Zukunftsgefahr für Überlebende werden kann.
 - [Das Ende](Das-Ende.md) - ferner Endpunkt der Timeline, in dem der Stack den finalen Zustand erreicht hat.
 - [Der Fast-Schlag auf Messingmarkt 9](Der-Fast-Schlag-auf-Messingmarkt-9.md) - Staffel-1-Warnfall über Generatorhybris, Zielstrahl und die technische Reaktionsschwelle des Himmels.
