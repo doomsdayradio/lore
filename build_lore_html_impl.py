@@ -603,6 +603,10 @@ def _topic_images(md_path: Path, md_text: str, story_root: Path) -> list[Path]:
                 fallback.append(rel_img)
 
     images.extend(preferred)
+    # Bandseiten ohne eigenes Motiv duerfen kein Bild einer anderen Band erben.
+    if rel.parts[:2] == ("Radio", "Bands"):
+      return images
+
     # Fuer index.md-Seiten kein beliebiges Nachbarbild als Hero erben.
     if md_path.stem.lower() != "index":
         images.extend(fallback)

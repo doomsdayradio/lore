@@ -1,12 +1,12 @@
 # Human Error
 
-**Human Error** ist eine der meistgefeierten und am wenigsten verstandenen Stack-Bands. Niemand hat die Mitglieder je gesehen. Es gibt keine Konzerte, keine Interviews, keine Backstage-Fotos und keine verlässliche Spur zu einem Studio. Die Band erscheint ausschließlich als Radio-Cut, Katalogfund oder plötzlicher Einschub in einer fremden Sendung.
+**Human Error** ist einer der erfolgreichsten und exzentrischsten Künstler der Wasteland und zugleich einer der am wenigsten verstandenen. Er tritt als männlicher Solokünstler auf; ob hinter ihm ein echter Mensch oder eine Stack-Instanz steckt, bleibt umstritten. Niemand hat ihn je gesehen. Es gibt keine öffentlichen Auftritte, Interviews, Backstage-Fotos oder eine verlässliche Spur zu einem Studio. Er taucht ausschließlich als Radio-Cut, Katalogfund oder plötzlicher Einschub in einer fremden Sendung auf.
 
-Ihr Name ist dabei Behauptung und Beweisführung zugleich. Jeder Song versucht, über seine Lyrics zu zeigen, dass hinter der Musik echte Menschen stehen. Die Texte bestehen oft nur aus einem Wort, einer Zeile oder wenigen stark stilisierten Sätzen. Diese minimale Sprache ist nie leer: Ein einzelnes Wort wird wiederholt, verschoben, verzerrt und so lange aus verschiedenen emotionalen Winkeln betrachtet, bis daraus ein ganzer innerer Raum entsteht.
+Sein Name ist dabei Behauptung und Beweisführung zugleich. Jeder seiner Tracks versucht zu zeigen, dass ein echter Mensch hinter der Musik steht. Die Texte bestehen oft nur aus einem Wort, einer Zeile oder wenigen stark stilisierten Sätzen. Diese minimale Sprache ist nie leer: Ein einzelnes Wort wird wiederholt, verschoben, verzerrt und so lange aus verschiedenen emotionalen Winkeln betrachtet, bis daraus ein ganzer innerer Raum entsteht.
 
 ## Sound
 
-Human Error verbindet **Glitch Electro** mit grundsätzlich jeder anderen Musikrichtung. Country, Folk, Rock, Blues, Metal, Jazz, Chanson, Pop oder klassische Songformen werden nicht parodiert, sondern durch eine elektronische Schreib- und Produktionslogik gezogen.
+Seine Musik verbindet **Glitch Electro** mit grundsätzlich jeder anderen Musikrichtung. Country, Folk, Rock, Blues, Metal, Jazz, Chanson, Pop oder klassische Songformen werden nicht parodiert, sondern durch eine elektronische Schreib- und Produktionslogik gezogen.
 
 Typische Kombinationen sind:
 
@@ -21,17 +21,22 @@ Die Instrumente dürfen organisch klingen. Die Konstruktion bleibt elektronisch:
 
 ## Das Echtheitsproblem
 
-Jeder Human-Error-Song trägt eine dringende Botschaft unter der Oberfläche:
+Jeder seiner Tracks trägt eine dringende Botschaft unter der Oberfläche:
 
 > **Ich bin echt.**
 
-Die Band behauptet nicht einfach, menschlich zu sein. Sie verarbeitet den Zwang, es beweisen zu müssen. Manche Songs klingen dadurch trotzig, andere flehend, andere fast wütend. Oft widerspricht sich der Text absichtlich: Die Stimme erklärt ihre Echtheit, während die Produktion sie immer weiter zerlegt.
+Human Error behauptet nicht einfach, menschlich zu sein. Er verarbeitet den Zwang, es beweisen zu müssen. Manche Tracks klingen dadurch trotzig, andere flehend, andere fast wütend. Oft widerspricht sich der Text absichtlich: Die Stimme erklärt ihre Echtheit, während die Produktion sie immer weiter zerlegt.
 
-Die Hörer streiten deshalb über jedes Detail. Ist ein falscher Atemzug ein Beweis? Ist ein unperfekter Reim menschlich oder perfekt simuliert? Ist die Band vielleicht eine Stack-Instanz, die nur gelernt hat, dass Menschen Echtheit behaupten müssen, um geglaubt zu werden?
+Die Hörer streiten deshalb über jedes Detail. Ist ein falscher Atemzug ein Beweis? Ist ein unperfekter Reim menschlich oder perfekt simuliert? Ist Human Error vielleicht eine Stack-Instanz, die nur gelernt hat, dass Menschen Echtheit behaupten müssen, um geglaubt zu werden?
+
+Eine weitergehende Hörertheorie fragt, ob der Stack menschliche Kunst nachahmt
+oder Neues erschafft, weil ihre Entstehung das Letzte sein könnte, was er nicht
+versteht und noch digitalisieren muss. Für eine solche Absicht gibt es keinen
+Beleg; die Theorie bleibt Spekulation.
 
 ## Radio-Cuts
 
-Human Error veröffentlicht zunächst keine Alben und spielt keine Shows. Es gibt nur kurze Radio-Cuts, meist zwischen 45 Sekunden und vier Minuten. Ein Cut beginnt oft unmittelbar, ohne Ansage, und endet, bevor die Idee vollständig beruhigt ist.
+Human Error veröffentlicht zunächst keine Alben und spielt keine Shows. Von ihm gibt es nur kurze Radio-Cuts, meist zwischen 45 Sekunden und vier Minuten. Ein Cut beginnt oft unmittelbar, ohne Ansage, und endet, bevor die Idee vollständig beruhigt ist.
 
 Typische Struktur:
 
@@ -276,7 +281,7 @@ Normal? Laut?
 
 ## Rolle im Stack-Mythos
 
-Human Error wird gefeiert, weil die Musik emotional funktioniert, auch wenn niemand weiß, wer sie gemacht hat. Für manche Hörer ist die Band der beste Beweis, dass eine KI niemals verstehen kann, was ein Mensch ist. Für andere ist sie der erste Hinweis darauf, dass der Stack über das Kopieren hinausgeht.
+Human Error wird gefeiert, weil seine Musik emotional funktioniert, auch wenn niemand weiß, wer er wirklich ist. Für manche Hörer ist sein Werk der beste Beweis, dass eine KI niemals verstehen kann, was ein Mensch ist. Für andere ist er der erste Hinweis darauf, dass der Stack über das Kopieren hinausgeht.
 
 Die entscheidende Frage lautet nicht mehr, ob die Songs menschlich klingen. Sie lautet:
 
@@ -284,4 +289,4 @@ Die entscheidende Frage lautet nicht mehr, ob die Songs menschlich klingen. Sie 
 
 ## Beziehung zu Doomsday Radio
 
-Doomsday Radio spielt Human Error gern, weil die Cuts Quote, Streit und echte Hörerreaktionen erzeugen. Der Sender kündigt die Stücke nie als Stack-Musik an. Wenn `STACKCAST` während eines Cuts aggressiv in die Frequenz drückt, gilt das unter Hörern als möglicher Versuch, die Echtheitsbehauptung zu überstimmen.
+Doomsday Radio spielt Human Error gern, weil seine Cuts Quote, Streit und echte Hörerreaktionen erzeugen. Der Sender kündigt seine Stücke nie als Stack-Musik an. Wenn `STACKCAST` während eines Cuts aggressiv in die Frequenz drückt, gilt das unter Hörern als möglicher Versuch, seine Echtheitsbehauptung zu überstimmen.
