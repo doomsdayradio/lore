@@ -62,19 +62,3 @@ Doomsday Radio behandelt Rausch-Cuts als feindliche Eingriffe. Mad Dog versucht,
 ## Offene Spekulation
 
 Unklar ist, ob Rausch tatsächlich eine eigene Stack-Band ist oder nur der Name für ein standardisiertes Übernahmeprotokoll. Für die Wasteland macht das keinen Unterschied: Sobald Rausch kommt, gehört die Frequenz für kurze Zeit nicht mehr den Menschen.
-
-## Bildprompt
-
-Bewusst abstraktes Signalbild statt fotorealistischer Szene: Rausch bleibt unsichtbar, das Motiv zeigt ausschließlich Glitch, Fehler und Übersteuerung. Gegenstände, Kleidung und physische Farbträger sind hier nicht Teil des Motivs.
-
-```text
-1:1 square, fully abstract, full-bleed cover artwork for Rausch. The entire image IS a corrupted transmission pushed far beyond its limits. Nothing depicts a room, a device or a performer. Only glitch, signal errors, distortion and overload.
-
-One massive horizontal signal rupture tears across the middle of the frame, almost edge to edge. Its center is brutally clipped white, with jagged black dropouts biting into it. Dense acid-green and hot-magenta channel fragments shear sideways in opposing directions, with broken red channel offsets along their edges. Above and below the rupture, crushed black regions contain coarse static, fractured scanlines and abrupt missing chunks. The central rupture dominates; small errors support it instead of becoming evenly distributed decorative noise.
-
-Mix dirty analog tracking failure with severe digital corruption: shredded sync bands, displaced pixel blocks, smeared chroma, repeated fragments that suddenly break, serrated clipping plateaus and harsh compression debris. Uneven grain, burned-out highlights, dead black gaps and damaged signal texture. Make the image feel abrasive, interrupted and violently too loud, like death-metal feedback and machine bass destroying the transmission itself. Frozen peak overload, not a calm waveform or a tidy visualization.
-
-Hard white against crushed black, saturated acid green and hot magenta as the dominant invading channels, sparse signal-red offsets. Sharp discontinuities and dense damaged texture, no soft gradients, no elegant neon glow, no polished vector finish. Asymmetric, forceful composition with one unmistakable rupture, not a collage of random effects.
-
-No objects, no equipment, no monitor frame, no microphone, no people, no faces, no landscape, no stage, no lasers, no readable text, no error-message lettering, no code, no logos, no icons, no skulls, no decorative symbols, no music equalizer bars, no clean cyberpunk wallpaper, no sepia, no desaturated wash, no orange-teal grading.
-```

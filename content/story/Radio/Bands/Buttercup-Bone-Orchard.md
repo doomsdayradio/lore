@@ -19,22 +19,6 @@ Die beiden Stimmen sind kein Liebesduett. Buttercup ist die Einladung des Clans,
 - klare Call-and-Response-Struktur
 - Feuerknacken, Sumpfnebel, Pontonketten und rostige Live-Atmosphäre
 
-## Bildprompt für die Band
-
-```text
-1:1 square photorealistic image of the Hillbilly swamp-rock duet Buttercup & the Bone Orchard in the Doomsday Radio wasteland, a small two-person family music act performing on a rough floating platform outside the Sumpf-Festung. Buttercup is a warm-looking Hillbilly woman with tangled hair, worn floral dress under a patched flannel coat, stained boots, handmade bone and tooth jewelry, a chipped metal moonshine cup in one hand and a battered microphone in the other; she smiles with genuine-looking Southern hospitality. Beside and slightly behind her stands the Bone Orchard singer, a broad male Hillbilly with a worn hat, filthy flannel, tangled beard, smoke-darkened face and quiet territorial posture, holding an old microphone close to his mouth. He should look like the low warning beneath her welcome, not like a romantic partner.
-
-The stage is made from rusted boat parts, old container panels, warped planks and pontoon sections in the Sumpf-Festung. Behind them: black swamp water, poisonous fog, reeds, hanging bottles, crooked family marks, a fire barrel, a dented kettle, moonshine jugs, chain lengths and dim lanterns. The scene feels like a family picnic that has become a clan performance and territorial ritual. Include rough instruments: dirty banjo, battered acoustic guitar, baritone guitar, bottle percussion and improvised metal drums. Visible signs of decay, dirt, wear, rust, smoke, mud and survival, but full of physical life and musical presence.
-
-Rich wasteland palette with dirty amber firelight, swamp green, muddy brown, faded floral red, smoke grey, cold blue-black water and pale bone highlights, cinematic natural lighting, airborne mist, wet reflective surfaces, strong depth, tactile textures, sharp focus on both singers, dramatic but believable Southern Gothic atmosphere, ultra-detailed, photorealistic, grounded, no stylized painting look, no flat sepia wash, no cartoon look.
-```
-
-**Negativprompt:**
-
-```text
-cartoon, anime, clean country band, polished studio, glamorous pop singers, romantic couple, elegant gothic aristocrats, generic fantasy witches, bright cheerful picnic, modern concert stage, dry landscape, clean clothing, plastic instruments, superhero pose, flat sepia, painterly illustration, blurry faces, extra limbs, duplicate people, unreadable text, misspelled lettering
-```
-
 ## Erster Song: Welcome to Supper
 
 **Kanon-Mix:**
